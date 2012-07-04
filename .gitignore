@@ -18,6 +18,7 @@ testset
 *.user
 *~
 .*.swp
+.DS_Store
 .deps
 .dirstamp
 .idea
@@ -31,7 +32,10 @@ testset
 /ConfigurationBuilder/*.xsx
 /DNP.ncb
 /DNP.suo
+/DNP3Java/.java-built
 /DNP3Java/JavaDNP3_wrap.*
+/DNP3Java/JavaDNP3.cpp
+/DNP3Java/JavaDNP3.h
 /DNP3Java/jar
 /DNP3Java/src
 /DNP3Java/target
@@ -45,14 +49,11 @@ testset
 /tools/boostlib
 /tools/install_scripts/boost/*/temp
 Debug
-JavaDNP3.cpp
-JavaDNP3.h
 Linux_i686
 Release
 TestAPL/TestSingle.tiny.xml
 TestSingle.tiny.xml
 ipch
-opendnp3.jar
 pc_cygwin
 
 demo-master-cpp
@@ -74,8 +75,10 @@ pyopendnp3.pyc
 Makefile
 Makefile.in
 aclocal.m4
+compile.log
 config.h
 config.h.in
+config.log
 config.status
 configure
 configure.in
