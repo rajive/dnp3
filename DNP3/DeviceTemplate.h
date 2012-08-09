@@ -66,9 +66,12 @@ struct DeviceTemplate {
 private:
 
 	template <class T>
-	static void InitObserver(IDataObserver* apObs, size_t aNum) {
+	static void InitObserver(IDataObserver* apObs, size_t aNum, bool aStartOnline) {
 		for(size_t i = 0; i < aNum; ++i) {
 			T val;
+			if (aStartOnline) {
+				val.SetQuality(T::ONLINE);
+			}
 			apObs->Update(val, i);
 		}
 	}

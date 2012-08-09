@@ -44,11 +44,11 @@ DeviceTemplate::DeviceTemplate(size_t aNumBinary,
 void DeviceTemplate::Publish(IDataObserver* apObs)
 {
 	Transaction tr(apObs);
-	InitObserver<Binary>(apObs, mBinary.size());
-	InitObserver<Analog>(apObs, mAnalog.size());
-	InitObserver<Counter>(apObs, mCounter.size());
-	InitObserver<ControlStatus>(apObs, mControlStatus.size());
-	InitObserver<SetpointStatus>(apObs, mSetpointStatus.size());
+	InitObserver<Binary>(apObs, mBinary.size(), mStartOnline);
+	InitObserver<Analog>(apObs, mAnalog.size(), mStartOnline);
+	InitObserver<Counter>(apObs, mCounter.size(), mStartOnline);
+	InitObserver<ControlStatus>(apObs, mControlStatus.size(), mStartOnline);
+	InitObserver<SetpointStatus>(apObs, mSetpointStatus.size(), mStartOnline);
 }
 
 }
