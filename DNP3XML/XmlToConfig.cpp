@@ -159,6 +159,7 @@ SlaveConfig XmlToConfig::Convert(const APLXML_DNP::SlaveConfig_t& arCfg, const A
 
 	c.mUnsolPackDelay = arCfg.UnsolDefaults.PackDelayMS;
 	c.mUnsolRetryDelay = arCfg.UnsolDefaults.RetryMS;
+	c.mUnsolMask = ClassMask(arCfg.UnsolDefaults.DoClass1, arCfg.UnsolDefaults.DoClass2, arCfg.UnsolDefaults.DoClass3);
 
 	c.mStaticBinary = Convert(arCfg.StaticRsp.BinaryGrpVar);
 	c.mStaticAnalog = Convert(arCfg.StaticRsp.AnalogGrpVar);
