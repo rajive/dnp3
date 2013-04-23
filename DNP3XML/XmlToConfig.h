@@ -65,6 +65,7 @@ class  AsyncStackManager;
 
 class FixedObject;
 
+CommandModes ConvertMode(const std::string& arMode);
 
 class XmlToConfig
 {
