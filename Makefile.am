@@ -639,10 +639,12 @@ astyle:
 docs: docs-html docs-pdf
 
 docs-html:
-	${DOCBOOK2HTML} -o docs/html/ docs/main.xml
+	-@mkdir -p docs/html/
+	${DOCBOOK2HTML} -o docs/html/ ${srcdir}/docs/main.xml
 
 docs-pdf:
-	${DOCBOOK2PDF} -o docs/pdf/ docs/main.xml
+	-@mkdir -p docs/pdf/
+	${DOCBOOK2PDF} -o docs/pdf/ ${srcdir}/docs/main.xml
 
 include config/autotools/mk/doxygen.mak
 include config/autotools/mk/lcov.mak
