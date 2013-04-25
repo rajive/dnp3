@@ -14,9 +14,15 @@ AM_LDFLAGS  = $(BOOST_LDFLAGS)
 # Dummy placeholder to allow for expansion later
 BUILT_SOURCES =
 
+LIBVERSION = 0:0:0
+PROJVERSION = 1.1.0
+
+JAR_FILE = opendnp3-$(PROJVERSION).jar
+
+
 lib_LTLIBRARIES = libopendnp3.la
 
-libopendnp3_la_LDFLAGS = -version-info 0:0:0
+libopendnp3_la_LDFLAGS = -version-info $(LIBVERSION)
 libopendnp3_la_LIBADD = $(BOOST_LDFLAGS) $(CORE_BOOST_LIBS)
 libopendnp3_la_DEPENDENCIES =
 libopendnp3_la_SOURCES = \
@@ -161,6 +167,7 @@ libopendnp3_la_SOURCES = \
 	DNP3/VtoTransmitTask.cpp \
 	DNP3/VtoWriter.cpp
 
+
 if WANT_JAVA
 JAVA_DIR=$(top_srcdir)/java
 JAVA_PACKAGE_DIR=org/totalgrid/reef/protocol/dnp3
@@ -181,21 +188,21 @@ DNP3Java/.java-built: DNP3Java/JavaDNP3.i
 DNP3Java/JavaDNP3.cpp: DNP3Java/.java-built
 $(JAVA_SRC_FILES): DNP3Java/.java-built
 
-opendnp3.jar: DNP3Java/.java-built
+$(JAR_FILE): DNP3Java/.java-built
 	-@mkdir -p $(JAVA_CLASS_DIR)/$(JAVA_PACKAGE_DIR)
 	cd $(JAVA_SOURCE_DIR) && javac -d $(JAVA_CLASS_DIR) -cp . $(JAVA_SRC_FILES)
 	cd $(JAVA_CLASS_DIR) && jar cvf $@ org
 	mv $(JAVA_CLASS_DIR)/$@ $@
 
 opendnp3_jardir = $(datadir)/java
-opendnp3_jar_DATA = opendnp3.jar
+opendnp3_jar_DATA = $(JAR_FILE)
 
-BUILT_SOURCES += DNP3Java/.java-built DNP3Java/JavaDNP3.cpp opendnp3.jar $(JAVA_SRC_FILES)
+BUILT_SOURCES += DNP3Java/.java-built DNP3Java/JavaDNP3.cpp $(JAR_FILE) $(JAVA_SRC_FILES)
 
 lib_LTLIBRARIES += libopendnp3-java.la
 libopendnp3_java_la_SOURCES = DNP3Java/JavaDNP3.cpp
 libopendnp3_java_la_CPPFLAGS = 
-libopendnp3_java_la_LDFLAGS = -version-info 0:0:0
+libopendnp3_java_la_LDFLAGS = -version-info $(LIBVERSION)
 libopendnp3_java_la_LIBADD = libopendnp3.la
 
 endif
@@ -577,7 +584,7 @@ clean-swig:
 	-rm -rf DNP3Java/PythonDNP3.cpp DNP3Java/PythonDNP3.h
 	-rm -rf pyopendnp3.py pyopendnp3.pyc __init__.py
 	-rm -rf $(top_srcdir)/java
-	-rm -rf opendnp3.jar
+	-rm -rf $(JAR_FILE)
 
 clean-local: clean-swig clean-lcov
 
