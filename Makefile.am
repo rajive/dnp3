@@ -191,8 +191,13 @@ opendnp3_jardir = $(datadir)/java
 opendnp3_jar_DATA = opendnp3.jar
 
 BUILT_SOURCES += DNP3Java/.java-built DNP3Java/JavaDNP3.cpp opendnp3.jar $(JAVA_SRC_FILES)
-libopendnp3_la_DEPENDENCIES += DNP3Java/JavaDNP3.cpp
-libopendnp3_la_SOURCES += DNP3Java/JavaDNP3.cpp
+
+lib_LTLIBRARIES += libopendnp3-java.la
+libopendnp3_java_la_SOURCES = DNP3Java/JavaDNP3.cpp
+libopendnp3_java_la_CPPFLAGS = 
+libopendnp3_java_la_LDFLAGS = -version-info 0:0:0
+libopendnp3_java_la_LIBADD = libopendnp3.la
+
 endif
 
 if WANT_PYTHON
