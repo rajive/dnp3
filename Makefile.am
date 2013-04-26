@@ -223,7 +223,7 @@ DNP3Java/PythonDNP3.cpp: DNP3Java/JavaDNP3.i
 	swig -c++ -python -threads \
 		-module pyopendnp3 \
 		-I$(top_srcdir) -I$(top_srcdir)/APL -I$(top_srcdir)/DNP3 \
-		-outdir $(top_srcdir) \
+		-outdir . \
 		-o DNP3Java/PythonDNP3.cpp $^
 
 BUILT_SOURCES += DNP3Java/PythonDNP3.cpp
