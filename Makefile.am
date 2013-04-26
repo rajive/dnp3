@@ -168,8 +168,9 @@ libopendnp3_la_SOURCES = \
 	DNP3/VtoWriter.cpp
 
 
+JAVA_DIR=$(builddir)/java
+
 if WANT_JAVA
-JAVA_DIR=$(top_srcdir)/java
 JAVA_PACKAGE_DIR=org/totalgrid/reef/protocol/dnp3
 JAVA_SOURCE_DIR=$(JAVA_DIR)/src
 JAVA_CLASS_DIR=$(JAVA_DIR)/bin
@@ -190,7 +191,7 @@ $(JAVA_SRC_FILES): DNP3Java/.java-built
 
 $(JAR_FILE): DNP3Java/.java-built
 	-@mkdir -p $(JAVA_CLASS_DIR)/$(JAVA_PACKAGE_DIR)
-	cd $(JAVA_SOURCE_DIR) && javac -d $(JAVA_CLASS_DIR) -cp . $(JAVA_SRC_FILES)
+	javac -d $(JAVA_CLASS_DIR) -cp . $(JAVA_SRC_FILES)
 	cd $(JAVA_CLASS_DIR) && jar cvf $@ org
 	mv $(JAVA_CLASS_DIR)/$@ $@
 
@@ -583,7 +584,7 @@ clean-swig:
 	-rm -rf DNP3Java/JavaDNP3.cpp DNP3Java/JavaDNP3.h DNP3Java/.java-built
 	-rm -rf DNP3Java/PythonDNP3.cpp DNP3Java/PythonDNP3.h
 	-rm -rf pyopendnp3.py pyopendnp3.pyc __init__.py
-	-rm -rf $(top_srcdir)/java
+	-rm -rf $(JAVA_DIR)
 	-rm -rf $(JAR_FILE)
 
 clean-local: clean-swig clean-lcov
