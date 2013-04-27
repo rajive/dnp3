@@ -525,7 +525,6 @@ nobase_pkginclude_HEADERS= \
 
 
 
-
 lib_LTLIBRARIES = libopendnp3.la
 
 libopendnp3_la_LDFLAGS = -version-info $(LIBVERSION)
@@ -611,7 +610,15 @@ testset_SOURCES = \
 	$(tinyxml_src)
 
 
-noinst_PROGRAMS = dnp3test demo-master-cpp demo-slave-cpp
+noinst_PROGRAMS = apltest dnp3test demo-master-cpp demo-slave-cpp
+
+apltest_LDADD = libopendnp3.la $(TEST_BOOST_LIBS)
+apltest_SOURCES = \
+	$(apl_test_tools_src) \
+	$(tinyxml_src) \
+	$(xml_binding_src) \
+	$(apl_xml_src) \
+	$(apl_test_src)
 
 dnp3test_LDADD = libopendnp3.la $(TEST_BOOST_LIBS)
 dnp3test_SOURCES = \
