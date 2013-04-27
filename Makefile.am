@@ -20,12 +20,7 @@ PROJVERSION = 1.1.0
 JAR_FILE = opendnp3-$(PROJVERSION).jar
 
 
-lib_LTLIBRARIES = libopendnp3.la
-
-libopendnp3_la_LDFLAGS = -version-info $(LIBVERSION)
-libopendnp3_la_LIBADD = $(BOOST_LDFLAGS) $(CORE_BOOST_LIBS)
-libopendnp3_la_DEPENDENCIES =
-libopendnp3_la_SOURCES = \
+apl_src = \
 	APL/ASIOSerialHelpers.cpp \
 	APL/AsyncLayerInterfaces.cpp \
 	APL/AsyncResult.cpp \
@@ -96,7 +91,10 @@ libopendnp3_la_SOURCES = \
 	APL/TimingTools.cpp \
 	APL/ToHex.cpp \
 	APL/TrackingTaskGroup.cpp \
-	APL/Util.cpp \
+	APL/Util.cpp
+
+
+dnp3_src = \
 	DNP3/AlwaysOpeningVtoRouter.cpp \
 	DNP3/APDUConstants.cpp \
 	DNP3/APDU.cpp \
@@ -167,67 +165,151 @@ libopendnp3_la_SOURCES = \
 	DNP3/VtoTransmitTask.cpp \
 	DNP3/VtoWriter.cpp
 
+apl_test_tools_src = \
+	APLTestTools/AsyncPhysTestObject.cpp \
+	APLTestTools/AsyncTestObjectASIO.cpp \
+	APLTestTools/AsyncTestObject.cpp \
+	APLTestTools/BufferHelpers.cpp \
+	APLTestTools/BufferTestObject.cpp \
+	APLTestTools/LogTester.cpp \
+	APLTestTools/LoopbackPhysicalLayerAsync.cpp \
+	APLTestTools/MockLowerLayer.cpp \
+	APLTestTools/MockPhysicalLayerAsync.cpp \
+	APLTestTools/MockPhysicalLayerAsyncTS.cpp \
+	APLTestTools/MockPhysicalLayerMonitor.cpp \
+	APLTestTools/MockPhysicalLayerSource.cpp \
+	APLTestTools/MockResponseAcceptor.cpp \
+	APLTestTools/MockTimerSource.cpp \
+	APLTestTools/MockUpperLayer.cpp \
+	APLTestTools/PhysicalLayerWrapper.cpp \
+	APLTestTools/WrappedTcpPipe.cpp
 
-JAVA_DIR=$(builddir)/java
+apl_test_src = \
+	TestAPL/AsyncPhysBaseTest.cpp \
+	TestAPL/TestLocks.cpp \
+	TestAPL/TestPhysicalLayerAsyncTCP.cpp \
+	TestAPL/TestTime.cpp \
+	TestAPL/AsyncSerialTestObject.cpp \
+	TestAPL/TestLog.cpp \
+    TestAPL/TestPhysicalLayerLoopback.cpp \
+	TestAPL/TestTimers.cpp \
+	TestAPL/TestASIO.cpp \
+    TestAPL/TestMisc.cpp \
+    TestAPL/TestPhysicalLayerMonitor.cpp \
+	TestAPL/TestTypes.cpp \
+	TestAPL/TestAsyncTask.cpp \
+	TestAPL/TestPackingUnpacking.cpp \
+	TestAPL/TestQualityMasks.cpp \
+	TestAPL/TestUtil.cpp \
+	TestAPL/TestCastLongLongDouble.cpp \
+	TestAPL/TestParsing.cpp \
+	TestAPL/TestShiftableBuffer.cpp \
+	TestAPL/TestXmlBinding.cpp \
+	TestAPL/TestCommandQueue.cpp \
+	TestAPL/TestPhysicalLayerAsyncBase.cpp \
+	TestAPL/TestSyncVar.cpp \
+	TestAPL/TestCommandTypes.cpp \
+	TestAPL/TestPhysicalLayerAsyncSerial.cpp \
+	TestAPL/TestThreading.cpp
 
-if WANT_JAVA
-JAVA_PACKAGE_DIR=org/totalgrid/reef/protocol/dnp3
-JAVA_SOURCE_DIR=$(JAVA_DIR)/src
-JAVA_CLASS_DIR=$(JAVA_DIR)/bin
+dnp3_test_src = \
+	DNP3Test/AppLayerTest.cpp \
+	DNP3Test/ComparingDataObserver.cpp \
+	DNP3Test/DNPHelpers.cpp \
+	DNP3Test/IntegrationTest.cpp \
+	DNP3Test/LinkLayerRouterTest.cpp \
+	DNP3Test/LinkLayerTest.cpp \
+	DNP3Test/MasterTestObject.cpp \
+	DNP3Test/MockAppLayer.cpp \
+	DNP3Test/MockAppUser.cpp \
+	DNP3Test/MockFrameSink.cpp \
+	DNP3Test/ResponseLoaderTestObject.cpp \
+	DNP3Test/SlaveTestObject.cpp \
+	DNP3Test/StartupTeardownTest.cpp \
+	DNP3Test/TestAPDU.cpp \
+	DNP3Test/TestAPDUWriting.cpp \
+	DNP3Test/TestAppLayer.cpp \
+	DNP3Test/TestCRC.cpp \
+	DNP3Test/TestDatabase.cpp \
+	DNP3Test/TestEnhancedVtoRouter.cpp \
+	DNP3Test/TestEventBufferBase.cpp \
+	DNP3Test/TestEventBuffers.cpp \
+	DNP3Test/TestIntegration.cpp \
+	DNP3Test/TestLinkFrameDNP.cpp \
+	DNP3Test/TestLinkLayer.cpp \
+	DNP3Test/TestLinkLayerRouter.cpp \
+	DNP3Test/TestLinkReceiver.cpp \
+	DNP3Test/TestLinkRoute.cpp \
+	DNP3Test/TestMaster.cpp \
+	DNP3Test/TestObjects.cpp \
+	DNP3Test/TestResponseLoader.cpp \
+	DNP3Test/TestSlave.cpp \
+	DNP3Test/TestSlaveEventBuffer.cpp \
+	DNP3Test/TestStartBoostUTF.cpp \
+	DNP3Test/TestStartupTeardown.cpp \
+	DNP3Test/TestTransportLayer.cpp \
+	DNP3Test/TestTransportLoopback.cpp \
+	DNP3Test/TestTransportScalability.cpp \
+	DNP3Test/TestVtoInterface.cpp \
+	DNP3Test/TestVtoLoopbackIntegration.cpp \
+	DNP3Test/TestVtoOnewayIntegration.cpp \
+	DNP3Test/TestVtoRouter.cpp \
+	DNP3Test/TestVtoRouterManager.cpp \
+	DNP3Test/TestVtoWriter.cpp \
+	DNP3Test/TransportIntegrationStack.cpp \
+	DNP3Test/TransportLoopbackTestObject.cpp \
+	DNP3Test/TransportScalabilityTestObject.cpp \
+	DNP3Test/TransportStackPair.cpp \
+	DNP3Test/TransportTestObject.cpp \
+	DNP3Test/VtoIntegrationTestBase.cpp
 
-JAVA_SRC_FILES = $(JAVA_SOURCE_DIR)/$(JAVA_PACKAGE_DIR)/*.java
+apl_xml_src = \
+	APLXML/PhysicalLayerManagerXML.cpp \
+	APLXML/PhysicalLayerXMLFactory.cpp \
+	APLXML/tinybinding.cpp \
+	APLXML/XML_APL.cpp \
+	APLXML/XMLConversion.cpp
 
-DNP3Java/.java-built: DNP3Java/JavaDNP3.i
-	-@mkdir -p $(JAVA_SOURCE_DIR)/$(JAVA_PACKAGE_DIR)
-	swig -c++ -java \
-		-package org.totalgrid.reef.protocol.dnp3 \
-		-I$(top_srcdir) -I$(top_srcdir)/APL -I$(top_srcdir)/DNP3 \
-		-outdir $(JAVA_SOURCE_DIR)/$(JAVA_PACKAGE_DIR) \
-		-o DNP3Java/JavaDNP3.cpp $^
-	touch $@
+dnp3_xml_src = \
+	DNP3XML/XML_DNP3.cpp \
+	DNP3XML/XML_TestSet.cpp \
+	DNP3XML/XmlToConfig.cpp
 
-DNP3Java/JavaDNP3.cpp: DNP3Java/.java-built
-$(JAVA_SRC_FILES): DNP3Java/.java-built
+xml_binding_src = \
+	XMLBindings/APLXML_Base.cpp \
+	XMLBindings/APLXML_DNP.cpp \
+	XMLBindings/APLXML_MTS.cpp \
+	XMLBindings/APLXML_STS.cpp
 
-$(JAR_FILE): DNP3Java/.java-built
-	-@mkdir -p $(JAVA_CLASS_DIR)/$(JAVA_PACKAGE_DIR)
-	javac -d $(JAVA_CLASS_DIR) -cp . $(JAVA_SRC_FILES)
-	cd $(JAVA_CLASS_DIR) && jar cvf $@ org
-	mv $(JAVA_CLASS_DIR)/$@ $@
+tinyxml_src = \
+	tinyxml/tinyxml.cpp \
+	tinyxml/tinyxmlerror.cpp \
+	tinyxml/tinyxmlparser.cpp
 
-opendnp3_jardir = $(datadir)/java
-opendnp3_jar_DATA = $(JAR_FILE)
+terminal_src = \
+	Terminal/ControlResponseTE.cpp \
+	Terminal/ControlTerminalExtension.cpp \
+	Terminal/DOTerminalExtension.cpp \
+	Terminal/FlexibleObserverTerminalExtension.cpp \
+	Terminal/LineReader.cpp \
+	Terminal/LogTerminalExtension.cpp \
+	Terminal/PhysicalLayerIOStreamAsync.cpp \
+	Terminal/PhysicalLayerSyncProxy.cpp \
+	Terminal/Terminal.cpp \
+	Terminal/TerminalInterfaces.cpp
+	
+testset_src = \
+	TestSet/AddressScanner.cpp \
+	TestSet/main.cpp \
+	TestSet/StackHelpers.cpp
 
-BUILT_SOURCES += DNP3Java/.java-built DNP3Java/JavaDNP3.cpp $(JAR_FILE) $(JAVA_SRC_FILES)
+demo_master_src = \
+	demos/master-cpp/DemoMain.cpp \
+	demos/master-cpp/MasterDemo.cpp
 
-lib_LTLIBRARIES += libopendnp3-java.la
-libopendnp3_java_la_SOURCES = DNP3Java/JavaDNP3.cpp
-libopendnp3_java_la_CPPFLAGS = 
-libopendnp3_java_la_LDFLAGS = -version-info $(LIBVERSION)
-libopendnp3_java_la_LIBADD = libopendnp3.la
-
-endif
-
-if WANT_PYTHON
-pkgpython_PYTHON = pyopendnp3.py __init__.py
-pkgpyexec_LTLIBRARIES = _pyopendnp3.la
-_pyopendnp3_la_SOURCES = DNP3Java/PythonDNP3.cpp
-_pyopendnp3_la_CPPFLAGS = $(SWIG_PYTHON_CPPFLAGS) $(PYTHON_CPPFLAGS)
-_pyopendnp3_la_LDFLAGS = -module $(PYTHON_LDFLAGS)
-_pyopendnp3_la_LIBADD = libopendnp3.la
-
-__init__.py:
-	echo "from pyopendnp3 import *" > $@
-
-DNP3Java/PythonDNP3.cpp: DNP3Java/JavaDNP3.i
-	swig -c++ -python -threads \
-		-module pyopendnp3 \
-		-I$(top_srcdir) -I$(top_srcdir)/APL -I$(top_srcdir)/DNP3 \
-		-outdir . \
-		-o DNP3Java/PythonDNP3.cpp $^
-
-BUILT_SOURCES += DNP3Java/PythonDNP3.cpp
-endif
+demo_slave_src = \
+	demos/slave-cpp/DemoMain.cpp \
+	demos/slave-cpp/SlaveDemo.cpp
 
 nobase_pkginclude_HEADERS= \
 	version.hpp \
@@ -441,120 +523,108 @@ nobase_pkginclude_HEADERS= \
 	DNP3/VtoTransmitTask.h \
 	DNP3/VtoWriter.h
 
+
+
+
+lib_LTLIBRARIES = libopendnp3.la
+
+libopendnp3_la_LDFLAGS = -version-info $(LIBVERSION)
+libopendnp3_la_LIBADD = $(BOOST_LDFLAGS) $(CORE_BOOST_LIBS)
+libopendnp3_la_DEPENDENCIES =
+libopendnp3_la_SOURCES = \
+	$(apl_src) \
+	$(dnp3_src)
+
+
+JAVA_DIR=$(builddir)/java
+
+if WANT_JAVA
+JAVA_PACKAGE_DIR=org/totalgrid/reef/protocol/dnp3
+JAVA_SOURCE_DIR=$(JAVA_DIR)/src
+JAVA_CLASS_DIR=$(JAVA_DIR)/bin
+
+JAVA_SRC_FILES = $(JAVA_SOURCE_DIR)/$(JAVA_PACKAGE_DIR)/*.java
+
+DNP3Java/.java-built: DNP3Java/JavaDNP3.i
+	-@mkdir -p $(JAVA_SOURCE_DIR)/$(JAVA_PACKAGE_DIR)
+	swig -c++ -java \
+		-package org.totalgrid.reef.protocol.dnp3 \
+		-I$(top_srcdir) -I$(top_srcdir)/APL -I$(top_srcdir)/DNP3 \
+		-outdir $(JAVA_SOURCE_DIR)/$(JAVA_PACKAGE_DIR) \
+		-o DNP3Java/JavaDNP3.cpp $^
+	touch $@
+
+DNP3Java/JavaDNP3.cpp: DNP3Java/.java-built
+$(JAVA_SRC_FILES): DNP3Java/.java-built
+
+$(JAR_FILE): DNP3Java/.java-built
+	-@mkdir -p $(JAVA_CLASS_DIR)/$(JAVA_PACKAGE_DIR)
+	javac -d $(JAVA_CLASS_DIR) -cp . $(JAVA_SRC_FILES)
+	cd $(JAVA_CLASS_DIR) && jar cvf $@ org
+	mv $(JAVA_CLASS_DIR)/$@ $@
+
+opendnp3_jardir = $(datadir)/java
+opendnp3_jar_DATA = $(JAR_FILE)
+
+BUILT_SOURCES += DNP3Java/.java-built DNP3Java/JavaDNP3.cpp $(JAR_FILE) $(JAVA_SRC_FILES)
+
+lib_LTLIBRARIES += libopendnp3-java.la
+libopendnp3_java_la_SOURCES = DNP3Java/JavaDNP3.cpp
+libopendnp3_java_la_CPPFLAGS = 
+libopendnp3_java_la_LDFLAGS = -version-info $(LIBVERSION)
+libopendnp3_java_la_LIBADD = libopendnp3.la
+
+endif
+
+if WANT_PYTHON
+pkgpython_PYTHON = pyopendnp3.py __init__.py
+pkgpyexec_LTLIBRARIES = _pyopendnp3.la
+_pyopendnp3_la_SOURCES = DNP3Java/PythonDNP3.cpp
+_pyopendnp3_la_CPPFLAGS = $(SWIG_PYTHON_CPPFLAGS) $(PYTHON_CPPFLAGS)
+_pyopendnp3_la_LDFLAGS = -module $(PYTHON_LDFLAGS)
+_pyopendnp3_la_LIBADD = libopendnp3.la
+
+__init__.py:
+	echo "from pyopendnp3 import *" > $@
+
+DNP3Java/PythonDNP3.cpp: DNP3Java/JavaDNP3.i
+	swig -c++ -python -threads \
+		-module pyopendnp3 \
+		-I$(top_srcdir) -I$(top_srcdir)/APL -I$(top_srcdir)/DNP3 \
+		-outdir . \
+		-o DNP3Java/PythonDNP3.cpp $^
+
+BUILT_SOURCES += DNP3Java/PythonDNP3.cpp
+endif
+
+
 bin_PROGRAMS = testset
 
 testset_LDADD = libopendnp3.la $(CORE_BOOST_LIBS)
 testset_CFLAGS = -Itinyxml
 testset_SOURCES = \
-	APLXML/PhysicalLayerManagerXML.cpp \
-	APLXML/PhysicalLayerXMLFactory.cpp \
-	APLXML/tinybinding.cpp \
-	APLXML/XML_APL.cpp \
-	APLXML/XMLConversion.cpp \
-	DNP3XML/XML_DNP3.cpp \
-	DNP3XML/XML_TestSet.cpp \
-	DNP3XML/XmlToConfig.cpp \
-	Terminal/ControlResponseTE.cpp \
-	Terminal/ControlTerminalExtension.cpp \
-	Terminal/DOTerminalExtension.cpp \
-	Terminal/FlexibleObserverTerminalExtension.cpp \
-	Terminal/LineReader.cpp \
-	Terminal/LogTerminalExtension.cpp \
-	Terminal/PhysicalLayerIOStreamAsync.cpp \
-	Terminal/PhysicalLayerSyncProxy.cpp \
-	Terminal/Terminal.cpp \
-	Terminal/TerminalInterfaces.cpp \
-	TestSet/AddressScanner.cpp \
-	TestSet/main.cpp \
-	TestSet/StackHelpers.cpp \
-	XMLBindings/APLXML_Base.cpp \
-	XMLBindings/APLXML_DNP.cpp \
-	XMLBindings/APLXML_MTS.cpp \
-	XMLBindings/APLXML_STS.cpp \
-	tinyxml/tinyxml.cpp \
-	tinyxml/tinyxmlerror.cpp \
-	tinyxml/tinyxmlparser.cpp
+	$(apl_xml_src) \
+	$(dnp3_xml_src) \
+	$(terminal_src) \
+	$(testset_src) \
+	$(xml_binding_src) \
+	$(tinyxml_src)
+
 
 noinst_PROGRAMS = dnp3test demo-master-cpp demo-slave-cpp
 
 dnp3test_LDADD = libopendnp3.la $(TEST_BOOST_LIBS)
 dnp3test_SOURCES = \
-	APLTestTools/AsyncPhysTestObject.cpp \
-	APLTestTools/AsyncTestObjectASIO.cpp \
-	APLTestTools/AsyncTestObject.cpp \
-	APLTestTools/BufferHelpers.cpp \
-	APLTestTools/BufferTestObject.cpp \
-	APLTestTools/LogTester.cpp \
-	APLTestTools/LoopbackPhysicalLayerAsync.cpp \
-	APLTestTools/MockLowerLayer.cpp \
-	APLTestTools/MockPhysicalLayerAsync.cpp \
-	APLTestTools/MockPhysicalLayerAsyncTS.cpp \
-	APLTestTools/MockPhysicalLayerMonitor.cpp \
-	APLTestTools/MockPhysicalLayerSource.cpp \
-	APLTestTools/MockResponseAcceptor.cpp \
-	APLTestTools/MockTimerSource.cpp \
-	APLTestTools/MockUpperLayer.cpp \
-	APLTestTools/PhysicalLayerWrapper.cpp \
-	APLTestTools/WrappedTcpPipe.cpp \
-	DNP3Test/AppLayerTest.cpp \
-	DNP3Test/ComparingDataObserver.cpp \
-	DNP3Test/DNPHelpers.cpp \
-	DNP3Test/IntegrationTest.cpp \
-	DNP3Test/LinkLayerRouterTest.cpp \
-	DNP3Test/LinkLayerTest.cpp \
-	DNP3Test/MasterTestObject.cpp \
-	DNP3Test/MockAppLayer.cpp \
-	DNP3Test/MockAppUser.cpp \
-	DNP3Test/MockFrameSink.cpp \
-	DNP3Test/ResponseLoaderTestObject.cpp \
-	DNP3Test/SlaveTestObject.cpp \
-	DNP3Test/StartupTeardownTest.cpp \
-	DNP3Test/TestAPDU.cpp \
-	DNP3Test/TestAPDUWriting.cpp \
-	DNP3Test/TestAppLayer.cpp \
-	DNP3Test/TestCRC.cpp \
-	DNP3Test/TestDatabase.cpp \
-	DNP3Test/TestEnhancedVtoRouter.cpp \
-	DNP3Test/TestEventBufferBase.cpp \
-	DNP3Test/TestEventBuffers.cpp \
-	DNP3Test/TestIntegration.cpp \
-	DNP3Test/TestLinkFrameDNP.cpp \
-	DNP3Test/TestLinkLayer.cpp \
-	DNP3Test/TestLinkLayerRouter.cpp \
-	DNP3Test/TestLinkReceiver.cpp \
-	DNP3Test/TestLinkRoute.cpp \
-	DNP3Test/TestMaster.cpp \
-	DNP3Test/TestObjects.cpp \
-	DNP3Test/TestResponseLoader.cpp \
-	DNP3Test/TestSlave.cpp \
-	DNP3Test/TestSlaveEventBuffer.cpp \
-	DNP3Test/TestStartBoostUTF.cpp \
-	DNP3Test/TestStartupTeardown.cpp \
-	DNP3Test/TestTransportLayer.cpp \
-	DNP3Test/TestTransportLoopback.cpp \
-	DNP3Test/TestTransportScalability.cpp \
-	DNP3Test/TestVtoInterface.cpp \
-	DNP3Test/TestVtoLoopbackIntegration.cpp \
-	DNP3Test/TestVtoOnewayIntegration.cpp \
-	DNP3Test/TestVtoRouter.cpp \
-	DNP3Test/TestVtoRouterManager.cpp \
-	DNP3Test/TestVtoWriter.cpp \
-	DNP3Test/TransportIntegrationStack.cpp \
-	DNP3Test/TransportLoopbackTestObject.cpp \
-	DNP3Test/TransportScalabilityTestObject.cpp \
-	DNP3Test/TransportStackPair.cpp \
-	DNP3Test/TransportTestObject.cpp \
-	DNP3Test/VtoIntegrationTestBase.cpp
+	$(apl_test_tools_src) \
+	$(dnp3_test_src)
 
 demo_master_cpp_LDADD = libopendnp3.la $(CORE_BOOST_LIBS)
 demo_master_cpp_SOURCES = \
-	demos/master-cpp/DemoMain.cpp \
-	demos/master-cpp/MasterDemo.cpp
+	$(demo_master_src)
 
 demo_slave_cpp_LDADD = libopendnp3.la $(CORE_BOOST_LIBS)
 demo_slave_cpp_SOURCES = \
-	demos/slave-cpp/DemoMain.cpp \
-	demos/slave-cpp/SlaveDemo.cpp
+	$(demo_slave_src)
 
 ASTYLE=astyle --options=config/astyle.cfg
 
