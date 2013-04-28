@@ -524,6 +524,9 @@ nobase_pkginclude_HEADERS= \
 	DNP3/VtoWriter.h
 
 
+#
+# Main shared library
+#
 
 lib_LTLIBRARIES = libopendnp3.la
 
@@ -534,6 +537,66 @@ libopendnp3_la_SOURCES = \
 	$(apl_src) \
 	$(dnp3_src)
 
+
+#
+# Convenience libraries
+#
+
+noinst_LIBRARIES = libapltesttools.a libxmlbindings.a libaplxml.a libdnp3xml.a libterminal.a 
+
+libapltesttools_a_SOURCES = \
+	$(apl_test_tools_src)
+
+libxmlbindings_a_SOURCES = \
+	$(xml_binding_src) \
+	$(tinyxml_src)
+
+libaplxml_a_SOURCES = \
+	$(apl_xml_src)
+
+libdnp3xml_a_SOURCES = \
+	$(dnp3_xml_src)	
+
+libterminal_a_SOURCES = \
+	$(terminal_src)	
+
+#
+# Installed programs
+#
+
+bin_PROGRAMS = testset
+
+testset_LDADD = libxmlbindings.a  libdnp3xml.a libaplxml.a libterminal.a libopendnp3.la $(CORE_BOOST_LIBS)
+testset_CFLAGS = -Itinyxml
+testset_SOURCES = \
+	$(testset_src) 
+
+#
+# Uninstalled programs (tests / demos)
+#
+
+noinst_PROGRAMS = apltest dnp3test demo-master-cpp demo-slave-cpp
+
+apltest_LDADD = libapltesttools.a libxmlbindings.a libaplxml.a libopendnp3.la $(TEST_BOOST_LIBS)
+apltest_SOURCES = \
+	$(apl_test_src)
+
+dnp3test_LDADD = libapltesttools.a libopendnp3.la $(TEST_BOOST_LIBS)
+dnp3test_SOURCES = \
+	$(dnp3_test_src)
+
+demo_master_cpp_LDADD = libopendnp3.la $(CORE_BOOST_LIBS)
+demo_master_cpp_SOURCES = \
+	$(demo_master_src)
+
+demo_slave_cpp_LDADD = libopendnp3.la $(CORE_BOOST_LIBS)
+demo_slave_cpp_SOURCES = \
+	$(demo_slave_src)
+
+
+#
+# SWIG
+# 
 
 JAVA_DIR=$(builddir)/java
 
@@ -596,42 +659,6 @@ DNP3Java/PythonDNP3.cpp: DNP3Java/JavaDNP3.i
 BUILT_SOURCES += DNP3Java/PythonDNP3.cpp
 endif
 
-
-bin_PROGRAMS = testset
-
-testset_LDADD = libopendnp3.la $(CORE_BOOST_LIBS)
-testset_CFLAGS = -Itinyxml
-testset_SOURCES = \
-	$(apl_xml_src) \
-	$(dnp3_xml_src) \
-	$(terminal_src) \
-	$(testset_src) \
-	$(xml_binding_src) \
-	$(tinyxml_src)
-
-
-noinst_PROGRAMS = apltest dnp3test demo-master-cpp demo-slave-cpp
-
-apltest_LDADD = libopendnp3.la $(TEST_BOOST_LIBS)
-apltest_SOURCES = \
-	$(apl_test_tools_src) \
-	$(tinyxml_src) \
-	$(xml_binding_src) \
-	$(apl_xml_src) \
-	$(apl_test_src)
-
-dnp3test_LDADD = libopendnp3.la $(TEST_BOOST_LIBS)
-dnp3test_SOURCES = \
-	$(apl_test_tools_src) \
-	$(dnp3_test_src)
-
-demo_master_cpp_LDADD = libopendnp3.la $(CORE_BOOST_LIBS)
-demo_master_cpp_SOURCES = \
-	$(demo_master_src)
-
-demo_slave_cpp_LDADD = libopendnp3.la $(CORE_BOOST_LIBS)
-demo_slave_cpp_SOURCES = \
-	$(demo_slave_src)
 
 ASTYLE=astyle --options=config/astyle.cfg
 
