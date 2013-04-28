@@ -607,19 +607,19 @@ JAVA_CLASS_DIR=$(JAVA_DIR)/bin
 
 JAVA_SRC_FILES = $(JAVA_SOURCE_DIR)/$(JAVA_PACKAGE_DIR)/*.java
 
-DNP3Java/.java-built: DNP3Java/JavaDNP3.i
+swig/.java-built: swig/swigDNP3.i
 	-@mkdir -p $(JAVA_SOURCE_DIR)/$(JAVA_PACKAGE_DIR)
 	swig -c++ -java \
 		-package org.totalgrid.reef.protocol.dnp3 \
 		-I$(top_srcdir)/src \
 		-outdir $(JAVA_SOURCE_DIR)/$(JAVA_PACKAGE_DIR) \
-		-o DNP3Java/JavaDNP3.cpp $^
+		-o swig/JavaDNP3.cpp $^
 	touch $@
 
-DNP3Java/JavaDNP3.cpp: DNP3Java/.java-built
-$(JAVA_SRC_FILES): DNP3Java/.java-built
+swig/JavaDNP3.cpp: swig/.java-built
+$(JAVA_SRC_FILES): swig/.java-built
 
-$(JAR_FILE): DNP3Java/.java-built
+$(JAR_FILE): swig/.java-built
 	-@mkdir -p $(JAVA_CLASS_DIR)/$(JAVA_PACKAGE_DIR)
 	javac -d $(JAVA_CLASS_DIR) -cp . $(JAVA_SRC_FILES)
 	cd $(JAVA_CLASS_DIR) && jar cvf $@ org
@@ -628,10 +628,10 @@ $(JAR_FILE): DNP3Java/.java-built
 opendnp3_jardir = $(datadir)/java
 opendnp3_jar_DATA = $(JAR_FILE)
 
-BUILT_SOURCES += DNP3Java/.java-built DNP3Java/JavaDNP3.cpp $(JAR_FILE) $(JAVA_SRC_FILES)
+BUILT_SOURCES += swig/.java-built swig/JavaDNP3.cpp $(JAR_FILE) $(JAVA_SRC_FILES)
 
 lib_LTLIBRARIES += libopendnp3-java.la
-libopendnp3_java_la_SOURCES = DNP3Java/JavaDNP3.cpp
+libopendnp3_java_la_SOURCES = swig/JavaDNP3.cpp
 libopendnp3_java_la_CPPFLAGS = 
 libopendnp3_java_la_LDFLAGS = -version-info $(LIBVERSION)
 libopendnp3_java_la_LIBADD = libopendnp3.la
@@ -641,7 +641,7 @@ endif
 if WANT_PYTHON
 pkgpython_PYTHON = pyopendnp3.py __init__.py
 pkgpyexec_LTLIBRARIES = _pyopendnp3.la
-_pyopendnp3_la_SOURCES = DNP3Java/PythonDNP3.cpp
+_pyopendnp3_la_SOURCES = swig/PythonDNP3.cpp
 _pyopendnp3_la_CPPFLAGS = $(SWIG_PYTHON_CPPFLAGS) $(PYTHON_CPPFLAGS)
 _pyopendnp3_la_LDFLAGS = -module $(PYTHON_LDFLAGS)
 _pyopendnp3_la_LIBADD = libopendnp3.la
@@ -649,14 +649,14 @@ _pyopendnp3_la_LIBADD = libopendnp3.la
 __init__.py:
 	echo "from pyopendnp3 import *" > $@
 
-DNP3Java/PythonDNP3.cpp: DNP3Java/JavaDNP3.i
+swig/PythonDNP3.cpp: swig/swigDNP3.i
 	swig -c++ -python -threads \
 		-module pyopendnp3 \
 		-I$(top_srcdir)/src \
 		-outdir . \
-		-o DNP3Java/PythonDNP3.cpp $^
+		-o swig/PythonDNP3.cpp $^
 
-BUILT_SOURCES += DNP3Java/PythonDNP3.cpp
+BUILT_SOURCES += swig/PythonDNP3.cpp
 endif
 
 
@@ -685,8 +685,8 @@ include config/autotools/mk/doxygen.mak
 include config/autotools/mk/lcov.mak
 
 clean-swig:
-	-rm -rf DNP3Java/JavaDNP3.cpp DNP3Java/JavaDNP3.h DNP3Java/.java-built
-	-rm -rf DNP3Java/PythonDNP3.cpp DNP3Java/PythonDNP3.h
+	-rm -rf swig/JavaDNP3.cpp swig/JavaDNP3.h swig/.java-built
+	-rm -rf swig/PythonDNP3.cpp swig/PythonDNP3.h
 	-rm -rf pyopendnp3.py pyopendnp3.pyc __init__.py
 	-rm -rf $(JAVA_DIR)
 	-rm -rf $(JAR_FILE)
