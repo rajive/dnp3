@@ -2,8 +2,8 @@
 %{
 /* Includes the header in the wrapper code */
 
-#include <APL/IPhysicalLayerObserver.h>
-#include <DNP3/StackManager.h>
+#include <opendnp3/APL/IPhysicalLayerObserver.h>
+#include <opendnp3/DNP3/StackManager.h>
 
 using namespace apl;
 using namespace apl::dnp;

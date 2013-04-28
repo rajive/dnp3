@@ -23,7 +23,7 @@ using namespace System::Collections::ObjectModel;
 
 #include <vcclr.h>
 
-#include <APL/CommandInterfaces.h>
+#include <opendnp3/APL/CommandInterfaces.h>
 
 using namespace DNP3::Interface;
 

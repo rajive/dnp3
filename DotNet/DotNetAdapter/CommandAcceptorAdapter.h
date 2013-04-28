@@ -24,8 +24,8 @@ using namespace System::Collections::ObjectModel;
 #include <vcclr.h>
 #include <map>
 
-#include <APL/CommandInterfaces.h>
-#include <APL/Lock.h>
+#include <opendnp3/APL/CommandInterfaces.h>
+#include <opendnp3/APL/Lock.h>
 
 using namespace DNP3::Interface;
 

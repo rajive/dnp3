@@ -21,7 +21,7 @@
 
 using namespace System::Collections::ObjectModel;
 
-#include <APL/DataInterfaces.h>
+#include <opendnp3/APL/DataInterfaces.h>
 #include <vcclr.h>
 
 using namespace DNP3::Interface;

@@ -158,7 +158,7 @@ namespace CSToCppXMLBinder
       header.WriteLine("#ifndef _" + nSpace.ToUpper().Replace('-', '_') + "_H_");
       header.WriteLine("#define _" + nSpace.ToUpper().Replace('-', '_') + "_H_");
 
-      header.WriteLine("#include <APLXML/tinybinding.h>");
+      header.WriteLine("#include <opendnp3/xml/APL/tinybinding.h>");
 
       foreach (string include in info.includes.Keys)
       {

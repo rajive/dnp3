@@ -20,7 +20,7 @@
 #include "CommandAcceptorAdapter.h"
 #include "Conversions.h"
 
-#include <APL/CommandInterfaces.h>
+#include <opendnp3/APL/CommandInterfaces.h>
 
 namespace DNP3
 {	

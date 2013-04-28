@@ -19,7 +19,7 @@
 #ifndef __SLAVE_DATA_OBSERVER_ADAPTER_H_
 #define __SLAVE_DATA_OBSERVER_ADAPTER_H_
 
-#include <APL/DataInterfaces.h>
+#include <opendnp3/APL/DataInterfaces.h>
 using namespace DNP3::Interface;
 
 namespace DNP3

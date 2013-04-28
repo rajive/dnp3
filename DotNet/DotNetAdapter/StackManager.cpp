@@ -13,9 +13,9 @@
 
 #include "LogAdapter.h"
 
-#include <DNP3/MasterStackConfig.h>
-#include <DNP3/SlaveStackConfig.h>
-#include <DNP3/StackManager.h>
+#include <opendnp3/DNP3/MasterStackConfig.h>
+#include <opendnp3/DNP3/SlaveStackConfig.h>
+#include <opendnp3/DNP3/StackManager.h>
 
 namespace DNP3
 {	

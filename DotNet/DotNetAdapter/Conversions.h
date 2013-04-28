@@ -3,13 +3,13 @@
 
 #include <string>
 
-#include <APL/CommandTypes.h>
-#include <APL/LogTypes.h>
-#include <APL/DataTypes.h>
-#include <APL/SerialTypes.h>
+#include <opendnp3/APL/CommandTypes.h>
+#include <opendnp3/APL/LogTypes.h>
+#include <opendnp3/APL/DataTypes.h>
+#include <opendnp3/APL/SerialTypes.h>
 
-#include <DNP3/SlaveStackConfig.h>
-#include <DNP3/MasterStackConfig.h>
+#include <opendnp3/DNP3/SlaveStackConfig.h>
+#include <opendnp3/DNP3/MasterStackConfig.h>
 
 using namespace DNP3::Interface;
 

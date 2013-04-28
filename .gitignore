@@ -45,7 +45,6 @@ testset
 /java
 /lcov
 /org
-/src
 /tools/boostlib
 /tools/install_scripts/boost/*/temp
 Debug
