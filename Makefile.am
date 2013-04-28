@@ -611,7 +611,7 @@ DNP3Java/.java-built: DNP3Java/JavaDNP3.i
 	-@mkdir -p $(JAVA_SOURCE_DIR)/$(JAVA_PACKAGE_DIR)
 	swig -c++ -java \
 		-package org.totalgrid.reef.protocol.dnp3 \
-		-I$(top_srcdir) -I$(top_srcdir)/APL -I$(top_srcdir)/DNP3 \
+		-I$(top_srcdir)/src \
 		-outdir $(JAVA_SOURCE_DIR)/$(JAVA_PACKAGE_DIR) \
 		-o DNP3Java/JavaDNP3.cpp $^
 	touch $@
@@ -652,7 +652,7 @@ __init__.py:
 DNP3Java/PythonDNP3.cpp: DNP3Java/JavaDNP3.i
 	swig -c++ -python -threads \
 		-module pyopendnp3 \
-		-I$(top_srcdir) -I$(top_srcdir)/APL -I$(top_srcdir)/DNP3 \
+		-I$(top_srcdir)/src \
 		-outdir . \
 		-o DNP3Java/PythonDNP3.cpp $^
 
