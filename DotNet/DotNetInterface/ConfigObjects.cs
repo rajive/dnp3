@@ -432,7 +432,7 @@ namespace DNP3.Interface
             counters = Enumerable.Range(0, (int) numCounter).Select(i => new EventPointRecord(PointClass.PC_CLASS_0)).ToList();
             analogs = Enumerable.Range(0, (int) numAnalog).Select(i => new DeadbandEventPointRecord(PointClass.PC_CLASS_0, 0.0)).ToList();
             controlStatii = Enumerable.Range(0, (int) numControlStatus).Select(i => new PointRecord()).ToList();
-            controlStatii = Enumerable.Range(0, (int) numSetpointStatus).Select(i => new PointRecord()).ToList();
+            setpointStatii = Enumerable.Range(0, (int) numSetpointStatus).Select(i => new PointRecord()).ToList();
             controls = Enumerable.Range(0, (int) numControls).Select(i => new ControlRecord(CommandModes.CM_SBO_ONLY, 5000)).ToList();
             setpoints = Enumerable.Range(0, (int )numSetpoints).Select(i => new ControlRecord(CommandModes.CM_SBO_ONLY, 5000)).ToList();
         }
