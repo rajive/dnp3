@@ -43,90 +43,90 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TestPhysicalLayerAsyncBase.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestPhysicalLayerAsyncBase.cpp">
       <Filter>Source Files\TestPhysicalLayer</Filter>
     </ClCompile>
-    <ClCompile Include="TestPhysicalLayerAsyncSerial.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestPhysicalLayerAsyncSerial.cpp">
       <Filter>Source Files\TestPhysicalLayer</Filter>
     </ClCompile>
-    <ClCompile Include="TestPhysicalLayerAsyncTCP.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestPhysicalLayerAsyncTCP.cpp">
       <Filter>Source Files\TestPhysicalLayer</Filter>
     </ClCompile>
-    <ClCompile Include="TestPhysicalLayerLoopback.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestPhysicalLayerLoopback.cpp">
       <Filter>Source Files\TestPhysicalLayer</Filter>
     </ClCompile>
-    <ClCompile Include="TestPhysicalLayerMonitor.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestPhysicalLayerMonitor.cpp">
       <Filter>Source Files\TestPhysicalLayer</Filter>
     </ClCompile>
-    <ClCompile Include="AsyncPhysBaseTest.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\AsyncPhysBaseTest.cpp">
       <Filter>Source Files\TestPhysicalLayer\Framework</Filter>
     </ClCompile>
-    <ClCompile Include="AsyncSerialTestObject.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\AsyncSerialTestObject.cpp">
       <Filter>Source Files\TestPhysicalLayer\Framework</Filter>
     </ClCompile>
-    <ClCompile Include="TestTime.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestTime.cpp">
       <Filter>Source Files\TestTime</Filter>
     </ClCompile>
-    <ClCompile Include="TestASIO.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestASIO.cpp">
       <Filter>Source Files\TestMisc</Filter>
     </ClCompile>
-    <ClCompile Include="TestCastLongLongDouble.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestCastLongLongDouble.cpp">
       <Filter>Source Files\TestMisc</Filter>
     </ClCompile>
-    <ClCompile Include="TestMisc.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestMisc.cpp">
       <Filter>Source Files\TestMisc</Filter>
     </ClCompile>
-    <ClCompile Include="TestParsing.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestParsing.cpp">
       <Filter>Source Files\TestMisc</Filter>
     </ClCompile>
-    <ClCompile Include="TestTypes.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestTypes.cpp">
       <Filter>Source Files\TestMisc</Filter>
     </ClCompile>
-    <ClCompile Include="TestLocks.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestLocks.cpp">
       <Filter>Source Files\TestThreading</Filter>
     </ClCompile>
-    <ClCompile Include="TestSyncVar.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestSyncVar.cpp">
       <Filter>Source Files\TestThreading</Filter>
     </ClCompile>
-    <ClCompile Include="TestThreading.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestThreading.cpp">
       <Filter>Source Files\TestThreading</Filter>
     </ClCompile>
-    <ClCompile Include="TestLog.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestLog.cpp">
       <Filter>Source Files\TestLog</Filter>
     </ClCompile>
-    <ClCompile Include="TestCommandQueue.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestCommandQueue.cpp">
       <Filter>Source Files\TestMeasFramework</Filter>
     </ClCompile>
-    <ClCompile Include="TestCommandTypes.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestCommandTypes.cpp">
       <Filter>Source Files\TestMeasFramework</Filter>
     </ClCompile>
-    <ClCompile Include="TestQualityMasks.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestQualityMasks.cpp">
       <Filter>Source Files\TestMeasFramework</Filter>
     </ClCompile>
-    <ClCompile Include="TestXmlBinding.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestXmlBinding.cpp">
       <Filter>Source Files\TestXml</Filter>
     </ClCompile>
-    <ClCompile Include="TestUtil.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestUtil.cpp">
       <Filter>Source Files\TestUtil</Filter>
     </ClCompile>
-    <ClCompile Include="TestPackingUnpacking.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestPackingUnpacking.cpp">
       <Filter>Source Files\TestProtocol</Filter>
     </ClCompile>
-    <ClCompile Include="TestShiftableBuffer.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestShiftableBuffer.cpp">
       <Filter>Source Files\TestProtocol</Filter>
     </ClCompile>
-    <ClCompile Include="TestTimers.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestTimers.cpp">
       <Filter>Source Files\TestTimers</Filter>
     </ClCompile>
-    <ClCompile Include="TestAsyncTask.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\TestAsyncTask.cpp">
       <Filter>Source Files\TestAsyncTask</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AsyncPhysBaseTest.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\AsyncPhysBaseTest.h">
       <Filter>Source Files\TestPhysicalLayer\Framework</Filter>
     </ClInclude>
-    <ClInclude Include="AsyncSerialTestObject.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\AsyncSerialTestObject.h">
       <Filter>Source Files\TestPhysicalLayer\Framework</Filter>
     </ClInclude>
   </ItemGroup>

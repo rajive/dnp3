@@ -7,30 +7,30 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="APLXML_Base.cpp">
+    <ClCompile Include="..\src\opendnp3\xml\binding\APLXML_Base.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="APLXML_DNP.cpp">
+    <ClCompile Include="..\src\opendnp3\xml\binding\APLXML_DNP.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="APLXML_MTS.cpp">
+    <ClCompile Include="..\src\opendnp3\xml\binding\APLXML_MTS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="APLXML_STS.cpp">
+    <ClCompile Include="..\src\opendnp3\xml\binding\APLXML_STS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="APLXML_Base.h">
+    <ClInclude Include="..\src\opendnp3\xml\binding\APLXML_Base.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="APLXML_DNP.h">
+    <ClInclude Include="..\src\opendnp3\xml\binding\APLXML_DNP.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="APLXML_MTS.h">
+    <ClInclude Include="..\src\opendnp3\xml\binding\APLXML_MTS.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="APLXML_STS.h">
+    <ClInclude Include="..\src\opendnp3\xml\binding\APLXML_STS.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

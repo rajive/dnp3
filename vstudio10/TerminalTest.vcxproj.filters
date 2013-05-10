@@ -7,13 +7,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="JavaDNP3.cpp">
+    <ClCompile Include="..\src\opendnp3\terminal\test\TestPhysicalLayerSyncProxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="JavaDNP3.h">
+    <ClCompile Include="..\src\opendnp3\terminal\test\TestTerminal.cpp">
       <Filter>Source Files</Filter>
-    </ClInclude>
+    </ClCompile>
   </ItemGroup>
 </Project>

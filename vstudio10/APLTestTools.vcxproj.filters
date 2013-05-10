@@ -25,132 +25,132 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TestHelpers.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\TestHelpers.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="BufferHelpers.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\BufferHelpers.h">
       <Filter>Source Files\AsyncProtocol</Filter>
     </ClInclude>
-    <ClInclude Include="BufferTestObject.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\BufferTestObject.h">
       <Filter>Source Files\AsyncProtocol</Filter>
     </ClInclude>
-    <ClInclude Include="MockLowerLayer.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\MockLowerLayer.h">
       <Filter>Source Files\AsyncProtocol</Filter>
     </ClInclude>
-    <ClInclude Include="MockUpperLayer.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\MockUpperLayer.h">
       <Filter>Source Files\AsyncProtocol</Filter>
     </ClInclude>
-    <ClInclude Include="AsyncPhysTestObject.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\AsyncPhysTestObject.h">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClInclude>
-    <ClInclude Include="AsyncTestObjectASIO.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\AsyncTestObjectASIO.h">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClInclude>
-    <ClInclude Include="LoopbackPhysicalLayerAsync.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\LoopbackPhysicalLayerAsync.h">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClInclude>
-    <ClInclude Include="MockPhysicalLayerAsync.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\MockPhysicalLayerAsync.h">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClInclude>
-    <ClInclude Include="MockPhysicalLayerAsyncTS.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\MockPhysicalLayerAsyncTS.h">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClInclude>
-    <ClInclude Include="MockPhysicalLayerMonitor.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\MockPhysicalLayerMonitor.h">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClInclude>
-    <ClInclude Include="MockPhysicalLayerSource.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\MockPhysicalLayerSource.h">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClInclude>
-    <ClInclude Include="PhysicalLayerWrapper.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\PhysicalLayerWrapper.h">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClInclude>
-    <ClInclude Include="WrappedTcpPipe.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\WrappedTcpPipe.h">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClInclude>
-    <ClInclude Include="MockTimerSource.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\MockTimerSource.h">
       <Filter>Source Files\Timers</Filter>
     </ClInclude>
-    <ClInclude Include="LogTester.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\LogTester.h">
       <Filter>Source Files\LogHelpers</Filter>
     </ClInclude>
-    <ClInclude Include="MockLogSubscriber.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\MockLogSubscriber.h">
       <Filter>Source Files\LogHelpers</Filter>
     </ClInclude>
-    <ClInclude Include="MockNodeSaver.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\MockNodeSaver.h">
       <Filter>Source Files\LogHelpers</Filter>
     </ClInclude>
-    <ClInclude Include="FanoutDataObserver.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\FanoutDataObserver.h">
       <Filter>Source Files\DataMocks</Filter>
     </ClInclude>
-    <ClInclude Include="MockCommandAcceptor.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\MockCommandAcceptor.h">
       <Filter>Source Files\DataMocks</Filter>
     </ClInclude>
-    <ClInclude Include="MockCommandHandler.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\MockCommandHandler.h">
       <Filter>Source Files\DataMocks</Filter>
     </ClInclude>
-    <ClInclude Include="MockResponseAcceptor.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\MockResponseAcceptor.h">
       <Filter>Source Files\DataMocks</Filter>
     </ClInclude>
-    <ClInclude Include="AsyncTestObject.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\AsyncTestObject.h">
       <Filter>Source Files\GenericTestObjects</Filter>
     </ClInclude>
-    <ClInclude Include="MockNotifier.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\MockNotifier.h">
       <Filter>Source Files\GenericTestObjects</Filter>
     </ClInclude>
-    <ClInclude Include="TestTypedefs.h">
+    <ClInclude Include="..\src\opendnp3\APL\test\util\TestTypedefs.h">
       <Filter>Source Files\GenericTestObjects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BufferHelpers.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\util\BufferHelpers.cpp">
       <Filter>Source Files\AsyncProtocol</Filter>
     </ClCompile>
-    <ClCompile Include="BufferTestObject.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\util\BufferTestObject.cpp">
       <Filter>Source Files\AsyncProtocol</Filter>
     </ClCompile>
-    <ClCompile Include="MockLowerLayer.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\util\MockLowerLayer.cpp">
       <Filter>Source Files\AsyncProtocol</Filter>
     </ClCompile>
-    <ClCompile Include="MockUpperLayer.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\util\MockUpperLayer.cpp">
       <Filter>Source Files\AsyncProtocol</Filter>
     </ClCompile>
-    <ClCompile Include="AsyncPhysTestObject.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\util\AsyncPhysTestObject.cpp">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClCompile>
-    <ClCompile Include="AsyncTestObjectASIO.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\util\AsyncTestObjectASIO.cpp">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClCompile>
-    <ClCompile Include="LoopbackPhysicalLayerAsync.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\util\LoopbackPhysicalLayerAsync.cpp">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClCompile>
-    <ClCompile Include="MockPhysicalLayerAsync.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\util\MockPhysicalLayerAsync.cpp">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClCompile>
-    <ClCompile Include="MockPhysicalLayerAsyncTS.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\util\MockPhysicalLayerAsyncTS.cpp">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClCompile>
-    <ClCompile Include="MockPhysicalLayerMonitor.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\util\MockPhysicalLayerMonitor.cpp">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClCompile>
-    <ClCompile Include="MockPhysicalLayerSource.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\util\MockPhysicalLayerSource.cpp">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClCompile>
-    <ClCompile Include="PhysicalLayerWrapper.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\util\PhysicalLayerWrapper.cpp">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClCompile>
-    <ClCompile Include="WrappedTcpPipe.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\util\WrappedTcpPipe.cpp">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClCompile>
-    <ClCompile Include="MockTimerSource.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\util\MockTimerSource.cpp">
       <Filter>Source Files\Timers</Filter>
     </ClCompile>
-    <ClCompile Include="LogTester.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\util\LogTester.cpp">
       <Filter>Source Files\LogHelpers</Filter>
     </ClCompile>
-    <ClCompile Include="MockResponseAcceptor.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\util\MockResponseAcceptor.cpp">
       <Filter>Source Files\DataMocks</Filter>
     </ClCompile>
-    <ClCompile Include="AsyncTestObject.cpp">
+    <ClCompile Include="..\src\opendnp3\APL\test\util\AsyncTestObject.cpp">
       <Filter>Source Files\GenericTestObjects</Filter>
     </ClCompile>
   </ItemGroup>

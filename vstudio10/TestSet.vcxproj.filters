@@ -2,29 +2,25 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+      <UniqueIdentifier>{b9dd42bf-0135-4d3c-9a45-62f347588e9d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="XML_DNP3.cpp">
+    <ClCompile Include="..\src\opendnp3\testset\AddressScanner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="XML_TestSet.cpp">
+    <ClCompile Include="..\src\opendnp3\testset\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="XmlToConfig.cpp">
+    <ClCompile Include="..\src\opendnp3\testset\StackHelpers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="XML_DNP3.h">
+    <ClInclude Include="..\src\opendnp3\testset\AddressScanner.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="XML_TestSet.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="XmlToConfig.h">
+    <ClInclude Include="..\src\opendnp3\testset\StackHelpers.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

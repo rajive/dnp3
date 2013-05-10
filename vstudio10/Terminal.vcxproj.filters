@@ -13,69 +13,69 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LineReader.cpp">
+    <ClCompile Include="..\src\opendnp3\terminal\LineReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Terminal.cpp">
+    <ClCompile Include="..\src\opendnp3\terminal\Terminal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TerminalInterfaces.cpp">
+    <ClCompile Include="..\src\opendnp3\terminal\TerminalInterfaces.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PhysicalLayerIOStreamAsync.cpp">
+    <ClCompile Include="..\src\opendnp3\terminal\PhysicalLayerIOStreamAsync.cpp">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClCompile>
-    <ClCompile Include="PhysicalLayerSyncProxy.cpp">
+    <ClCompile Include="..\src\opendnp3\terminal\PhysicalLayerSyncProxy.cpp">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClCompile>
-    <ClCompile Include="ControlResponseTE.cpp">
+    <ClCompile Include="..\src\opendnp3\terminal\ControlResponseTE.cpp">
       <Filter>Source Files\Extensions</Filter>
     </ClCompile>
-    <ClCompile Include="ControlTerminalExtension.cpp">
+    <ClCompile Include="..\src\opendnp3\terminal\ControlTerminalExtension.cpp">
       <Filter>Source Files\Extensions</Filter>
     </ClCompile>
-    <ClCompile Include="DOTerminalExtension.cpp">
+    <ClCompile Include="..\src\opendnp3\terminal\DOTerminalExtension.cpp">
       <Filter>Source Files\Extensions</Filter>
     </ClCompile>
-    <ClCompile Include="FlexibleObserverTerminalExtension.cpp">
+    <ClCompile Include="..\src\opendnp3\terminal\FlexibleObserverTerminalExtension.cpp">
       <Filter>Source Files\Extensions</Filter>
     </ClCompile>
-    <ClCompile Include="LogTerminalExtension.cpp">
+    <ClCompile Include="..\src\opendnp3\terminal\LogTerminalExtension.cpp">
       <Filter>Source Files\Extensions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LineReader.h">
+    <ClInclude Include="..\src\opendnp3\terminal\LineReader.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Terminal.h">
+    <ClInclude Include="..\src\opendnp3\terminal\Terminal.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="TerminalInterfaces.h">
+    <ClInclude Include="..\src\opendnp3\terminal\TerminalInterfaces.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="TokenNode.h">
+    <ClInclude Include="..\src\opendnp3\terminal\TokenNode.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="PhysicalLayerIOStreamAsync.h">
+    <ClInclude Include="..\src\opendnp3\terminal\PhysicalLayerIOStreamAsync.h">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClInclude>
-    <ClInclude Include="PhysicalLayerSyncProxy.h">
+    <ClInclude Include="..\src\opendnp3\terminal\PhysicalLayerSyncProxy.h">
       <Filter>Source Files\PhysicalLayer</Filter>
     </ClInclude>
-    <ClInclude Include="ControlResponseTE.h">
+    <ClInclude Include="..\src\opendnp3\terminal\ControlResponseTE.h">
       <Filter>Source Files\Extensions</Filter>
     </ClInclude>
-    <ClInclude Include="ControlTerminalExtension.h">
+    <ClInclude Include="..\src\opendnp3\terminal\ControlTerminalExtension.h">
       <Filter>Source Files\Extensions</Filter>
     </ClInclude>
-    <ClInclude Include="DOTerminalExtension.h">
+    <ClInclude Include="..\src\opendnp3\terminal\DOTerminalExtension.h">
       <Filter>Source Files\Extensions</Filter>
     </ClInclude>
-    <ClInclude Include="FlexibleObserverTerminalExtension.h">
+    <ClInclude Include="..\src\opendnp3\terminal\FlexibleObserverTerminalExtension.h">
       <Filter>Source Files\Extensions</Filter>
     </ClInclude>
-    <ClInclude Include="LogTerminalExtension.h">
+    <ClInclude Include="..\src\opendnp3\terminal\LogTerminalExtension.h">
       <Filter>Source Files\Extensions</Filter>
     </ClInclude>
   </ItemGroup>

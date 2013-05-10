@@ -2,25 +2,19 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{b9dd42bf-0135-4d3c-9a45-62f347588e9d}</UniqueIdentifier>
+      <UniqueIdentifier>{c4ed3ae5-b639-401c-9927-a7caaa2e398d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AddressScanner.cpp">
+    <ClCompile Include="..\demos\master-cpp\DemoMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="StackHelpers.cpp">
+    <ClCompile Include="..\demos\master-cpp\MasterDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AddressScanner.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StackHelpers.h">
+    <ClInclude Include="..\demos\master-cpp\MasterDemo.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -46,501 +46,501 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DNPConstants.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\DNPConstants.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="DNPExceptions.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\DNPExceptions.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="DNPFromStream.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\DNPFromStream.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="DNPToStream.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\DNPToStream.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="DNPCrc.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\DNPCrc.h">
       <Filter>Source Files\DataLink</Filter>
     </ClInclude>
-    <ClInclude Include="IFrameSink.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\IFrameSink.h">
       <Filter>Source Files\DataLink</Filter>
     </ClInclude>
-    <ClInclude Include="ILinkContext.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\ILinkContext.h">
       <Filter>Source Files\DataLink</Filter>
     </ClInclude>
-    <ClInclude Include="ILinkRouter.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\ILinkRouter.h">
       <Filter>Source Files\DataLink</Filter>
     </ClInclude>
-    <ClInclude Include="LinkConfig.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\LinkConfig.h">
       <Filter>Source Files\DataLink</Filter>
     </ClInclude>
-    <ClInclude Include="LinkFrame.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\LinkFrame.h">
       <Filter>Source Files\DataLink</Filter>
     </ClInclude>
-    <ClInclude Include="LinkHeader.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\LinkHeader.h">
       <Filter>Source Files\DataLink</Filter>
     </ClInclude>
-    <ClInclude Include="LinkLayer.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\LinkLayer.h">
       <Filter>Source Files\DataLink</Filter>
     </ClInclude>
-    <ClInclude Include="LinkLayerConstants.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\LinkLayerConstants.h">
       <Filter>Source Files\DataLink</Filter>
     </ClInclude>
-    <ClInclude Include="LinkLayerReceiver.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\LinkLayerReceiver.h">
       <Filter>Source Files\DataLink</Filter>
     </ClInclude>
-    <ClInclude Include="LinkLayerRouter.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\LinkLayerRouter.h">
       <Filter>Source Files\DataLink</Filter>
     </ClInclude>
-    <ClInclude Include="LinkReceiverStates.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\LinkReceiverStates.h">
       <Filter>Source Files\DataLink</Filter>
     </ClInclude>
-    <ClInclude Include="LinkRoute.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\LinkRoute.h">
       <Filter>Source Files\DataLink</Filter>
     </ClInclude>
-    <ClInclude Include="PriLinkLayerStates.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\PriLinkLayerStates.h">
       <Filter>Source Files\DataLink</Filter>
     </ClInclude>
-    <ClInclude Include="SecLinkLayerStates.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\SecLinkLayerStates.h">
       <Filter>Source Files\DataLink</Filter>
     </ClInclude>
-    <ClInclude Include="BufferSetTypes.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\BufferSetTypes.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="BufferTypes.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\BufferTypes.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="ClassCounter.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\ClassCounter.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="ClassMask.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\ClassMask.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="Database.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\Database.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="DatabaseInterfaces.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\DatabaseInterfaces.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="DeviceTemplate.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\DeviceTemplate.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="DeviceTemplateTypes.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\DeviceTemplateTypes.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="DNPCommandMaster.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\DNPCommandMaster.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="DNPDatabaseTypes.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\DNPDatabaseTypes.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="EventBufferBase.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\EventBufferBase.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="EventBuffers.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\EventBuffers.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="EventTypes.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\EventTypes.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="PointClass.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\PointClass.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="ResponseContext.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\ResponseContext.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="Slave.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\Slave.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="SlaveConfig.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\SlaveConfig.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="SlaveEventBuffer.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\SlaveEventBuffer.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="SlaveResponseTypes.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\SlaveResponseTypes.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="SlaveStates.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\SlaveStates.h">
       <Filter>Source Files\Slave</Filter>
     </ClInclude>
-    <ClInclude Include="MasterStack.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\MasterStack.h">
       <Filter>Source Files\Stack</Filter>
     </ClInclude>
-    <ClInclude Include="SlaveStack.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\SlaveStack.h">
       <Filter>Source Files\Stack</Filter>
     </ClInclude>
-    <ClInclude Include="Stack.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\Stack.h">
       <Filter>Source Files\Stack</Filter>
     </ClInclude>
-    <ClInclude Include="CTOHistory.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\CTOHistory.h">
       <Filter>Source Files\Master</Filter>
     </ClInclude>
-    <ClInclude Include="Master.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\Master.h">
       <Filter>Source Files\Master</Filter>
     </ClInclude>
-    <ClInclude Include="MasterConfig.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\MasterConfig.h">
       <Filter>Source Files\Master</Filter>
     </ClInclude>
-    <ClInclude Include="MasterConfigTypes.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\MasterConfigTypes.h">
       <Filter>Source Files\Master</Filter>
     </ClInclude>
-    <ClInclude Include="MasterSchedule.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\MasterSchedule.h">
       <Filter>Source Files\Master</Filter>
     </ClInclude>
-    <ClInclude Include="MasterStates.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\MasterStates.h">
       <Filter>Source Files\Master</Filter>
     </ClInclude>
-    <ClInclude Include="ResponseLoader.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\ResponseLoader.h">
       <Filter>Source Files\Master</Filter>
     </ClInclude>
-    <ClInclude Include="ControlTasks.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\ControlTasks.h">
       <Filter>Source Files\Master\Tasks</Filter>
     </ClInclude>
-    <ClInclude Include="DataPoll.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\DataPoll.h">
       <Filter>Source Files\Master\Tasks</Filter>
     </ClInclude>
-    <ClInclude Include="MasterTaskBase.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\MasterTaskBase.h">
       <Filter>Source Files\Master\Tasks</Filter>
     </ClInclude>
-    <ClInclude Include="StartupTasks.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\StartupTasks.h">
       <Filter>Source Files\Master\Tasks</Filter>
     </ClInclude>
-    <ClInclude Include="VtoTransmitTask.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\VtoTransmitTask.h">
       <Filter>Source Files\Master\Tasks</Filter>
     </ClInclude>
-    <ClInclude Include="TLS_Base.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\TLS_Base.h">
       <Filter>Source Files\Transport</Filter>
     </ClInclude>
-    <ClInclude Include="TransportConstants.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\TransportConstants.h">
       <Filter>Source Files\Transport</Filter>
     </ClInclude>
-    <ClInclude Include="TransportLayer.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\TransportLayer.h">
       <Filter>Source Files\Transport</Filter>
     </ClInclude>
-    <ClInclude Include="TransportRx.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\TransportRx.h">
       <Filter>Source Files\Transport</Filter>
     </ClInclude>
-    <ClInclude Include="TransportStates.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\TransportStates.h">
       <Filter>Source Files\Transport</Filter>
     </ClInclude>
-    <ClInclude Include="TransportTx.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\TransportTx.h">
       <Filter>Source Files\Transport</Filter>
     </ClInclude>
-    <ClInclude Include="AsyncStackManager.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\AsyncStackManager.h">
       <Filter>Source Files\User</Filter>
     </ClInclude>
-    <ClInclude Include="IStackObserver.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\IStackObserver.h">
       <Filter>Source Files\User</Filter>
     </ClInclude>
-    <ClInclude Include="LinkChannel.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\LinkChannel.h">
       <Filter>Source Files\User</Filter>
     </ClInclude>
-    <ClInclude Include="MasterStackConfig.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\MasterStackConfig.h">
       <Filter>Source Files\User</Filter>
     </ClInclude>
-    <ClInclude Include="SlaveStackConfig.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\SlaveStackConfig.h">
       <Filter>Source Files\User</Filter>
     </ClInclude>
-    <ClInclude Include="StackManager.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\StackManager.h">
       <Filter>Source Files\User</Filter>
     </ClInclude>
-    <ClInclude Include="AlwaysOpeningVtoRouter.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\AlwaysOpeningVtoRouter.h">
       <Filter>Source Files\User\VTO</Filter>
     </ClInclude>
-    <ClInclude Include="EnhancedVto.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\EnhancedVto.h">
       <Filter>Source Files\User\VTO</Filter>
     </ClInclude>
-    <ClInclude Include="EnhancedVtoRouter.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\EnhancedVtoRouter.h">
       <Filter>Source Files\User\VTO</Filter>
     </ClInclude>
-    <ClInclude Include="IVtoEventAcceptor.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\IVtoEventAcceptor.h">
       <Filter>Source Files\User\VTO</Filter>
     </ClInclude>
-    <ClInclude Include="VtoConfig.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\VtoConfig.h">
       <Filter>Source Files\User\VTO</Filter>
     </ClInclude>
-    <ClInclude Include="VtoData.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\VtoData.h">
       <Filter>Source Files\User\VTO</Filter>
     </ClInclude>
-    <ClInclude Include="VtoDataInterface.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\VtoDataInterface.h">
       <Filter>Source Files\User\VTO</Filter>
     </ClInclude>
-    <ClInclude Include="VtoEventBufferAdapter.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\VtoEventBufferAdapter.h">
       <Filter>Source Files\User\VTO</Filter>
     </ClInclude>
-    <ClInclude Include="VtoReader.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\VtoReader.h">
       <Filter>Source Files\User\VTO</Filter>
     </ClInclude>
-    <ClInclude Include="VtoRouter.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\VtoRouter.h">
       <Filter>Source Files\User\VTO</Filter>
     </ClInclude>
-    <ClInclude Include="VtoRouterManager.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\VtoRouterManager.h">
       <Filter>Source Files\User\VTO</Filter>
     </ClInclude>
-    <ClInclude Include="VtoRouterSettings.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\VtoRouterSettings.h">
       <Filter>Source Files\User\VTO</Filter>
     </ClInclude>
-    <ClInclude Include="VtoWriter.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\VtoWriter.h">
       <Filter>Source Files\User\VTO</Filter>
     </ClInclude>
-    <ClInclude Include="AppConfig.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\AppConfig.h">
       <Filter>Source Files\Application</Filter>
     </ClInclude>
-    <ClInclude Include="AppInterfaces.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\AppInterfaces.h">
       <Filter>Source Files\Application</Filter>
     </ClInclude>
-    <ClInclude Include="AppLayer.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\AppLayer.h">
       <Filter>Source Files\Application</Filter>
     </ClInclude>
-    <ClInclude Include="APDU.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\APDU.h">
       <Filter>Source Files\Application\APDU</Filter>
     </ClInclude>
-    <ClInclude Include="APDUConstants.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\APDUConstants.h">
       <Filter>Source Files\Application\APDU</Filter>
     </ClInclude>
-    <ClInclude Include="AppHeader.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\AppHeader.h">
       <Filter>Source Files\Application\APDU</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectHeader.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\ObjectHeader.h">
       <Filter>Source Files\Application\APDU</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectInterfaces.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\ObjectInterfaces.h">
       <Filter>Source Files\Application\APDU</Filter>
     </ClInclude>
-    <ClInclude Include="Objects.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\Objects.h">
       <Filter>Source Files\Application\APDU</Filter>
     </ClInclude>
-    <ClInclude Include="HeaderReadIterator.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\HeaderReadIterator.h">
       <Filter>Source Files\Application\APDU\Iterators</Filter>
     </ClInclude>
-    <ClInclude Include="IndexedWriteIterator.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\IndexedWriteIterator.h">
       <Filter>Source Files\Application\APDU\Iterators</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectReadIterator.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\ObjectReadIterator.h">
       <Filter>Source Files\Application\APDU\Iterators</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectWriteIterator.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\ObjectWriteIterator.h">
       <Filter>Source Files\Application\APDU\Iterators</Filter>
     </ClInclude>
-    <ClInclude Include="AppChannelStates.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\AppChannelStates.h">
       <Filter>Source Files\Application\Channels</Filter>
     </ClInclude>
-    <ClInclude Include="AppLayerChannel.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\AppLayerChannel.h">
       <Filter>Source Files\Application\Channels</Filter>
     </ClInclude>
-    <ClInclude Include="SolicitedChannel.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\SolicitedChannel.h">
       <Filter>Source Files\Application\Channels</Filter>
     </ClInclude>
-    <ClInclude Include="UnsolicitedChannel.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\UnsolicitedChannel.h">
       <Filter>Source Files\Application\Channels</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DNPCrc.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\DNPCrc.cpp">
       <Filter>Source Files\DataLink</Filter>
     </ClCompile>
-    <ClCompile Include="LinkFrame.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\LinkFrame.cpp">
       <Filter>Source Files\DataLink</Filter>
     </ClCompile>
-    <ClCompile Include="LinkHeader.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\LinkHeader.cpp">
       <Filter>Source Files\DataLink</Filter>
     </ClCompile>
-    <ClCompile Include="LinkLayer.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\LinkLayer.cpp">
       <Filter>Source Files\DataLink</Filter>
     </ClCompile>
-    <ClCompile Include="LinkLayerConstants.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\LinkLayerConstants.cpp">
       <Filter>Source Files\DataLink</Filter>
     </ClCompile>
-    <ClCompile Include="LinkLayerReceiver.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\LinkLayerReceiver.cpp">
       <Filter>Source Files\DataLink</Filter>
     </ClCompile>
-    <ClCompile Include="LinkLayerRouter.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\LinkLayerRouter.cpp">
       <Filter>Source Files\DataLink</Filter>
     </ClCompile>
-    <ClCompile Include="LinkReceiverStates.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\LinkReceiverStates.cpp">
       <Filter>Source Files\DataLink</Filter>
     </ClCompile>
-    <ClCompile Include="LinkRoute.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\LinkRoute.cpp">
       <Filter>Source Files\DataLink</Filter>
     </ClCompile>
-    <ClCompile Include="PriLinkLayerStates.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\PriLinkLayerStates.cpp">
       <Filter>Source Files\DataLink</Filter>
     </ClCompile>
-    <ClCompile Include="SecLinkLayerStates.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\SecLinkLayerStates.cpp">
       <Filter>Source Files\DataLink</Filter>
     </ClCompile>
-    <ClCompile Include="BufferTypes.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\BufferTypes.cpp">
       <Filter>Source Files\Slave</Filter>
     </ClCompile>
-    <ClCompile Include="ClassCounter.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\ClassCounter.cpp">
       <Filter>Source Files\Slave</Filter>
     </ClCompile>
-    <ClCompile Include="Database.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\Database.cpp">
       <Filter>Source Files\Slave</Filter>
     </ClCompile>
-    <ClCompile Include="DeviceTemplate.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\DeviceTemplate.cpp">
       <Filter>Source Files\Slave</Filter>
     </ClCompile>
-    <ClCompile Include="DNPCommandMaster.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\DNPCommandMaster.cpp">
       <Filter>Source Files\Slave</Filter>
     </ClCompile>
-    <ClCompile Include="PointClass.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\PointClass.cpp">
       <Filter>Source Files\Slave</Filter>
     </ClCompile>
-    <ClCompile Include="ResponseContext.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\ResponseContext.cpp">
       <Filter>Source Files\Slave</Filter>
     </ClCompile>
-    <ClCompile Include="Slave.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\Slave.cpp">
       <Filter>Source Files\Slave</Filter>
     </ClCompile>
-    <ClCompile Include="SlaveConfig.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\SlaveConfig.cpp">
       <Filter>Source Files\Slave</Filter>
     </ClCompile>
-    <ClCompile Include="SlaveEventBuffer.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\SlaveEventBuffer.cpp">
       <Filter>Source Files\Slave</Filter>
     </ClCompile>
-    <ClCompile Include="SlaveResponseTypes.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\SlaveResponseTypes.cpp">
       <Filter>Source Files\Slave</Filter>
     </ClCompile>
-    <ClCompile Include="SlaveStates.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\SlaveStates.cpp">
       <Filter>Source Files\Slave</Filter>
     </ClCompile>
-    <ClCompile Include="MasterStack.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\MasterStack.cpp">
       <Filter>Source Files\Stack</Filter>
     </ClCompile>
-    <ClCompile Include="SlaveStack.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\SlaveStack.cpp">
       <Filter>Source Files\Stack</Filter>
     </ClCompile>
-    <ClCompile Include="Stack.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\Stack.cpp">
       <Filter>Source Files\Stack</Filter>
     </ClCompile>
-    <ClCompile Include="Master.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\Master.cpp">
       <Filter>Source Files\Master</Filter>
     </ClCompile>
-    <ClCompile Include="MasterSchedule.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\MasterSchedule.cpp">
       <Filter>Source Files\Master</Filter>
     </ClCompile>
-    <ClCompile Include="MasterStates.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\MasterStates.cpp">
       <Filter>Source Files\Master</Filter>
     </ClCompile>
-    <ClCompile Include="ResponseLoader.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\ResponseLoader.cpp">
       <Filter>Source Files\Master</Filter>
     </ClCompile>
-    <ClCompile Include="ControlTasks.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\ControlTasks.cpp">
       <Filter>Source Files\Master\Tasks</Filter>
     </ClCompile>
-    <ClCompile Include="DataPoll.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\DataPoll.cpp">
       <Filter>Source Files\Master\Tasks</Filter>
     </ClCompile>
-    <ClCompile Include="MasterTaskBase.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\MasterTaskBase.cpp">
       <Filter>Source Files\Master\Tasks</Filter>
     </ClCompile>
-    <ClCompile Include="StartupTasks.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\StartupTasks.cpp">
       <Filter>Source Files\Master\Tasks</Filter>
     </ClCompile>
-    <ClCompile Include="VtoTransmitTask.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\VtoTransmitTask.cpp">
       <Filter>Source Files\Master\Tasks</Filter>
     </ClCompile>
-    <ClCompile Include="TLS_Base.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\TLS_Base.cpp">
       <Filter>Source Files\Transport</Filter>
     </ClCompile>
-    <ClCompile Include="TransportLayer.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\TransportLayer.cpp">
       <Filter>Source Files\Transport</Filter>
     </ClCompile>
-    <ClCompile Include="TransportRx.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\TransportRx.cpp">
       <Filter>Source Files\Transport</Filter>
     </ClCompile>
-    <ClCompile Include="TransportStates.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\TransportStates.cpp">
       <Filter>Source Files\Transport</Filter>
     </ClCompile>
-    <ClCompile Include="TransportTx.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\TransportTx.cpp">
       <Filter>Source Files\Transport</Filter>
     </ClCompile>
-    <ClCompile Include="AsyncStackManager.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\AsyncStackManager.cpp">
       <Filter>Source Files\User</Filter>
     </ClCompile>
-    <ClCompile Include="IStackObserver.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\IStackObserver.cpp">
       <Filter>Source Files\User</Filter>
     </ClCompile>
-    <ClCompile Include="LinkChannel.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\LinkChannel.cpp">
       <Filter>Source Files\User</Filter>
     </ClCompile>
-    <ClCompile Include="StackManager.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\StackManager.cpp">
       <Filter>Source Files\User</Filter>
     </ClCompile>
-    <ClCompile Include="AlwaysOpeningVtoRouter.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\AlwaysOpeningVtoRouter.cpp">
       <Filter>Source Files\User\VTO</Filter>
     </ClCompile>
-    <ClCompile Include="EnhancedVto.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\EnhancedVto.cpp">
       <Filter>Source Files\User\VTO</Filter>
     </ClCompile>
-    <ClCompile Include="EnhancedVtoRouter.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\EnhancedVtoRouter.cpp">
       <Filter>Source Files\User\VTO</Filter>
     </ClCompile>
-    <ClCompile Include="VtoData.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\VtoData.cpp">
       <Filter>Source Files\User\VTO</Filter>
     </ClCompile>
-    <ClCompile Include="VtoReader.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\VtoReader.cpp">
       <Filter>Source Files\User\VTO</Filter>
     </ClCompile>
-    <ClCompile Include="VtoRouter.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\VtoRouter.cpp">
       <Filter>Source Files\User\VTO</Filter>
     </ClCompile>
-    <ClCompile Include="VtoRouterManager.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\VtoRouterManager.cpp">
       <Filter>Source Files\User\VTO</Filter>
     </ClCompile>
-    <ClCompile Include="VtoRouterSettings.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\VtoRouterSettings.cpp">
       <Filter>Source Files\User\VTO</Filter>
     </ClCompile>
-    <ClCompile Include="VtoWriter.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\VtoWriter.cpp">
       <Filter>Source Files\User\VTO</Filter>
     </ClCompile>
-    <ClCompile Include="AppInterfaces.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\AppInterfaces.cpp">
       <Filter>Source Files\Application</Filter>
     </ClCompile>
-    <ClCompile Include="AppLayer.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\AppLayer.cpp">
       <Filter>Source Files\Application</Filter>
     </ClCompile>
-    <ClCompile Include="APDU.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\APDU.cpp">
       <Filter>Source Files\Application\APDU</Filter>
     </ClCompile>
-    <ClCompile Include="APDUConstants.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\APDUConstants.cpp">
       <Filter>Source Files\Application\APDU</Filter>
     </ClCompile>
-    <ClCompile Include="AppHeader.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\AppHeader.cpp">
       <Filter>Source Files\Application\APDU</Filter>
     </ClCompile>
-    <ClCompile Include="ObjectHeader.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\ObjectHeader.cpp">
       <Filter>Source Files\Application\APDU</Filter>
     </ClCompile>
-    <ClCompile Include="ObjectInterfaces.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\ObjectInterfaces.cpp">
       <Filter>Source Files\Application\APDU</Filter>
     </ClCompile>
-    <ClCompile Include="Objects.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\Objects.cpp">
       <Filter>Source Files\Application\APDU</Filter>
     </ClCompile>
-    <ClCompile Include="HeaderReadIterator.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\HeaderReadIterator.cpp">
       <Filter>Source Files\Application\APDU\Iterators</Filter>
     </ClCompile>
-    <ClCompile Include="IndexedWriteIterator.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\IndexedWriteIterator.cpp">
       <Filter>Source Files\Application\APDU\Iterators</Filter>
     </ClCompile>
-    <ClCompile Include="ObjectReadIterator.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\ObjectReadIterator.cpp">
       <Filter>Source Files\Application\APDU\Iterators</Filter>
     </ClCompile>
-    <ClCompile Include="ObjectWriteIterator.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\ObjectWriteIterator.cpp">
       <Filter>Source Files\Application\APDU\Iterators</Filter>
     </ClCompile>
-    <ClCompile Include="AppChannelStates.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\AppChannelStates.cpp">
       <Filter>Source Files\Application\Channels</Filter>
     </ClCompile>
-    <ClCompile Include="AppLayerChannel.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\AppLayerChannel.cpp">
       <Filter>Source Files\Application\Channels</Filter>
     </ClCompile>
-    <ClCompile Include="SolicitedChannel.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\SolicitedChannel.cpp">
       <Filter>Source Files\Application\Channels</Filter>
     </ClCompile>
-    <ClCompile Include="UnsolicitedChannel.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\UnsolicitedChannel.cpp">
       <Filter>Source Files\Application\Channels</Filter>
     </ClCompile>
   </ItemGroup>

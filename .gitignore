@@ -30,12 +30,12 @@ testset
 /CSToCppXMLBinder/obj
 /ConfigurationBuilder/*.cs
 /ConfigurationBuilder/*.xsx
-/DNP.ncb
-/DNP.suo
+DNP.ncb
+DNP.suo
 /DNP3Java/.java-built
 /DNP3Java/JavaDNP3_wrap.*
-/DNP3Java/JavaDNP3.cpp
-/DNP3Java/JavaDNP3.h
+JavaDNP3.cpp
+JavaDNP3.h
 /DNP3Java/jar
 /DNP3Java/src
 /DNP3Java/target

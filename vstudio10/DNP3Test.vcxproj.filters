@@ -55,225 +55,225 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TestStartBoostUTF.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestStartBoostUTF.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TestAPDU.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestAPDU.cpp">
       <Filter>Source Files\Application</Filter>
     </ClCompile>
-    <ClCompile Include="TestAPDUWriting.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestAPDUWriting.cpp">
       <Filter>Source Files\Application</Filter>
     </ClCompile>
-    <ClCompile Include="TestAppLayer.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestAppLayer.cpp">
       <Filter>Source Files\Application</Filter>
     </ClCompile>
-    <ClCompile Include="TestObjects.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestObjects.cpp">
       <Filter>Source Files\Application</Filter>
     </ClCompile>
-    <ClCompile Include="AppLayerTest.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\AppLayerTest.cpp">
       <Filter>Source Files\Application\TestFramework</Filter>
     </ClCompile>
-    <ClCompile Include="MockAppUser.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\MockAppUser.cpp">
       <Filter>Source Files\Application\TestFramework</Filter>
     </ClCompile>
-    <ClCompile Include="TestCRC.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestCRC.cpp">
       <Filter>Source Files\DataLink</Filter>
     </ClCompile>
-    <ClCompile Include="TestLinkFrameDNP.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestLinkFrameDNP.cpp">
       <Filter>Source Files\DataLink</Filter>
     </ClCompile>
-    <ClCompile Include="TestLinkLayer.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestLinkLayer.cpp">
       <Filter>Source Files\DataLink</Filter>
     </ClCompile>
-    <ClCompile Include="TestLinkLayerRouter.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestLinkLayerRouter.cpp">
       <Filter>Source Files\DataLink</Filter>
     </ClCompile>
-    <ClCompile Include="TestLinkReceiver.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestLinkReceiver.cpp">
       <Filter>Source Files\DataLink</Filter>
     </ClCompile>
-    <ClCompile Include="TestLinkRoute.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestLinkRoute.cpp">
       <Filter>Source Files\DataLink</Filter>
     </ClCompile>
-    <ClCompile Include="DNPHelpers.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\DNPHelpers.cpp">
       <Filter>Source Files\DataLink\TestFramework</Filter>
     </ClCompile>
-    <ClCompile Include="LinkLayerRouterTest.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\LinkLayerRouterTest.cpp">
       <Filter>Source Files\DataLink\TestFramework</Filter>
     </ClCompile>
-    <ClCompile Include="LinkLayerTest.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\LinkLayerTest.cpp">
       <Filter>Source Files\DataLink\TestFramework</Filter>
     </ClCompile>
-    <ClCompile Include="MockFrameSink.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\MockFrameSink.cpp">
       <Filter>Source Files\DataLink\TestFramework</Filter>
     </ClCompile>
-    <ClCompile Include="TestIntegration.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestIntegration.cpp">
       <Filter>Source Files\Integration</Filter>
     </ClCompile>
-    <ClCompile Include="TestStartupTeardown.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestStartupTeardown.cpp">
       <Filter>Source Files\Integration</Filter>
     </ClCompile>
-    <ClCompile Include="ComparingDataObserver.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\ComparingDataObserver.cpp">
       <Filter>Source Files\Integration\Framework</Filter>
     </ClCompile>
-    <ClCompile Include="IntegrationTest.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\IntegrationTest.cpp">
       <Filter>Source Files\Integration\Framework</Filter>
     </ClCompile>
-    <ClCompile Include="StartupTeardownTest.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\StartupTeardownTest.cpp">
       <Filter>Source Files\Integration\Framework</Filter>
     </ClCompile>
-    <ClCompile Include="TestMaster.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestMaster.cpp">
       <Filter>Source Files\Master</Filter>
     </ClCompile>
-    <ClCompile Include="TestResponseLoader.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestResponseLoader.cpp">
       <Filter>Source Files\Master</Filter>
     </ClCompile>
-    <ClCompile Include="MasterTestObject.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\MasterTestObject.cpp">
       <Filter>Source Files\Master\Framework</Filter>
     </ClCompile>
-    <ClCompile Include="MockAppLayer.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\MockAppLayer.cpp">
       <Filter>Source Files\Master\Framework</Filter>
     </ClCompile>
-    <ClCompile Include="ResponseLoaderTestObject.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\ResponseLoaderTestObject.cpp">
       <Filter>Source Files\Master\Framework</Filter>
     </ClCompile>
-    <ClCompile Include="TestDatabase.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestDatabase.cpp">
       <Filter>Source Files\Slave</Filter>
     </ClCompile>
-    <ClCompile Include="TestEventBufferBase.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestEventBufferBase.cpp">
       <Filter>Source Files\Slave</Filter>
     </ClCompile>
-    <ClCompile Include="TestEventBuffers.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestEventBuffers.cpp">
       <Filter>Source Files\Slave</Filter>
     </ClCompile>
-    <ClCompile Include="TestSlave.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestSlave.cpp">
       <Filter>Source Files\Slave</Filter>
     </ClCompile>
-    <ClCompile Include="TestSlaveEventBuffer.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestSlaveEventBuffer.cpp">
       <Filter>Source Files\Slave</Filter>
     </ClCompile>
-    <ClCompile Include="SlaveTestObject.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\SlaveTestObject.cpp">
       <Filter>Source Files\Slave\Framework</Filter>
     </ClCompile>
-    <ClCompile Include="TestTransportLayer.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestTransportLayer.cpp">
       <Filter>Source Files\Transport</Filter>
     </ClCompile>
-    <ClCompile Include="TestTransportLoopback.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestTransportLoopback.cpp">
       <Filter>Source Files\Transport</Filter>
     </ClCompile>
-    <ClCompile Include="TestTransportScalability.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestTransportScalability.cpp">
       <Filter>Source Files\Transport</Filter>
     </ClCompile>
-    <ClCompile Include="TransportTestObject.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TransportTestObject.cpp">
       <Filter>Source Files\Transport\TestObjects</Filter>
     </ClCompile>
-    <ClCompile Include="TransportIntegrationStack.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TransportIntegrationStack.cpp">
       <Filter>Source Files\Transport\Integration</Filter>
     </ClCompile>
-    <ClCompile Include="TransportLoopbackTestObject.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TransportLoopbackTestObject.cpp">
       <Filter>Source Files\Transport\Integration</Filter>
     </ClCompile>
-    <ClCompile Include="TransportScalabilityTestObject.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TransportScalabilityTestObject.cpp">
       <Filter>Source Files\Transport\Integration</Filter>
     </ClCompile>
-    <ClCompile Include="TransportStackPair.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TransportStackPair.cpp">
       <Filter>Source Files\Transport\Integration</Filter>
     </ClCompile>
-    <ClCompile Include="TestEnhancedVtoRouter.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestEnhancedVtoRouter.cpp">
       <Filter>Source Files\Vto</Filter>
     </ClCompile>
-    <ClCompile Include="TestVtoInterface.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestVtoInterface.cpp">
       <Filter>Source Files\Vto</Filter>
     </ClCompile>
-    <ClCompile Include="TestVtoLoopbackIntegration.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestVtoLoopbackIntegration.cpp">
       <Filter>Source Files\Vto</Filter>
     </ClCompile>
-    <ClCompile Include="TestVtoOnewayIntegration.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestVtoOnewayIntegration.cpp">
       <Filter>Source Files\Vto</Filter>
     </ClCompile>
-    <ClCompile Include="TestVtoRouter.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestVtoRouter.cpp">
       <Filter>Source Files\Vto</Filter>
     </ClCompile>
-    <ClCompile Include="TestVtoRouterManager.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestVtoRouterManager.cpp">
       <Filter>Source Files\Vto</Filter>
     </ClCompile>
-    <ClCompile Include="TestVtoWriter.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestVtoWriter.cpp">
       <Filter>Source Files\Vto</Filter>
     </ClCompile>
-    <ClCompile Include="VtoIntegrationTestBase.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\VtoIntegrationTestBase.cpp">
       <Filter>Source Files\Vto\Framework</Filter>
     </ClCompile>
-    <ClCompile Include="TestStackManager.cpp">
+    <ClCompile Include="..\src\opendnp3\DNP3\test\TestStackManager.cpp">
       <Filter>Source Files\User</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AppLayerTest.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\AppLayerTest.h">
       <Filter>Source Files\Application\TestFramework</Filter>
     </ClInclude>
-    <ClInclude Include="MockAppUser.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\MockAppUser.h">
       <Filter>Source Files\Application\TestFramework</Filter>
     </ClInclude>
-    <ClInclude Include="DNPHelpers.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\DNPHelpers.h">
       <Filter>Source Files\DataLink\TestFramework</Filter>
     </ClInclude>
-    <ClInclude Include="LinkLayerRouterTest.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\LinkLayerRouterTest.h">
       <Filter>Source Files\DataLink\TestFramework</Filter>
     </ClInclude>
-    <ClInclude Include="LinkLayerTest.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\LinkLayerTest.h">
       <Filter>Source Files\DataLink\TestFramework</Filter>
     </ClInclude>
-    <ClInclude Include="LinkReceiverTest.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\LinkReceiverTest.h">
       <Filter>Source Files\DataLink\TestFramework</Filter>
     </ClInclude>
-    <ClInclude Include="MockFrameSink.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\MockFrameSink.h">
       <Filter>Source Files\DataLink\TestFramework</Filter>
     </ClInclude>
-    <ClInclude Include="ComparingDataObserver.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\ComparingDataObserver.h">
       <Filter>Source Files\Integration\Framework</Filter>
     </ClInclude>
-    <ClInclude Include="IntegrationTest.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\IntegrationTest.h">
       <Filter>Source Files\Integration\Framework</Filter>
     </ClInclude>
-    <ClInclude Include="StartupTeardownTest.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\StartupTeardownTest.h">
       <Filter>Source Files\Integration\Framework</Filter>
     </ClInclude>
-    <ClInclude Include="MasterTestObject.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\MasterTestObject.h">
       <Filter>Source Files\Master\Framework</Filter>
     </ClInclude>
-    <ClInclude Include="MockAppLayer.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\MockAppLayer.h">
       <Filter>Source Files\Master\Framework</Filter>
     </ClInclude>
-    <ClInclude Include="QueueingStackObserver.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\QueueingStackObserver.h">
       <Filter>Source Files\Master\Framework</Filter>
     </ClInclude>
-    <ClInclude Include="ResponseLoaderTestObject.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\ResponseLoaderTestObject.h">
       <Filter>Source Files\Master\Framework</Filter>
     </ClInclude>
-    <ClInclude Include="DatabaseTestObject.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\DatabaseTestObject.h">
       <Filter>Source Files\Slave\Framework</Filter>
     </ClInclude>
-    <ClInclude Include="SlaveTestObject.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\SlaveTestObject.h">
       <Filter>Source Files\Slave\Framework</Filter>
     </ClInclude>
-    <ClInclude Include="TransportTestObject.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\TransportTestObject.h">
       <Filter>Source Files\Transport\TestObjects</Filter>
     </ClInclude>
-    <ClInclude Include="TransportIntegrationStack.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\TransportIntegrationStack.h">
       <Filter>Source Files\Transport\Integration</Filter>
     </ClInclude>
-    <ClInclude Include="TransportLoopbackTestObject.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\TransportLoopbackTestObject.h">
       <Filter>Source Files\Transport\Integration</Filter>
     </ClInclude>
-    <ClInclude Include="TransportScalabilityTestObject.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\TransportScalabilityTestObject.h">
       <Filter>Source Files\Transport\Integration</Filter>
     </ClInclude>
-    <ClInclude Include="TransportStackPair.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\TransportStackPair.h">
       <Filter>Source Files\Transport\Integration</Filter>
     </ClInclude>
-    <ClInclude Include="ReadableVtoWriter.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\ReadableVtoWriter.h">
       <Filter>Source Files\Vto\Framework</Filter>
     </ClInclude>
-    <ClInclude Include="VtoIntegrationTestBase.h">
+    <ClInclude Include="..\src\opendnp3\DNP3\test\VtoIntegrationTestBase.h">
       <Filter>Source Files\Vto\Framework</Filter>
     </ClInclude>
   </ItemGroup>

@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F1EB4FCC-3299-4574-AEA2-19B61F35966D}</ProjectGuid>
-    <RootNamespace>XMLBindings</RootNamespace>
+    <ProjectGuid>{547D1F36-8A34-4C48-B16D-9C3D60EFA505}</ProjectGuid>
+    <RootNamespace>DNP3XML</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -47,43 +47,35 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\config\boost_includes.props" />
     <Import Project="..\config\local_dir.props" />
     <Import Project="..\config\output_dirs.props" />
     <Import Project="..\config\common_boost_defines.props" />
-    <Import Project="..\config\boost_includes.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\config\boost_includes.props" />
     <Import Project="..\config\local_dir.props" />
     <Import Project="..\config\output_dirs.props" />
     <Import Project="..\config\common_boost_defines.props" />
-    <Import Project="..\config\boost_includes.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\config\boost_includes.props" />
     <Import Project="..\config\local_dir.props" />
     <Import Project="..\config\output_dirs.props" />
     <Import Project="..\config\common_boost_defines.props" />
-    <Import Project="..\config\boost_includes.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\config\boost_includes.props" />
     <Import Project="..\config\local_dir.props" />
     <Import Project="..\config\output_dirs.props" />
     <Import Project="..\config\common_boost_defines.props" />
-    <Import Project="..\config\boost_includes.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Configuration)\</IntDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -131,16 +123,14 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="APLXML_Base.cpp" />
-    <ClCompile Include="APLXML_DNP.cpp" />
-    <ClCompile Include="APLXML_MTS.cpp" />
-    <ClCompile Include="APLXML_STS.cpp" />
+    <ClCompile Include="..\src\opendnp3\xml\DNP3\XML_DNP3.cpp" />
+    <ClCompile Include="..\src\opendnp3\xml\DNP3\XML_TestSet.cpp" />
+    <ClCompile Include="..\src\opendnp3\xml\DNP3\XmlToConfig.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="APLXML_Base.h" />
-    <ClInclude Include="APLXML_DNP.h" />
-    <ClInclude Include="APLXML_MTS.h" />
-    <ClInclude Include="APLXML_STS.h" />
+    <ClInclude Include="..\src\opendnp3\xml\DNP3\XML_DNP3.h" />
+    <ClInclude Include="..\src\opendnp3\xml\DNP3\XML_TestSet.h" />
+    <ClInclude Include="..\src\opendnp3\xml\DNP3\XmlToConfig.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

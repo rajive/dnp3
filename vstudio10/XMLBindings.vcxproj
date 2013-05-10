@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FB9D36B0-102F-4E11-BF45-C80A3709D098}</ProjectGuid>
-    <RootNamespace>Terminal</RootNamespace>
+    <ProjectGuid>{F1EB4FCC-3299-4574-AEA2-19B61F35966D}</ProjectGuid>
+    <RootNamespace>XMLBindings</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -47,47 +47,35 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\config\boost_includes.props" />
     <Import Project="..\config\local_dir.props" />
     <Import Project="..\config\output_dirs.props" />
     <Import Project="..\config\common_boost_defines.props" />
-    <Import Project="..\config\disable_specific_warnings.props" />
+    <Import Project="..\config\boost_includes.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\config\boost_includes.props" />
     <Import Project="..\config\local_dir.props" />
     <Import Project="..\config\output_dirs.props" />
     <Import Project="..\config\common_boost_defines.props" />
-    <Import Project="..\config\disable_specific_warnings.props" />
+    <Import Project="..\config\boost_includes.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\config\boost_includes.props" />
     <Import Project="..\config\local_dir.props" />
     <Import Project="..\config\output_dirs.props" />
     <Import Project="..\config\common_boost_defines.props" />
-    <Import Project="..\config\disable_specific_warnings.props" />
+    <Import Project="..\config\boost_includes.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\config\boost_includes.props" />
     <Import Project="..\config\local_dir.props" />
     <Import Project="..\config\output_dirs.props" />
     <Import Project="..\config\common_boost_defines.props" />
-    <Import Project="..\config\disable_specific_warnings.props" />
+    <Import Project="..\config\boost_includes.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Configuration)\</IntDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -135,29 +123,16 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="LineReader.cpp" />
-    <ClCompile Include="Terminal.cpp" />
-    <ClCompile Include="TerminalInterfaces.cpp" />
-    <ClCompile Include="PhysicalLayerIOStreamAsync.cpp" />
-    <ClCompile Include="PhysicalLayerSyncProxy.cpp" />
-    <ClCompile Include="ControlResponseTE.cpp" />
-    <ClCompile Include="ControlTerminalExtension.cpp" />
-    <ClCompile Include="DOTerminalExtension.cpp" />
-    <ClCompile Include="FlexibleObserverTerminalExtension.cpp" />
-    <ClCompile Include="LogTerminalExtension.cpp" />
+    <ClCompile Include="..\src\opendnp3\xml\binding\APLXML_Base.cpp" />
+    <ClCompile Include="..\src\opendnp3\xml\binding\APLXML_DNP.cpp" />
+    <ClCompile Include="..\src\opendnp3\xml\binding\APLXML_MTS.cpp" />
+    <ClCompile Include="..\src\opendnp3\xml\binding\APLXML_STS.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LineReader.h" />
-    <ClInclude Include="Terminal.h" />
-    <ClInclude Include="TerminalInterfaces.h" />
-    <ClInclude Include="TokenNode.h" />
-    <ClInclude Include="PhysicalLayerIOStreamAsync.h" />
-    <ClInclude Include="PhysicalLayerSyncProxy.h" />
-    <ClInclude Include="ControlResponseTE.h" />
-    <ClInclude Include="ControlTerminalExtension.h" />
-    <ClInclude Include="DOTerminalExtension.h" />
-    <ClInclude Include="FlexibleObserverTerminalExtension.h" />
-    <ClInclude Include="LogTerminalExtension.h" />
+    <ClInclude Include="..\src\opendnp3\xml\binding\APLXML_Base.h" />
+    <ClInclude Include="..\src\opendnp3\xml\binding\APLXML_DNP.h" />
+    <ClInclude Include="..\src\opendnp3\xml\binding\APLXML_MTS.h" />
+    <ClInclude Include="..\src\opendnp3\xml\binding\APLXML_STS.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

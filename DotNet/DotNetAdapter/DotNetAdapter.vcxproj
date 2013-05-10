@@ -183,10 +183,10 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\APL\APL.vcxproj">
+    <ProjectReference Include="..\..\vstudio10\APL.vcxproj">
       <Project>{761218b0-f2b7-42da-9c9b-413fa34886df}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\DNP3\DNP3.vcxproj">
+    <ProjectReference Include="..\..\vstudio10\DNP3.vcxproj">
       <Project>{e053e7ed-f462-4de0-8d69-6d97045ffb25}</Project>
     </ProjectReference>
     <ProjectReference Include="..\DotNetInterface\DotNetInterface.csproj">

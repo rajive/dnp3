@@ -7,42 +7,42 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="INodeSaver.h">
+    <ClInclude Include="..\src\opendnp3\xml\APL\INodeSaver.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="PhysicalLayerManagerXML.h">
+    <ClInclude Include="..\src\opendnp3\xml\APL\PhysicalLayerManagerXML.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="PhysicalLayerXMLFactory.h">
+    <ClInclude Include="..\src\opendnp3\xml\APL\PhysicalLayerXMLFactory.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="SingleNodeSaver.h">
+    <ClInclude Include="..\src\opendnp3\xml\APL\SingleNodeSaver.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="tinybinding.h">
+    <ClInclude Include="..\src\opendnp3\xml\APL\tinybinding.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="XML_APL.h">
+    <ClInclude Include="..\src\opendnp3\xml\APL\XML_APL.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="XMLConversion.h">
+    <ClInclude Include="..\src\opendnp3\xml\APL\XMLConversion.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PhysicalLayerManagerXML.cpp">
+    <ClCompile Include="..\src\opendnp3\xml\APL\PhysicalLayerManagerXML.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PhysicalLayerXMLFactory.cpp">
+    <ClCompile Include="..\src\opendnp3\xml\APL\PhysicalLayerXMLFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tinybinding.cpp">
+    <ClCompile Include="..\src\opendnp3\xml\APL\tinybinding.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="XML_APL.cpp">
+    <ClCompile Include="..\src\opendnp3\xml\APL\XML_APL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="XMLConversion.cpp">
+    <ClCompile Include="..\src\opendnp3\xml\APL\XMLConversion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
