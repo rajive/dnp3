@@ -11,10 +11,7 @@ lcov-report:
 	@rm -Rf lcov
 	@mkdir -p lcov
 	@touch lcov/all.out
-	for d in APL APLTestTools DNP3 DNP3Test ; do \
-		lcov --compat-libtool --directory $$d --base-directory $(srcdir) --capture --output-file lcov/$$d.out ; \
-		cat lcov/$$d.out >> lcov/all.out ; \
-	done
+	lcov --compat-libtool --directory src --base-directory $(srcdir) --capture --output-file lcov/all.out
 	genhtml -o lcov/html lcov/all.out
 
 lcov: lcov-report
