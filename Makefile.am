@@ -297,6 +297,11 @@ terminal_src = \
 	src/opendnp3/terminal/PhysicalLayerSyncProxy.cpp \
 	src/opendnp3/terminal/Terminal.cpp \
 	src/opendnp3/terminal/TerminalInterfaces.cpp
+
+terminal_test_src = \
+	src/opendnp3/terminal/test/TestPhysicalLayerSyncProxy.cpp \
+	src/opendnp3/terminal/test/TestTerminal.cpp
+
 	
 testset_src = \
 	src/opendnp3/testset/AddressScanner.cpp \
@@ -575,7 +580,7 @@ testset_SOURCES = \
 # Uninstalled programs (tests / demos)
 #
 
-noinst_PROGRAMS = apltest dnp3test demo-master-cpp demo-slave-cpp
+noinst_PROGRAMS = apltest dnp3test terminaltest demo-master-cpp demo-slave-cpp
 
 apltest_LDADD = libapltesttools.a libxmlbindings.a libaplxml.a libopendnp3.la $(TEST_BOOST_LIBS)
 apltest_SOURCES = \
@@ -584,6 +589,10 @@ apltest_SOURCES = \
 dnp3test_LDADD = libapltesttools.a libopendnp3.la $(TEST_BOOST_LIBS)
 dnp3test_SOURCES = \
 	$(dnp3_test_src)
+
+terminaltest_LDADD = libapltesttools.a libterminal.a libopendnp3.la $(TEST_BOOST_LIBS)
+terminaltest_SOURCES = \
+	$(terminal_test_src)
 
 demo_master_cpp_LDADD = libopendnp3.la $(CORE_BOOST_LIBS)
 demo_master_cpp_SOURCES = \
