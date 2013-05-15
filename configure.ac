@@ -22,6 +22,12 @@ AX_BOOST_SYSTEM
 AX_BOOST_THREAD
 AX_BOOST_UNIT_TEST_FRAMEWORK
 
+AC_ARG_ENABLE(teamcity,
+  AS_HELP_STRING([--enable-teamcity], [Enable teamcity test output]),
+    [ac_teamcity_enabled=$enableval], [ac_teamcity_enabled=no])
+AM_CONDITIONAL(TEAMCITY, [test "$ac_teamcity_enabled" = yes])
+
+
 AC_ARG_ENABLE(lcov,
   AS_HELP_STRING([--enable-lcov], [Enable gcov/lcov support]),
     [ac_lcov_enabled=$enableval], [ac_lcov_enabled=no])

@@ -529,6 +529,11 @@ nobase_pkginclude_HEADERS= \
 	src/opendnp3/DNP3/VtoWriter.h
 
 
+teamcity_src = \
+	TeamCitySupport/teamcity_boost.cpp \
+	TeamCitySupport/teamcity_messages.cpp
+
+
 #
 # Main shared library
 #
@@ -547,7 +552,7 @@ libopendnp3_la_SOURCES = \
 # Convenience libraries
 #
 
-noinst_LIBRARIES = libapltesttools.a libxmlbindings.a libaplxml.a libdnp3xml.a libterminal.a 
+noinst_LIBRARIES = libapltesttools.a libxmlbindings.a libaplxml.a libdnp3xml.a libterminal.a libteamcity.a
 
 libapltesttools_a_SOURCES = \
 	$(apl_test_tools_src)
@@ -564,6 +569,9 @@ libdnp3xml_a_SOURCES = \
 
 libterminal_a_SOURCES = \
 	$(terminal_src)	
+
+libteamcity_a_SOURCES = \
+	$(teamcity_src)	
 
 #
 # Installed programs
@@ -582,7 +590,14 @@ testset_SOURCES = \
 
 noinst_PROGRAMS = apltest dnp3test terminaltest demo-master-cpp demo-slave-cpp
 
-apltest_LDADD = libapltesttools.a libxmlbindings.a libaplxml.a libopendnp3.la $(TEST_BOOST_LIBS)
+# must be linked before boost test
+if TEAMCITY
+teamcitylib=libteamcity.a
+else 
+teamcitylib=
+endif
+
+apltest_LDADD = libapltesttools.a libxmlbindings.a libaplxml.a $(teamcitylib) libopendnp3.la $(TEST_BOOST_LIBS)
 apltest_SOURCES = \
 	$(apl_test_src)
 
