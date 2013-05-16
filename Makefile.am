@@ -530,8 +530,8 @@ nobase_pkginclude_HEADERS= \
 
 
 teamcity_src = \
-	TeamCitySupport/teamcity_boost.cpp \
-	TeamCitySupport/teamcity_messages.cpp
+	teamcity/teamcity_boost.cpp \
+	teamcity/teamcity_messages.cpp
 
 
 #
