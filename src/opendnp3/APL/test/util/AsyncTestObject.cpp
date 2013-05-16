@@ -35,8 +35,7 @@ bool AsyncTestObject::ProceedUntil(const EvalFunc& arFunc, millis_t aTimeout)
 	do {
 		if(arFunc()) return true;
 		else this->Next();
-	}
-	while(!t.IsExpired());
+	} while(!t.IsExpired());
 
 	return false;
 }

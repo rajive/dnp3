@@ -1372,12 +1372,12 @@ BOOST_AUTO_TEST_CASE(ReadByRangeHeader)
 
 	{
 		Transaction tr(&t.db);
-		t.db.Update(Analog(42, AQ_ONLINE), 5);		
+		t.db.Update(Analog(42, AQ_ONLINE), 5);
 		t.db.Update(Analog(41, AQ_ONLINE), 6);
 	}
 
 	t.SendToSlave("C0 01 1E 02 00 05 06"); // read 30 var 2, [05 : 06]
-	BOOST_REQUIRE_EQUAL(t.Read(), "C0 81 80 00 1E 02 00 05 06 01 2A 00 01 29 00"); 
+	BOOST_REQUIRE_EQUAL(t.Read(), "C0 81 80 00 1E 02 00 05 06 01 2A 00 01 29 00");
 }
 
 template <class PointType, class T>

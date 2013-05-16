@@ -29,12 +29,10 @@ bool Parsing::Get(const std::string& aArg, bool& arValue)
 	if(aArg == "true") {
 		arValue = true;
 		return true;
-	}
-	else if(aArg == "false") {
+	} else if(aArg == "false") {
 		arValue = false;
 		return true;
-	}
-	else {
+	} else {
 		return Get<bool>(aArg, arValue);
 	}
 }
@@ -45,13 +43,11 @@ bool Parsing::Get(const std::string& aArg, boost::uint8_t& arValue)
 	if(Parsing::Get(aArg, value)) {
 		try {
 			arValue = boost::numeric::converter<boost::uint8_t, int>::convert(value);
-		}
-		catch(...) {
+		} catch(...) {
 			return false;
 		}
 		return true;
-	}
-	else return false;
+	} else return false;
 }
 
 }

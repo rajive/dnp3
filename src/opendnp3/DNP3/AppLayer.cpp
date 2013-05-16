@@ -122,12 +122,10 @@ void AppLayer::_OnReceive(const boost::uint8_t* apBuffer, size_t aSize)
 			this->OnRequest(ctrl, mIncoming);
 			break;
 		}
-	}
-	catch(ObjectException oex) {
+	} catch(ObjectException oex) {
 		EXCEPTION_BLOCK(LEV_WARNING, oex);
 		this->OnUnknownObject(mIncoming.GetFunction(), mIncoming.GetControl());
-	}
-	catch(Exception ex) {
+	} catch(Exception ex) {
 		EXCEPTION_BLOCK(LEV_WARNING, ex);
 	}
 }
@@ -165,13 +163,11 @@ void AppLayer::OnSendResult(bool aSuccess)
 	if(func == FC_CONFIRM) {
 		assert(mConfirmSending);
 		mConfirmSending = false;
-	}
-	else {
+	} else {
 		if(aSuccess) {
 			if(func == FC_UNSOLICITED_RESPONSE) mUnsolicited.OnSendSuccess();
 			else mSolicited.OnSendSuccess();
-		}
-		else {
+		} else {
 			if(func == FC_UNSOLICITED_RESPONSE) mUnsolicited.OnSendFailure();
 			else mSolicited.OnSendFailure();
 		}
@@ -234,8 +230,7 @@ void AppLayer::OnConfirm(const AppControlField& arCtrl, APDU& arAPDU)
 			throw Exception(LOCATION, ALERR_UNEXPECTED_CONFIRM);
 
 		mUnsolicited.OnConfirm(arCtrl.SEQ);
-	}
-	else {
+	} else {
 		mSolicited.OnConfirm(arCtrl.SEQ);
 	}
 }

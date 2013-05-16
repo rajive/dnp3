@@ -94,8 +94,7 @@ void TimeSync::ConfigureRequest(APDU& arAPDU)
 	if(mDelay < 0) {
 		arAPDU.Set(FC_DELAY_MEASURE);
 		mStart = mpTimeSrc->GetUTC();
-	}
-	else {
+	} else {
 		arAPDU.Set(FC_WRITE);
 		ObjectWriteIterator owi = arAPDU.WriteContiguous(Group50Var1::Inst(), 0, 0, QC_1B_CNT);
 		Group50Var1::Inst()->mTime.Set(*owi, mpTimeSrc->GetTimeStampUTC() + mDelay);
@@ -132,8 +131,7 @@ TaskResult TimeSync::_OnFinalResponse(const APDU& arAPDU)
 		mDelay = (send_rcv_time >= rtu_turn_around) ? (send_rcv_time - rtu_turn_around) / 2 : 0;
 
 		return TR_CONTINUE;
-	}
-	else {
+	} else {
 		return TR_SUCCESS;
 	}
 }

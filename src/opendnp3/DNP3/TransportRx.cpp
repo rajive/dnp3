@@ -76,8 +76,7 @@ void TransportRx::HandleReceive(const boost::uint8_t* apData, size_t aNumBytes)
 		if(BufferRemaining() < payload_len) {
 			ERROR_BLOCK(LEV_WARNING, "Exceeded the buffer size before a complete fragment was read", TLERR_BUFFER_FULL);
 			mNumBytesRead = 0;
-		}
-		else { //passed all validation
+		} else { //passed all validation
 			memcpy(mBuffer + mNumBytesRead, apData + 1, payload_len);
 			mNumBytesRead += payload_len;
 			mSeq = (mSeq + 1) % 64;
@@ -104,8 +103,7 @@ bool TransportRx::ValidateHeader(bool aFir, bool aFin, int aSeq, size_t aPayload
 			ERROR_BLOCK(LEV_WARNING, "FIR received mid-fragment, discarding: " << mNumBytesRead << "bytes", TLERR_NEW_FIR);
 			mNumBytesRead = 0;
 		}
-	}
-	else if(mNumBytesRead == 0) { //non-first packet with 0 prior bytes
+	} else if(mNumBytesRead == 0) { //non-first packet with 0 prior bytes
 		ERROR_BLOCK(LEV_WARNING, "non-FIR packet with 0 prior bytes", TLERR_MESSAGE_WITHOUT_FIR);
 		return false;
 	}

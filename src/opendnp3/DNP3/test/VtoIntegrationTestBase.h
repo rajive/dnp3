@@ -64,13 +64,13 @@ public:
 	MockCommandAcceptor cmdAcceptor;
 
 	AsyncTestObjectASIO testObj;
-	
+
 	FlexibleDataObserver fdo;
 
 	TimerSourceASIO timerSource;
 	PhysicalLayerAsyncTCPClient vtoClient;
 	PhysicalLayerAsyncTCPServer vtoServer;
-	
+
 	AsyncStackManager manager;
 	WrappedTcpPipe tcpPipe;
 };

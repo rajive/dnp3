@@ -78,8 +78,7 @@ private:
 			std::ostringstream oss;
 			oss << GetString(T::MeasEnum, aIndex) << " --> " << GetString(arPoint);
 			this->Push(oss.str());
-		}
-		else if(!Equal(arPoint, i->second)) {
+		} else if(!Equal(arPoint, i->second)) {
 			std::ostringstream oss;
 			oss << GetString(T::MeasEnum, aIndex);
 			oss << GetString(i->second) << " --> " << GetString(arPoint);

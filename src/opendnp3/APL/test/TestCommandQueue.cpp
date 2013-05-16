@@ -90,8 +90,7 @@ BOOST_AUTO_TEST_CASE(OrderMaintained)
 			bo.mRawCode = (i % 2 == 0) ? CC_LATCH_ON : CC_LATCH_OFF;
 			bo.mCount = (boost::uint8_t)i % 255;
 			cq.AcceptCommand(bo, i, seq, NULL);
-		}
-		else {
+		} else {
 			Setpoint st;
 			st.SetValue(static_cast<boost::int32_t>(i));
 			cq.AcceptCommand(st, i, seq, NULL);

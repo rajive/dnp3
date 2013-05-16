@@ -39,8 +39,7 @@ void AsyncTaskNonPeriodic::_OnComplete(bool aSuccess)
 	if(aSuccess) {
 		mIsComplete = true;
 		mNextRunTime = max_date_time;
-	}
-	else {
+	} else {
 		mNextRunTime = now + milliseconds(mRetryDelay);
 	}
 }

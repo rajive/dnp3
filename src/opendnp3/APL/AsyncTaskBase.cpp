@@ -128,8 +128,7 @@ void AsyncTaskBase::UpdateTime(const boost::posix_time::ptime& arTime)
 	if(arTime >= mNextRunTime) {
 		mIsComplete = false;
 		mIsExpired = true;
-	}
-	else {
+	} else {
 		mIsExpired = false;
 	}
 }
@@ -146,15 +145,12 @@ bool AsyncTaskBase::LessThan(const AsyncTaskBase* l, const AsyncTaskBase* r)
 	if(l->IsExpired()) {
 		if(r->IsExpired()) { //if they're both expired, resolve using priority
 			return l->Priority() < r->Priority();
-		}
-		else {
+		} else {
 			return false; // left expired but right is not
 		}
-	}
-	else if(r->IsExpired()) {
+	} else if(r->IsExpired()) {
 		return true; // right expired but left is not
-	}
-	else { // if they're both not expired, the one with the lowest run time is higher
+	} else { // if they're both not expired, the one with the lowest run time is higher
 		return l->NextRunTime() > r->NextRunTime();
 	}
 }

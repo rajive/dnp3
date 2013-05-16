@@ -29,7 +29,7 @@ BOOST_AUTO_TEST_SUITE(StackManagerTestSuite)
 BOOST_AUTO_TEST_CASE(RemovePortWorksAfterAdd)
 {
 	StackManager sm;
-	sm.AddTCPClient("client",PhysLayerSettings(), "127.0.0.1", 20000);
+	sm.AddTCPClient("client", PhysLayerSettings(), "127.0.0.1", 20000);
 	sm.RemovePort("client");
 }
 

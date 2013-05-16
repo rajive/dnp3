@@ -50,8 +50,7 @@ bool EnhancedVtoRouter::CheckIncomingVtoData(const VtoData& arData)
 			LOG_BLOCK(LEV_WARNING, "Remote side opened, but it was already open");
 			this->HandleDuplicateOpen();
 			return false;
-		}
-		else {
+		} else {
 			mInstRemoteConnected = true;
 			return true;
 		}
@@ -59,8 +58,7 @@ bool EnhancedVtoRouter::CheckIncomingVtoData(const VtoData& arData)
 		if(mInstRemoteConnected) {
 			mInstRemoteConnected = false;
 			return true;
-		}
-		else {
+		} else {
 			LOG_BLOCK(LEV_WARNING, "Remote side closed, but it was already closed");
 			this->HandleDuplicateClose();
 			return false;
@@ -133,8 +131,7 @@ void ServerSocketVtoRouter::HandleReceivingDataWhenRemoteClosed()
 	if(this->mLocalConnected) {
 		this->FlushBuffers();
 		this->Close();
-	}
-	else {
+	} else {
 		this->NotifyRemoteSideOfState(false);
 	}
 }
@@ -176,8 +173,7 @@ void ClientSocketVtoRouter::HandleVtoRemoteConnectedChanged()
 		// refused" behavior as a "remote server terminated connection"
 		this->SetLocalConnected(true);
 		this->StartOne();
-	}
-	else {
+	} else {
 		this->FlushBuffers();
 		this->Suspend(); //stop local connection attempts when we lose the remote side
 	}
@@ -193,8 +189,7 @@ void ClientSocketVtoRouter::HandleReceivingDataWhenRemoteClosed()
 {
 	if(this->mLocalConnected) {
 		this->CloseAndFlushBuffers();
-	}
-	else {
+	} else {
 		this->NotifyRemoteSideOfState(false);
 	}
 }

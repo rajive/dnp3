@@ -41,8 +41,7 @@ ObjectReadIterator::ObjectReadIterator(const HeaderInfo& arInfo, const boost::ui
 
 	if(mHeaderInfo.GetObjectType() == OT_BITFIELD) {
 		mInfo.mStart = mInfo.mIndex;
-	}
-	else {
+	} else {
 		mInfo.mStart = 0; //not used in conjunction with other objects
 	}
 }

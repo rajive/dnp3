@@ -33,8 +33,7 @@ void TestDataEvent(bool aIsEvent, const T& val1, const T& val2, double aDeadband
 {
 	if(aIsEvent) {
 		BOOST_REQUIRE(val1.ShouldGenerateEvent(val2, aDeadband, val1.GetValue()));
-	}
-	else {
+	} else {
 		BOOST_REQUIRE_FALSE(val1.ShouldGenerateEvent(val2, aDeadband, val1.GetValue()));
 	}
 }
@@ -50,8 +49,7 @@ void TestBufferForEvent(bool aIsEvent, const T& arNewVal, DatabaseTestObject& te
 		BOOST_REQUIRE_EQUAL(arNewVal, arQueue.front().mValue);
 		BOOST_REQUIRE_EQUAL(0, arQueue.front().mIndex);
 		arQueue.pop_front();
-	}
-	else {
+	} else {
 		BOOST_REQUIRE_EQUAL(arQueue.size(), 0);
 	}
 }

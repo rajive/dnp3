@@ -76,8 +76,7 @@ void SLLS_Reset::TestLinkStatus(LinkLayer* apLL, bool aFcb)
 	if(apLL->NextReadFCB() == aFcb) {
 		apLL->ToggleReadFCB();
 		apLL->SendAck();
-	}
-	else {
+	} else {
 		// "Re-transmit most recent response that contained function code 0 (ACK) or 1 (NACK)."
 		// This is a pain in the pass to implement.
 		ERROR_LOGGER_BLOCK(apLL->GetLogger(), LEV_WARNING, "TestLinkStatus with invalid FCB", DLERR_WRONG_FCB_ON_TEST);
@@ -91,8 +90,7 @@ void SLLS_Reset::ConfirmedUserData(LinkLayer* apLL, bool aFcb, const boost::uint
 	if(apLL->NextReadFCB() == aFcb) {
 		apLL->ToggleReadFCB();
 		apLL->DoDataUp(apData, aDataLength);
-	}
-	else {
+	} else {
 		ERROR_LOGGER_BLOCK(apLL->GetLogger(), LEV_WARNING, "Confirmed data w/ wrong FCB", DLERR_WRONG_FCB_ON_RECEIVE_DATA);
 	}
 }

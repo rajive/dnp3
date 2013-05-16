@@ -151,14 +151,12 @@ void AS_Base::DoRequest(Slave* c, AS_Base* apNext, const APDU& arAPDU, SequenceI
 
 	try {
 		this->SwitchOnFunction(c, apNext, arAPDU, aSeqInfo);
-	}
-	catch (ParameterException ex) {
+	} catch (ParameterException ex) {
 		ChangeState(c, apNext);
 		ERROR_LOGGER_BLOCK(c->mpLogger, LEV_ERROR, ex.Message(), ex.ErrorCode());
 		c->mRspIIN.SetParameterError(true);
 		c->ConfigureAndSendSimpleResponse();
-	}
-	catch (NotSupportedException ex) {
+	} catch (NotSupportedException ex) {
 		ChangeState(c, apNext);
 		ERROR_LOGGER_BLOCK(c->mpLogger, LEV_ERROR, ex.Message(), ex.ErrorCode());
 		c->mRspIIN.SetFuncNotSupported(true);
@@ -234,8 +232,7 @@ void AS_Idle::OnDataUpdate(Slave* c)
 			ChangeState(c, AS_WaitForUnsolSuccess::Inst());
 			c->mRspContext.LoadUnsol(c->mUnsol, c->mIIN, c->mConfig.mUnsolMask);
 			c->SendUnsolicited(c->mUnsol);
-		}
-		else if (c->mpUnsolTimer == NULL) {
+		} else if (c->mpUnsolTimer == NULL) {
 			c->StartUnsolTimer(c->mConfig.mUnsolPackDelay);
 		}
 	}
@@ -249,8 +246,7 @@ void AS_Idle::OnUnsolExpiration(Slave* c)
 			c->mRspContext.LoadUnsol(c->mUnsol, c->mIIN, c->mConfig.mUnsolMask);
 			c->SendUnsolicited(c->mUnsol);
 		}
-	}
-	else {
+	} else {
 		// do the startup null unsol task
 		ChangeState(c, AS_WaitForUnsolSuccess::Inst());
 		c->mRspContext.LoadUnsol(c->mUnsol, c->mIIN, ClassMask(false, false, false));
@@ -281,8 +277,7 @@ void AS_WaitForRspSuccess::OnSolSendSuccess(Slave* c)
 
 	if (c->mRspContext.IsComplete()) {
 		ChangeState(c, AS_Idle::Inst());
-	}
-	else {
+	} else {
 		c->mRspContext.LoadResponse(c->mResponse);
 		c->Send(c->mResponse);
 	}
@@ -325,8 +320,7 @@ void AS_WaitForUnsolSuccess::OnRequest(Slave* c, const APDU& arAPDU, SequenceInf
 		c->mRequest = arAPDU;
 		c->mSeqInfo = aSeqInfo;
 		c->mDeferredRequest = true;
-	}
-	else {
+	} else {
 		// all other requests should be handled immediately
 		c->mDeferredRequest = false;
 		this->DoRequest(c, AS_WaitForSolUnsolSuccess::Inst(), arAPDU, aSeqInfo);

@@ -176,8 +176,7 @@ bool LinkLayer::Retry()
 	if(mRetryRemaining > 0) {
 		--mRetryRemaining;
 		return true;
-	}
-	else return false;
+	} else return false;
 }
 
 ////////////////////////////////

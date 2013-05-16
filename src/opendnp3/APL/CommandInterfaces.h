@@ -34,7 +34,7 @@ public:
 	virtual ~IResponseAcceptor() {};
 
 	/**
-	* This function is called when the command request succeeds or fails. 
+	* This function is called when the command request succeeds or fails.
 	* @param arResponse Contains a description of whether the command succeeded/failed.
 	* @param aSequence ID that is echoed for correlation purposes
 	*

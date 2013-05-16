@@ -173,8 +173,7 @@ bool Database::UpdateValue(std::vector< PointInfo<T> >& arVec, const T& arValue,
 	if(value.ShouldGenerateEvent(arValue, arVec[aIndex].mDeadband, arVec[aIndex].mLastEventValue)) {
 		value = arValue;
 		return ((arVec[aIndex].mClass & PC_ALL_EVENTS) != 0);
-	}
-	else {
+	} else {
 		value = arValue;
 		return false;
 	}

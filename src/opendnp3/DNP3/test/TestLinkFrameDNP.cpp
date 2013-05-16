@@ -35,8 +35,7 @@ void FormatUserData(apl::dnp::LinkFrame& f, bool aIsMaster, bool aIsConfirmed, i
 
 	if(aIsConfirmed) {
 		f.FormatConfirmedUserData(aIsMaster, aFcb, aDest, aSrc, hs, hs.Size());
-	}
-	else {
+	} else {
 		f.FormatUnconfirmedUserData(aIsMaster, aDest, aSrc, hs, hs.Size());
 	}
 }

@@ -285,8 +285,7 @@ public:
 
 		if (aValue) {
 			*apPos |= bit_mask;
-		}
-		else {
+		} else {
 			*apPos &= ~bit_mask;
 		}
 	}

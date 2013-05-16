@@ -62,8 +62,7 @@ bool LRS_Header::Parse(LinkLayerReceiver* c)
 	else {
 		if(c->ReadHeader()) {
 			c->ChangeState(LRS_Body::Inst());
-		}
-		else {
+		} else {
 			c->FailFrame();
 			c->ChangeState(LRS_Sync::Inst());
 		}
@@ -80,8 +79,7 @@ bool LRS_Body::Parse(LinkLayerReceiver* c)
 		if(c->ValidateBody()) {
 			c->PushFrame();
 			c->ChangeState(LRS_Sync::Inst());
-		}
-		else {
+		} else {
 			c->FailFrame();
 			c->ChangeState(LRS_Sync::Inst());
 		}

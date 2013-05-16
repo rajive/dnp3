@@ -53,8 +53,7 @@ public:
 		if(mCTO >= 0 && mTimeHeaderNum == (mHeaderNum - 1)) {
 			arTime = mCTO;
 			return true;
-		}
-		else return false;
+		} else return false;
 	}
 
 private:

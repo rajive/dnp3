@@ -66,8 +66,7 @@ TaskResult ControlTaskBase::_OnFinalResponse(const APDU& arAPDU)
 	if(mState == SELECT && cs == CS_SUCCESS) {
 		mState = OPERATE;
 		return TR_CONTINUE;
-	}
-	else {
+	} else {
 		this->Respond(cs);
 		return TR_SUCCESS;
 	}

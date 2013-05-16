@@ -37,8 +37,7 @@ void UnsolicitedChannel::OnUnsol(APDU& arAPDU)
 
 	if(acf.SEQ == mSequence) {
 		LOG_BLOCK(LEV_INFO, "Ignoring repeat unsol seq: " << acf.SEQ)
-	}
-	else { // only process the data if the sequence number is new
+	} else { // only process the data if the sequence number is new
 		mSequence = acf.SEQ;
 		mpAppLayer->mpUser->OnUnsolResponse(arAPDU);
 	}

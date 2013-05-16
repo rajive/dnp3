@@ -314,8 +314,7 @@ void Slave::RespondToCommands(const StreamObject<T>* apObj, ObjectReadIterator& 
 		size_t index = arIter->Index();
 		if (count > mConfig.mMaxControls) {
 			val.mStatus = CS_TOO_MANY_OPS;
-		}
-		else {
+		} else {
 			val.mStatus = arFunc(val, index);
 		}
 		i.SetIndex(index);
@@ -347,8 +346,7 @@ CommandStatus Slave::Operate(T& arCmd, size_t aIndex, bool aDirect, const Header
 	CommandStatus res;
 	if (aDirect) {
 		res = mpCmdMaster->DirectOperate(CommandRequestInfo<T>(arCmd, aHdr.GetObjectType(), aHdr.GetVariation(), aHdr.GetQualifier(), aSeqInfo, aSeqNum), aIndex, mSequence);
-	}
-	else {
+	} else {
 		res = mpCmdMaster->Operate(CommandRequestInfo<T>(arCmd, aHdr.GetObjectType(), aHdr.GetVariation(), aHdr.GetQualifier(), aSeqInfo, aSeqNum), aIndex, mSequence);
 	}
 
@@ -357,8 +355,7 @@ CommandStatus Slave::Operate(T& arCmd, size_t aIndex, bool aDirect, const Header
 			mRspIIN.SetParameterError(true);
 		}
 		return res;
-	}
-	else {
+	} else {
 		CommandResponse cr(CS_HARDWARE_ERROR);
 		mRspQueue.WaitForResponse(cr, mSequence); // wait forever on a response from user space
 		LOG_BLOCK(LEV_INFO, arCmd.ToString() << " Index: " << aIndex << " Result: " << ToString(cr.mResult));

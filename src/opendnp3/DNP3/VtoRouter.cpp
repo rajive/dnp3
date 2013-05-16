@@ -86,10 +86,8 @@ void VtoRouter::CheckForVtoWrite()
 				size_t remainder = msg.data.Size() - numWritten;
 				VtoMessage partial(VTODT_DATA, msg.data.Buffer() + numWritten, remainder);
 				mVtoTxBuffer.push_front(partial);
-			}
-			else this->CheckForVtoWrite();
-		}
-		else {
+			} else this->CheckForVtoWrite();
+		} else {
 			// if we have generated REMOTE_OPENED or REMOTE_CLOSED message we need to send the SetLocalVtoState
 			// update to the vtowriter so it can be serialized in the correct order.
 			mpVtoWriter->SetLocalVtoState(msg.type == VTODT_REMOTE_OPENED, this->GetChannelId());
@@ -130,8 +128,7 @@ void VtoRouter::CheckForPhysWrite()
 				mpPhys->AsyncWrite(mWriteData.mpData, mWriteData.GetSize());
 				LOG_BLOCK(LEV_COMM, "Wrote: " << mWriteData.GetSize());
 			}
-		}
-		else {
+		} else {
 			this->mPhysLayerTxBuffer.pop();
 			this->DoVtoRemoteConnectedChanged(type == VTODT_REMOTE_OPENED);
 		}

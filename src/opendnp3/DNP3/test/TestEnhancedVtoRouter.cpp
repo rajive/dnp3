@@ -60,8 +60,7 @@ public:
 			mQueue.pop();
 			arEvent = evt;
 			return true;
-		}
-		else return false;
+		} else return false;
 	}
 
 	void CheckLocalChannelConnectedMessage(bool connected) {

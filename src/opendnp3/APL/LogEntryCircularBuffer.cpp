@@ -60,8 +60,7 @@ bool LogEntryCircularBuffer :: CheckRead(LogEntry& aEntry)
 		aEntry = mItemQueue.front(); //make a copy of the front of the queue
 		mItemQueue.pop_front();
 		return true;
-	}
-	else return false;
+	} else return false;
 }
 
 void LogEntryCircularBuffer :: AddIgnoreCode(int aCode)

@@ -56,9 +56,9 @@ VtoRouterManager::VtoRouterManager(Logger* apLogger, ITimerSource* apTimerSrc, I
 }
 
 VtoRouter* VtoRouterManager::StartRouter(
-    const std::string& arPortName,
-    const VtoRouterSettings& arSettings,
-    IVtoWriter* apWriter)
+        const std::string& arPortName,
+        const VtoRouterSettings& arSettings,
+        IVtoWriter* apWriter)
 {
 	IPhysicalLayerAsync* pPhys = mpPhysSource->AcquireLayer(arPortName);
 	Logger* pLogger = this->GetSubLogger(arPortName, arSettings.CHANNEL_ID);
@@ -66,12 +66,10 @@ VtoRouter* VtoRouterManager::StartRouter(
 	boost::shared_ptr<VtoRouter> pRouter;
 	if(arSettings.DISABLE_EXTENSIONS) {
 		pRouter.reset(new AlwaysOpeningVtoRouter(arSettings, pLogger, apWriter, pPhys, mpTimerSrc));
-	}
-	else {
+	} else {
 		if(arSettings.START_LOCAL) {
 			pRouter.reset(new ServerSocketVtoRouter(arSettings, pLogger, apWriter, pPhys, mpTimerSrc));
-		}
-		else {
+		} else {
 			pRouter.reset(new ClientSocketVtoRouter(arSettings, pLogger, apWriter, pPhys, mpTimerSrc));
 		}
 	}

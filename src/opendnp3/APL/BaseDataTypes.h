@@ -219,8 +219,7 @@ bool ExceedsDeadband(const T& val1, const T& val2, double aDeadband)
 
 	if (val1 < val2) {
 		diff = val2 - val1;
-	}
-	else {
+	} else {
 		diff = val1 - val2;
 	}
 

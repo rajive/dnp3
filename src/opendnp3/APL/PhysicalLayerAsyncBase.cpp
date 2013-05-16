@@ -102,8 +102,7 @@ bool PhysicalLayerAsyncBase::State::CheckForClose()
 	if(mClosing && !this->CallbacksPending()) {
 		mClosing = mOpen = false;
 		return true;
-	}
-	else return false;
+	} else return false;
 }
 
 std::string PhysicalLayerAsyncBase::State::ConvertStateToString() const
@@ -136,8 +135,7 @@ void PhysicalLayerAsyncBase::AsyncOpen()
 	if(mState.CanOpen()) {
 		mState.mOpening = true;
 		this->DoOpen();
-	}
-	else throw InvalidStateException(LOCATION, "AsyncOpen: " + this->ConvertStateToString());
+	} else throw InvalidStateException(LOCATION, "AsyncOpen: " + this->ConvertStateToString());
 }
 
 /** Marshalls the DoThisLayerDown call
@@ -157,8 +155,7 @@ void PhysicalLayerAsyncBase::StartClose()
 
 		if(mState.mOpening) this->DoOpeningClose();
 		else this->DoClose();
-	}
-	else throw InvalidStateException(LOCATION, "StartClose: " + this->ConvertStateToString());
+	} else throw InvalidStateException(LOCATION, "StartClose: " + this->ConvertStateToString());
 }
 
 void PhysicalLayerAsyncBase::AsyncWrite(const boost::uint8_t* apBuff, size_t aNumBytes)
@@ -168,8 +165,7 @@ void PhysicalLayerAsyncBase::AsyncWrite(const boost::uint8_t* apBuff, size_t aNu
 	if(mState.CanWrite()) {
 		mState.mWriting = true;
 		this->DoAsyncWrite(apBuff, aNumBytes);
-	}
-	else throw InvalidStateException(LOCATION, "AsyncWrite: " + this->ConvertStateToString());
+	} else throw InvalidStateException(LOCATION, "AsyncWrite: " + this->ConvertStateToString());
 }
 
 void PhysicalLayerAsyncBase::AsyncRead(boost::uint8_t* apBuff, size_t aMaxBytes)
@@ -179,8 +175,7 @@ void PhysicalLayerAsyncBase::AsyncRead(boost::uint8_t* apBuff, size_t aMaxBytes)
 	if(mState.CanRead()) {
 		mState.mReading = true;
 		this->DoAsyncRead(apBuff, aMaxBytes);
-	}
-	else throw InvalidStateException(LOCATION, "AsyncRead: " + this->ConvertStateToString());
+	} else throw InvalidStateException(LOCATION, "AsyncRead: " + this->ConvertStateToString());
 }
 
 ///////////////////////////////////////
@@ -199,21 +194,18 @@ void PhysicalLayerAsyncBase::OnOpenCallback(const boost::system::error_code& arE
 			mState.CheckForClose();
 			this->DoOpenFailure();
 			if(mpHandler) mpHandler->OnOpenFailure();
-		}
-		else { // successful connection
+		} else { // successful connection
 			if(this->IsClosing()) { // but the connection was closed
 				mState.CheckForClose();
 				this->DoClose();
 				if(mpHandler) mpHandler->OnOpenFailure();
-			}
-			else {
+			} else {
 				mState.mOpen = true;
 				this->DoOpenSuccess();
 				if(mpHandler) mpHandler->OnLowerLayerUp();
 			}
 		}
-	}
-	else throw InvalidStateException(LOCATION, "OnOpenCallback: " + this->ConvertStateToString());
+	} else throw InvalidStateException(LOCATION, "OnOpenCallback: " + this->ConvertStateToString());
 }
 
 void PhysicalLayerAsyncBase::OnReadCallback(const boost::system::error_code& arErr, boost::uint8_t* apBuff, size_t aSize)
@@ -224,19 +216,16 @@ void PhysicalLayerAsyncBase::OnReadCallback(const boost::system::error_code& arE
 		if(arErr) {
 			LOG_BLOCK(LEV_WARNING, arErr.message());
 			if(mState.CanClose()) this->StartClose();
-		}
-		else {
+		} else {
 			if(mState.mClosing) {
 				LOG_BLOCK(LEV_DEBUG, "Ignoring received bytes since layer is closing: " << aSize);
-			}
-			else {
+			} else {
 				this->DoReadCallback(apBuff, aSize);
 			}
 		}
 
 		if(mState.CheckForClose()) this->DoThisLayerDown();
-	}
-	else throw InvalidStateException(LOCATION, "OnReadCallback: " + this->ConvertStateToString());
+	} else throw InvalidStateException(LOCATION, "OnReadCallback: " + this->ConvertStateToString());
 }
 
 void PhysicalLayerAsyncBase::OnWriteCallback(const boost::system::error_code& arErr, size_t aNumBytes)
@@ -247,19 +236,16 @@ void PhysicalLayerAsyncBase::OnWriteCallback(const boost::system::error_code& ar
 		if(arErr) {
 			LOG_BLOCK(LEV_WARNING, arErr.message());
 			if(mState.CanClose()) this->StartClose();
-		}
-		else {
+		} else {
 			if(mState.mClosing) {
 				LOG_BLOCK(LEV_DEBUG, "Ignoring written bytes since layer is closing: " << aNumBytes);
-			}
-			else {
+			} else {
 				this->DoWriteSuccess();
 			}
 		}
 
 		if(mState.CheckForClose()) this->DoThisLayerDown();
-	}
-	else throw InvalidStateException(LOCATION, "OnWriteCallback: " + this->ConvertStateToString());
+	} else throw InvalidStateException(LOCATION, "OnWriteCallback: " + this->ConvertStateToString());
 }
 
 ////////////////////////////////////

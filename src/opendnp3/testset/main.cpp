@@ -60,8 +60,7 @@ bool GenerateConfig(bool aIsMaster, const std::string& arPath)
 			APLXML_MTS::MasterTestSet_t cfg;
 			XML_TestSet::Configure(cfg, false);
 			WriteXmlToFile(&cfg, arPath);
-		}
-		else {
+		} else {
 			APLXML_STS::SlaveTestSet_t cfg;
 			XML_TestSet::Configure(cfg);
 			XML_DNP3::Configure(cfg.DeviceTemplate, 10, 10, 10, 2, 2, 2, 2);
@@ -69,8 +68,7 @@ bool GenerateConfig(bool aIsMaster, const std::string& arPath)
 		}
 		std::cout << "generated " << arPath << std::endl;
 		return true;
-	}
-	catch(const apl::Exception& ex) {
+	} catch(const apl::Exception& ex) {
 		std::cout << "failure generating " << arPath << ex.GetErrorString() << std::endl;
 		return false;
 	}
@@ -117,8 +115,7 @@ int main(int argc, char* argv[])
 	try {
 		po::store(po::parse_command_line(argc, argv, desc), vm);
 		po::notify(vm);
-	}
-	catch ( boost::program_options::error& ex ) {
+	} catch ( boost::program_options::error& ex ) {
 		cout << ex.what() << endl;
 		cout << desc << endl;
 		return -1;
@@ -148,17 +145,14 @@ int main(int argc, char* argv[])
 			boost::uint16_t stop = vm["scan_stop"].as<boost::uint16_t>();
 
 			Scan(xmlFilename, start, stop);
-		}
-		else {
+		} else {
 			if ( vm.count("slave") ) {
 				RunStack<SlaveXMLStack, APLXML_STS::SlaveTestSet_t>(xmlFilename);
-			}
-			else {
+			} else {
 				RunStack<MasterXMLStack, APLXML_MTS::MasterTestSet_t>(xmlFilename);
 			}
 		}
-	}
-	catch(const Exception& ex) {
+	} catch(const Exception& ex) {
 		cout << ex.GetErrorString() << endl;
 		WaitOnEnterKey();
 		return -1;

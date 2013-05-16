@@ -89,19 +89,16 @@ void ACS_Base::ProcessResponse(AppLayerChannel* c, APDU& arAPDU, bool aExpectFIR
 			if(acf.FIN) {
 				c->ChangeState(ACS_Idle::Inst());
 				c->DoFinalResponse(arAPDU);
-			}
-			else {
+			} else {
 				c->IncrSequence();
 				c->ChangeState(ACS_WaitForFinalResponse::Inst());
 				c->StartTimer();
 				c->DoPartialResponse(arAPDU);
 			}
-		}
-		else {
+		} else {
 			ERROR_LOGGER_BLOCK(c->GetLogger(), LEV_WARNING, "Unexpected fir bit " << acf.FIR, ALERR_BAD_FIR_FIN);
 		}
-	}
-	else {
+	} else {
 		ERROR_LOGGER_BLOCK(c->GetLogger(), LEV_WARNING, "Bad sequence number " << acf.SEQ, ALERR_BAD_SEQUENCE);
 	}
 }
@@ -223,8 +220,7 @@ void ACS_WaitForConfirm::OnConfirm(AppLayerChannel* c, int aSeq)
 		c->CancelTimer();
 		c->ChangeState(ACS_Idle::Inst());
 		c->DoSendSuccess();
-	}
-	else {
+	} else {
 		ERROR_LOGGER_BLOCK(c->GetLogger(), LEV_WARNING,
 		                   "Unexpected confirm w/ sequence " << aSeq, ALERR_UNEXPECTED_CONFIRM);
 	}

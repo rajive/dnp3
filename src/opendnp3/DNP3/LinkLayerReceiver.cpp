@@ -151,13 +151,11 @@ bool LinkLayerReceiver::ValidateHeader()
 	if(func == FC_PRI_CONFIRMED_USER_DATA || func == FC_PRI_UNCONFIRMED_USER_DATA) {
 		if(user_data_length > 0) {
 			//mFrameSize = LinkFrame::CalcFrameSize(user_data_length);
-		}
-		else {
+		} else {
 			ERROR_BLOCK(LEV_ERROR, "User data packet received with zero payload. FUNCTION: " << func, DLERR_NO_DATA);
 			return false;
 		}
-	}
-	else {
+	} else {
 		if(user_data_length > 0) {
 			ERROR_BLOCK(LEV_ERROR, "Unexpected LENGTH in frame: " << static_cast<int>(user_data_length) << " with FUNCTION: " << func, DLERR_UNEXPECTED_DATA);
 			return false;
@@ -168,13 +166,11 @@ bool LinkLayerReceiver::ValidateHeader()
 	if(user_data_length > 0) {
 		if(func == FC_PRI_CONFIRMED_USER_DATA || func == FC_PRI_UNCONFIRMED_USER_DATA) {
 
-		}
-		else {
+		} else {
 			ERROR_BLOCK(LEV_ERROR, "Unexpected LENGTH in frame: " << static_cast<int>(user_data_length) << " with FUNCTION: " << func, DLERR_UNEXPECTED_DATA);
 			return false;
 		}
-	}
-	else {
+	} else {
 		if(func == FC_PRI_CONFIRMED_USER_DATA || func == FC_PRI_UNCONFIRMED_USER_DATA) {
 			ERROR_BLOCK(LEV_ERROR, "User data packet received with zero payload. FUNCTION: " << func, DLERR_NO_DATA);
 			return false;
@@ -219,8 +215,7 @@ bool LinkLayerReceiver::ValidateFunctionCode()
 
 		//if fcv isn't expected to be set, fcb can be either 1 or 0, doesn't matter
 
-	}
-	else { // SecToPri - just validate the function codes and that FCB is 0
+	} else { // SecToPri - just validate the function codes and that FCB is 0
 		switch(mHeader.GetFuncEnum()) {
 		case(FC_SEC_ACK):
 		case(FC_SEC_NACK):

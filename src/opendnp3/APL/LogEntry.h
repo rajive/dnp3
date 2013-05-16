@@ -89,8 +89,7 @@ private:
 		if(GetValue(arKey, text)) {
 			Parsing::Get(text, arValue);
 			return true;
-		}
-		else return false;
+		} else return false;
 	}
 
 	FilterLevel		mFilterLevel;

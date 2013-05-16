@@ -39,8 +39,7 @@ void AsyncTaskPeriodic::_OnComplete(bool aSuccess)
 	if(aSuccess) {
 		mIsComplete = true;
 		mNextRunTime = now + milliseconds(mPeriod);
-	}
-	else {
+	} else {
 		mNextRunTime = now + milliseconds(mRetryDelay);
 	}
 }

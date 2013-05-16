@@ -110,8 +110,7 @@ BOOST_AUTO_TEST_CASE(CheckMonotononicallyIncreasing)
 				oss << "Time Elapsed didn't increase " << elapsed << " < " << lastElapsed;
 				std::cout << oss.str() << std::endl;
 				BOOST_REQUIRE(elapsed >= lastElapsed);
-			}
-			else {
+			} else {
 				lastElapsed = elapsed;
 			}
 		}
@@ -241,8 +240,7 @@ BOOST_AUTO_TEST_CASE(ExampleLoop)
 
 	do {
 		Thread::SleepFor(rand() % to.Remaining());
-	}
-	while(!to.IsExpired());
+	} while(!to.IsExpired());
 
 	BOOST_REQUIRE(t.Elapsed() >= 250);
 }

@@ -91,8 +91,7 @@ void SingleEventBuffer<EventType> :: _Update(const EventType& arEvent)
 			this->mEventSet.erase(i);
 			this->mEventSet.insert(arEvent); //new event
 		}
-	}
-	else {
+	} else {
 		this->mEventSet.insert(arEvent); //new event
 		this->mCounter.IncrCount(arEvent.mClass);
 	}

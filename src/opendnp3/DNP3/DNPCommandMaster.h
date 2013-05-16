@@ -208,8 +208,7 @@ CommandStatus DNPCommandMaster::Operate(std::map<size_t, CommandInfo<T> >& aMap,
 
 		if(!info.mIsSelected) {
 			return CS_NO_SELECT;
-		}
-		else if(TimeStamp::GetTimeStamp() - info.mSelectTime > mSelectTimeout) {
+		} else if(TimeStamp::GetTimeStamp() - info.mSelectTime > mSelectTimeout) {
 			return CS_TIMEOUT;
 		}
 

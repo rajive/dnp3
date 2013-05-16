@@ -109,7 +109,7 @@ void AsyncStackManager::AddPhysicalLayer(const std::string& arName, PhysLayerSet
 }
 
 ICommandAcceptor* AsyncStackManager::AddMaster( const std::string& arPortName, const std::string& arStackName, FilterLevel aLevel, IDataObserver* apPublisher,
-        const MasterStackConfig& arCfg)
+                const MasterStackConfig& arCfg)
 {
 	this->ThrowIfAlreadyShutdown();
 	LinkChannel* pChannel = this->GetOrCreateChannel(arPortName);
@@ -130,7 +130,7 @@ ICommandAcceptor* AsyncStackManager::AddMaster( const std::string& arPortName, c
 }
 
 IDataObserver* AsyncStackManager::AddSlave( const std::string& arPortName, const std::string& arStackName, FilterLevel aLevel, ICommandAcceptor* apCmdAcceptor,
-        const SlaveStackConfig& arCfg)
+                const SlaveStackConfig& arCfg)
 {
 	this->ThrowIfAlreadyShutdown();
 	LinkChannel* pChannel = this->GetOrCreateChannel(arPortName);
@@ -200,7 +200,7 @@ IVtoWriter* AsyncStackManager::GetVtoWriter(const std::string& arStackName)
 
 // Remove a port and all associated stacks
 void AsyncStackManager::RemovePort(const std::string& arPortName)
-{	
+{
 	this->ThrowIfAlreadyShutdown();
 	LinkChannel* pChannel = this->GetChannelMaybeNull(arPortName);
 	if(pChannel != NULL) { // the channel is in use
@@ -220,7 +220,7 @@ void AsyncStackManager::RemovePort(const std::string& arPortName)
 			this->RemoveStack(s);
 		}
 		this->mScheduler.ReleaseGroup(pChannel->GetGroup());
-	}	
+	}
 
 	// remove the physical layer from the list
 	mMgr.Remove(arPortName);
@@ -308,12 +308,10 @@ void AsyncStackManager::Run()
 	do {
 		try {
 			num = mService.Get()->run();
-		}
-		catch(const std::exception& ex) {
+		} catch(const std::exception& ex) {
 			LOG_BLOCK(LEV_ERROR, "Unhandled exception: " << ex.what());
 		}
-	}
-	while(num > 0);
+	} while(num > 0);
 
 	mService.Get()->reset();
 }

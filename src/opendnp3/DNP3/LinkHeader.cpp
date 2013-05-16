@@ -88,8 +88,7 @@ std::string LinkHeader::ToString() const
 	if(this->IsPriToSec()) {
 		oss << " Pri->Sec";
 		oss << " FCB=" << this->IsFcbSet() << " FCV=" << this->IsFcvDfcSet();
-	}
-	else {
+	} else {
 		oss << " Sec->Pri";
 		if(this->IsFcbSet()) oss << " ERROR: FCB not Blank!!";
 		oss << " DFC=" << this->IsFcvDfcSet();

@@ -44,8 +44,7 @@ void ControlTerminalExtension::WaitForResponse()
 	if(success) {
 		oss << "Result: " << ToString(rsp.mResult) << ITerminal::EOL;
 		this->Send(oss.str());
-	}
-	else {
+	} else {
 		oss << "Timeout" << ITerminal::EOL;
 		this->Send(oss.str());
 	}
@@ -65,8 +64,7 @@ retcode ControlTerminalExtension::HandleIssueST(std::vector<std::string>& arArgs
 		int iValue;
 		if(!Parsing::Get(arArgs[1], iValue)) return BAD_ARGUMENTS;
 		st.SetValue(static_cast<boost::int32_t>(iValue));
-	}
-	else {
+	} else {
 		double dValue;
 		if(!Parsing::Get(arArgs[1], dValue)) return BAD_ARGUMENTS;
 		st.SetValue(dValue);

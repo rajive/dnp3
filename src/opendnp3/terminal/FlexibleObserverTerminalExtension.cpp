@@ -121,8 +121,7 @@ void DisplayPoints(ostringstream& arOss, typename PointMap<T>::Type& arMap, Flex
 			string name = aNameMap[i->first];
 			for(size_t i = name.size(); i < aLongestName; i++) arOss << " ";
 			arOss << name << " ";
-		}
-		else {
+		} else {
 			arOss << "Index: " << i->first << "\t";
 		}
 
@@ -139,8 +138,7 @@ retcode FlexibleObserverTerminalExtension::HandleShow(std::vector<std::string>& 
 	oss << "SHOWING: ";
 	if ( mRange.type == ShowRange::ST_ALL ) {
 		oss << "all" << ITerminal::EOL;
-	}
-	else {
+	} else {
 		if ( mRange.allOfType )
 			oss << "all of type ";
 		if ( mRange.type == ShowRange::ST_BI )
@@ -234,20 +232,15 @@ ShowRange::Type ParseShowType( const std::string& arString )
 
 	if ( lower.compare("bi") == 0 ) {
 		return ShowRange::ST_BI;
-	}
-	else if ( lower.compare("ai") == 0 ) {
+	} else if ( lower.compare("ai") == 0 ) {
 		return ShowRange::ST_AI;
-	}
-	else if ( lower.compare("c") == 0 ) {
+	} else if ( lower.compare("c") == 0 ) {
 		return ShowRange::ST_C;
-	}
-	else if ( lower.compare("cs") == 0 ) {
+	} else if ( lower.compare("cs") == 0 ) {
 		return ShowRange::ST_BOS;
-	}
-	else if ( lower.compare("ss") == 0 ) {
+	} else if ( lower.compare("ss") == 0 ) {
 		return ShowRange::ST_SS;
-	}
-	else {
+	} else {
 		return ShowRange::ST_ALL;
 	}
 }
@@ -262,13 +255,11 @@ retcode FlexibleObserverTerminalExtension::HandleSetShow(std::vector<std::string
 		mRange.allOfType = true;
 		mRange.start = 0;
 		mRange.stop = 0;
-	}
-	else if ( arArgs.size() == 1 ) {
+	} else if ( arArgs.size() == 1 ) {
 		mRange.allOfType = true;
 		mRange.start = 0;
 		mRange.stop = 0;
-	}
-	else if ( arArgs.size() == 2 ) {
+	} else if ( arArgs.size() == 2 ) {
 		mRange.allOfType = false;
 		int index = 0;
 		stringstream ss;
@@ -276,8 +267,7 @@ retcode FlexibleObserverTerminalExtension::HandleSetShow(std::vector<std::string
 		ss >> index;
 		mRange.start = index;
 		mRange.stop = index;
-	}
-	else if ( arArgs.size() == 3 ) {
+	} else if ( arArgs.size() == 3 ) {
 		mRange.allOfType = false;
 		size_t start = 0;
 		size_t stop = 0;
@@ -291,8 +281,7 @@ retcode FlexibleObserverTerminalExtension::HandleSetShow(std::vector<std::string
 
 		mRange.start = start;
 		mRange.stop = stop;
-	}
-	else {
+	} else {
 		return BAD_ARGUMENTS;
 	}
 

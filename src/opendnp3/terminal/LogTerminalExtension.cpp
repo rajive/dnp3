@@ -246,8 +246,7 @@ retcode LogTerminalExtension::HandleSetLogCol(std::vector<std::string>& arTokens
 			oss << "Log column character specified more than once: " << code[i] << "\r\n";
 			this->Send(oss.str());
 			return BAD_ARGUMENTS;
-		}
-		else {
+		} else {
 			add_columns.push_back(col);
 			columns.insert(col);
 		}
@@ -316,16 +315,14 @@ retcode LogTerminalExtension::HandleSetFilterOrLevel(std::vector<std::string>& a
 
 	if(arTokens.size() == 0) { //if no device specified, set all of them
 		mpLog->GetAllLoggers(loggers);
-	}
-	else { //otherwise loop over the remaining arguments
+	} else { //otherwise loop over the remaining arguments
 		for(size_t i = 0; i < arTokens.size(); i++) {
 			Logger* pLogger = mpLog->GetExistingLogger(arTokens[i]);
 
 			if(pLogger == NULL) { //device name not found
 				this->Send("Unrecognized device name: " + arTokens[i] + "\r\n");
 				return BAD_ARGUMENTS;
-			}
-			else {
+			} else {
 				loggers.push_back(pLogger);
 			}
 		}

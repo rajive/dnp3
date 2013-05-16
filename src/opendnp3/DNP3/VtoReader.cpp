@@ -45,9 +45,9 @@ void VtoReader::AddVtoChannel(IVtoCallbacks* apCallbacks)
 		out << (int)id;
 
 		throw ArgumentException(
-		    LOCATION,
-		    "Channel already registered: " +
-		    out.str() );
+		        LOCATION,
+		        "Channel already registered: " +
+		        out.str() );
 	}
 
 	/* Register the callbacks for the channel id */
@@ -84,13 +84,11 @@ void VtoReader::UpdateEnhancedVto(const VtoData& arData, boost::uint8_t aChannel
 			ERROR_BLOCK(LEV_ERROR,
 			            "Received enhanced Vto control message for unregistered channel: " << realChannel,
 			            VTOERR_ENHANCED_VTO_FOR_UNREGISTERED_CHANNEL);
-		}
-		else {
+		} else {
 			VtoData data(remoteOnline ? VTODT_REMOTE_OPENED : VTODT_REMOTE_CLOSED);
 			i->second->OnVtoDataReceived(data);
 		}
-	}
-	catch(Exception ex) {
+	} catch(Exception ex) {
 		ERROR_BLOCK(LEV_WARNING, ex.GetErrorString(), VTOERR_BADLY_FORMATTED_ENHANCED_VTO);
 	}
 }
@@ -104,8 +102,7 @@ void VtoReader::UpdateNormalVto(const VtoData& arData, boost::uint8_t aChannelId
 		            "No registered callback handler for received data "
 		            "on VTO channel id: " + aChannelId,
 		            VTOERR_VTO_FOR_UNEXPECTED_CHANNEL);
-	}
-	else {
+	} else {
 		i->second->OnVtoDataReceived(arData);
 	}
 }
@@ -118,8 +115,7 @@ void VtoReader::Update(const VtoData& arData,
 
 	if(aChannelId == 255) {
 		this->UpdateEnhancedVto(arData, aChannelId);
-	}
-	else {
+	} else {
 		this->UpdateNormalVto(arData, aChannelId);
 	}
 }

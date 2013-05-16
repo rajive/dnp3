@@ -107,8 +107,7 @@ void EventLog :: AddLogSubscriber(ILogBase* apSubscriber, int aErrorCode)
 		std::set<int> set;
 		mSubscribers.insert(SubscriberMap::value_type(apSubscriber, set));
 		this->AddLogSubscriber(apSubscriber, aErrorCode);
-	}
-	else i->second.insert(aErrorCode);
+	} else i->second.insert(aErrorCode);
 }
 
 void EventLog :: RemoveLogSubscriber(ILogBase* apBase)

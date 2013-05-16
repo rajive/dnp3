@@ -73,8 +73,7 @@ void TimerSourceASIO::SafeExecute(const FunctionVoidZero& arFunc, AsyncResult* a
 	try {
 		arFunc();
 		apResult->Success();
-	}
-	catch(Exception ex) {
+	} catch(Exception ex) {
 		apResult->Failure(boost::bind(&TimerSourceASIO::Rethrow, ex));
 	}
 }
@@ -90,8 +89,7 @@ TimerASIO* TimerSourceASIO::GetTimer()
 	if(mIdleTimers.size() == 0) {
 		pTimer = new TimerASIO(*mpService);
 		mAllTimers.push_back(pTimer);
-	}
-	else {
+	} else {
 		pTimer = mIdleTimers.front();
 		mIdleTimers.pop_front();
 	}

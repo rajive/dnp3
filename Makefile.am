@@ -684,16 +684,22 @@ BUILT_SOURCES += swig/PythonDNP3.cpp
 endif
 
 
-ASTYLE=astyle --options=config/astyle.cfg
+ASTYLE=astyle --options=${srcdir}/config/astyle.cfg
 
 DOCBOOK2HTML=docbook2html
 DOCBOOK2PDF=docbook2pdf
 
 astyle:
-	${ASTYLE}   ${srcdir}/src/opendnp3/APL/*.cpp            					${srcdir}/src/opendnp3/APL/*.h
+	${ASTYLE}   ${srcdir}/src/opendnp3/APL/*.cpp            	${srcdir}/src/opendnp3/APL/*.h
+	${ASTYLE}   ${srcdir}/src/opendnp3/APL/test/*.cpp           ${srcdir}/src/opendnp3/APL/test/*.h
 	${ASTYLE}   ${srcdir}/src/opendnp3/APL/test/util/*.cpp   	${srcdir}/src/opendnp3/APL/test/util/*.h
 	${ASTYLE}   ${srcdir}/src/opendnp3/DNP3/*.cpp           	${srcdir}/src/opendnp3/DNP3/*.h
 	${ASTYLE}   ${srcdir}/src/opendnp3/DNP3/test/*.cpp       	${srcdir}/src/opendnp3/DNP3/test/*.h
+	${ASTYLE}   ${srcdir}/src/opendnp3/terminal/*.cpp           ${srcdir}/src/opendnp3/terminal/*.h
+	${ASTYLE}   ${srcdir}/src/opendnp3/terminal/test/*.cpp      #${srcdir}/src/opendnp3/terminal/test/*.h
+	${ASTYLE}   ${srcdir}/src/opendnp3/testset/*.cpp           	${srcdir}/src/opendnp3/testset/*.h
+	${ASTYLE}   ${srcdir}/src/opendnp3/xml/APL/*.cpp           	${srcdir}/src/opendnp3/xml/APL/*.h
+	${ASTYLE}   ${srcdir}/src/opendnp3/xml/DNP3/*.cpp           ${srcdir}/src/opendnp3/xml/DNP3/*.h
 
 docs: docs-html docs-pdf
 

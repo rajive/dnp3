@@ -60,10 +60,8 @@ void ThreadBoost::SleepFor(millis_t millis, bool ensureSleepForCorrectTime)
 			millis_t remain = millis - sw.Elapsed(false);
 			if(remain <= 0) break;
 			boost::this_thread::yield();
-		}
-		while(true);
-	}
-	else {
+		} while(true);
+	} else {
 		boost::this_thread::sleep(boost::posix_time::milliseconds(millis));
 	}
 

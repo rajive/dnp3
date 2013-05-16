@@ -54,8 +54,7 @@ bool SingleNodeSaver<RootNode> :: _LoadNode(RootNode& aeNode)
 	try {
 		loadXmlInto(mFileName, &aeNode);
 		return true;
-	}
-	catch(Exception& e) {
+	} catch(Exception& e) {
 		//treat file not found as a warning (its expect on a clean boot)
 		FilterLevel level = e.ErrorCode() == IXMLDataBound::ERR_XML_NO_FILE ? LEV_WARNING : LEV_ERROR;
 		LOG_BLOCK(level, "Error Loading XML: " << e.what());
@@ -70,8 +69,7 @@ bool SingleNodeSaver<RootNode> :: _SaveNode(RootNode& aeNode)
 		TiXmlDocument doc2;
 		aeNode.toXml(&doc2, true, true);
 		return doc2.SaveFile(mFileName);
-	}
-	catch(Exception& e) {
+	} catch(Exception& e) {
 		LOG_BLOCK(LEV_ERROR, "Error Saving XML: " << e.what());
 		return false;
 	}

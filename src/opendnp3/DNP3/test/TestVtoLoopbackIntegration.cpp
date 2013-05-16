@@ -31,11 +31,11 @@ class VtoLoopbackTestStack : public VtoIntegrationTestBase
 {
 public:
 	VtoLoopbackTestStack(
-	    bool clientOnSlave = true,
-	    bool aImmediateOutput = false,
-	    bool aLogToFile = false,
-	    FilterLevel level = LEV_INFO,
-	    boost::uint16_t port = MACRO_PORT_VALUE) :
+	        bool clientOnSlave = true,
+	        bool aImmediateOutput = false,
+	        bool aLogToFile = false,
+	        FilterLevel level = LEV_INFO,
+	        boost::uint16_t port = MACRO_PORT_VALUE) :
 
 		VtoIntegrationTestBase(clientOnSlave, aImmediateOutput, aLogToFile, level, port),
 		loopback(mLog.GetLogger(level, "loopback"), &vtoServer, &timerSource),
@@ -85,7 +85,7 @@ void TestLargeDataLoopback(VtoLoopbackTestStack& arTest, size_t aSizeInBytes)
 
 BOOST_AUTO_TEST_CASE(LargeDataLoopbackMasterWritesSlaveEchoes)
 {
-	VtoLoopbackTestStack stack(true, false);	
+	VtoLoopbackTestStack stack(true, false);
 	stack.tcpPipe.client.SetCorruptionProbability(0.005);
 	stack.tcpPipe.server.SetCorruptionProbability(0.005);
 	TestLargeDataLoopback(stack, MACRO_BUFFER_SIZE);

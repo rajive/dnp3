@@ -99,8 +99,7 @@ bool AppLayerChannel::Retry(ACS_Base* apState)
 		this->ChangeState(apState);
 		mpAppLayer->QueueFrame(*mpSendAPDU);
 		return true;
-	}
-	else {
+	} else {
 		return false;
 	}
 }

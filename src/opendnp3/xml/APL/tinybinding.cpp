@@ -47,8 +47,7 @@ const char* IXMLDataBound::GetValue(const char* aNodeName, TiXmlNode* apNode, Ti
 	oss << "ERROR: Missing node: " << aNodeName << " at " << apParent->Row() << ":" << apParent->Column();
 	if(msExceptOnFailure) {
 		throw apl::Exception(LOCATION, oss.str());
-	}
-	else {
+	} else {
 		std::cout << oss.str() << std::endl;
 		return "";
 	}

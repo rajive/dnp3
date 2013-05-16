@@ -77,8 +77,7 @@ void Terminal::InitCmdHandlers()
 		quit.mDesc = "Terminates the program";
 
 		this->BindCommand(quit, "quit");
-	}
-	else {
+	} else {
 
 		////////////////////////
 		// bye - closes the physical layer
@@ -110,21 +109,18 @@ retcode Terminal::HandleHelp(std::vector<std::string>& arTokens)
 			ostringstream oss;
 			oss << "No topic found for: " << arTokens[0] << ITerminal::EOL;
 			this->QueueSend(oss.str());
-		}
-		else {
+		} else {
 			if(pCmd->mHandler) { // the node is not a command, so print it's subcommands
 				this->QueueSend("usage: " + pCmd->mUsage + "\r\n");
 				this->QueueSend(pCmd->mDesc + "\r\n");
-			}
-			else { //the node is a function
+			} else { //the node is a function
 				vector<string> subcmds;
 				pNode->GetSubNodeNames(subcmds);
 				this->PrintSubCommands(pCmd->mName, subcmds);
 			}
 		}
 
-	}
-	else { //dump out all the commands at the root
+	} else { //dump out all the commands at the root
 		vector<string> names;
 		deque<string> path;
 		mCmdRoot.GetSubNodesWithOptions(names);
@@ -210,8 +206,7 @@ void Terminal::QueueSendRecursive(const std::string& arData)
 	if(arData.size() <= mSendBuffer.Size()) {
 		this->mSendQueue.push_back(arData);
 		this->CheckForSend();
-	}
-	else {
+	} else {
 		this->mSendQueue.push_back(arData.substr(0, mSendBuffer.Size()));
 		this->QueueSendRecursive(arData.substr(mSendBuffer.Size())); //tail recursion
 	}
@@ -269,8 +264,7 @@ retcode Terminal::ProcessLine(const string& arLine)
 			if(result == BAD_ARGUMENTS) { //print the usage for this command
 				this->QueueSend("usage: " + pCmd->mUsage + "\r\n", false);
 			}
-		}
-		else { //the end node isn't a command, so print it it's subcommands
+		} else { //the end node isn't a command, so print it it's subcommands
 			vector<string> subcommands;
 			pNode->GetSubNodeNames(subcommands);
 			this->PrintSubCommands(pCmd->mName, subcommands);

@@ -160,8 +160,7 @@ void AsyncTaskGroup::CheckState()
 		if(pTask->NextRunTime() <= now) {
 			mIsRunning = true;
 			pTask->Dispatch();
-		}
-		else {
+		} else {
 			this->RestartTimer(pTask->NextRunTime());
 		}
 	}

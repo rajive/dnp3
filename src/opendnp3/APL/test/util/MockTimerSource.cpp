@@ -46,8 +46,7 @@ bool MockTimerSource::DispatchOne()
 		mPostQueue.pop_front();
 		callback();
 		return true;
-	}
-	else {
+	} else {
 		TimerMap::iterator front = mTimerMap.begin();
 
 		if(front != mTimerMap.end()) {
@@ -99,8 +98,7 @@ ITimer* MockTimerSource::Start(const boost::posix_time::ptime& arTime, const Fun
 		pTimer = mIdle.front();
 		mIdle.pop_front();
 		pTimer->mCallback = arCallback;
-	}
-	else {
+	} else {
 
 		pTimer = new MockTimer(this, arTime, arCallback);
 		mAllTimers.push_back(pTimer);

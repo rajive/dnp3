@@ -51,7 +51,7 @@ IPhysicalLayerAsync* PhysicalLayerMap::AcquireLayer(const std::string& arName)
 	PhysLayerSettings s = this->_GetSettings(arName);
 	PhysLayerInstance* pInstance = this->_GetInstance(arName);
 	AcquiredMap::iterator i = mAcquiredMap.find(arName);
-	if(i != mAcquiredMap.end()) throw ArgumentException("Layer with name has already been acquired: " + arName);	
+	if(i != mAcquiredMap.end()) throw ArgumentException("Layer with name has already been acquired: " + arName);
 	else {
 		mAcquiredMap[arName] = true;
 		IPhysicalLayerAsync* pLayer = pInstance->GetLayer(this->MakeLogger(arName, s.LogLevel), mpService);
@@ -66,8 +66,7 @@ void PhysicalLayerMap::ReleaseLayer(const std::string& arName)
 	NameToInstanceMap::iterator i = mNameToInstanceMap.find(arName);
 	if(i == mNameToInstanceMap.end()) {
 		throw ArgumentException(LOCATION, "Physical layer not managed by this map: " + arName);
-	}
-	else {
+	} else {
 		mAcquiredMap.erase(arName);
 		PhysLayerInstance* pInst = &i->second;
 		pInst->Release();

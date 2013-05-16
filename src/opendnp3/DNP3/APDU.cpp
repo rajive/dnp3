@@ -100,8 +100,7 @@ void APDU::SetFunction(FunctionCodes aCode)
 
 	if(aCode == FC_RESPONSE || aCode == FC_UNSOLICITED_RESPONSE) {
 		mpAppHeader = ResponseHeader::Inst();
-	}
-	else {
+	} else {
 		mpAppHeader = RequestHeader::Inst();
 	}
 
@@ -588,11 +587,9 @@ QualifierCode APDU::GetIndexedQualifier(size_t aMaxIndex, size_t aCount)
 {
 	if(aMaxIndex <= Count1OctetHeader::MaxCount() && aCount <= Count1OctetHeader::MaxCount()) {
 		return QC_1B_CNT_1B_INDEX;
-	}
-	else if(aMaxIndex <= Count2OctetHeader::MaxCount() && aCount <= Count2OctetHeader::MaxCount()) {
+	} else if(aMaxIndex <= Count2OctetHeader::MaxCount() && aCount <= Count2OctetHeader::MaxCount()) {
 		return QC_2B_CNT_2B_INDEX;
-	}
-	else {
+	} else {
 		return QC_4B_CNT_4B_INDEX;
 	}
 
@@ -602,11 +599,9 @@ QualifierCode APDU::GetContiguousQualifier(size_t aStart, size_t aStop)
 {
 	if(aStop <= Ranged2OctetHeader::MaxRange()) {
 		return QC_1B_START_STOP;
-	}
-	else if(aStop <= Ranged4OctetHeader::MaxRange()) {
+	} else if(aStop <= Ranged4OctetHeader::MaxRange()) {
 		return QC_2B_START_STOP;
-	}
-	else {
+	} else {
 		return QC_4B_START_STOP;
 	}
 }
@@ -637,12 +632,11 @@ std::string APDU::ToString() const
 		for ( ; !itr.IsEnd(); ++itr) {
 			oss << " Header: (Grp: " << itr->GetGroup();
 			oss << ", Var: " << itr->GetVariation();
-			oss << ", Qual: " << itr->GetQualifier() << ", ";			
-			oss << itr->GetHeader()->ToString(*itr);			
+			oss << ", Qual: " << itr->GetQualifier() << ", ";
+			oss << itr->GetHeader()->ToString(*itr);
 			oss << ")";
 		}
-	}
-	catch(Exception) {
+	} catch(Exception) {
 		oss << " Malformed header data preceeds";
 	}
 

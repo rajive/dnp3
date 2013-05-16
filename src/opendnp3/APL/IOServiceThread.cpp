@@ -63,11 +63,9 @@ void IOServiceThread::Run()
 
 	try {
 		num = mpService->run();
-	}
-	catch(IOServiceExitException&) {
+	} catch(IOServiceExitException&) {
 		LOG_BLOCK(LEV_INFO, "IOService exited via IOServiceExitException");
-	}
-	catch(const std::exception& ex) {
+	} catch(const std::exception& ex) {
 		LOG_BLOCK(LEV_ERROR, "Unexpected exception: " << ex.what());
 	}
 

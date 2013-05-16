@@ -181,8 +181,7 @@ void LinkLayerRouter::Transmit(const LinkFrame& arFrame)
 		}
 		this->mTransmitQueue.push_back(arFrame);
 		this->CheckForSend();
-	}
-	else {
+	} else {
 		ostringstream oss;
 		oss << "Unassociated context w/ route: " << lr;
 		throw ArgumentException(LOCATION, oss.str());

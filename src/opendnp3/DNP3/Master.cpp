@@ -75,13 +75,13 @@ Master::Master(Logger* apLogger, MasterConfig aCfg, IAppLayer* apAppLayer, IData
 	 * wake up mpCommandTask to process the data.
 	 */
 	mCommandQueue.SetNotifier(
-	    mNotifierSource.Get(
-	        boost::bind(
-	            &AsyncTaskBase::Enable,
-	            mSchedule.mpCommandTask
-	        ),
-	        mpTimerSrc
-	    )
+	        mNotifierSource.Get(
+	                boost::bind(
+	                        &AsyncTaskBase::Enable,
+	                        mSchedule.mpCommandTask
+	                ),
+	                mpTimerSrc
+	        )
 	);
 
 	/*
@@ -90,13 +90,13 @@ Master::Master(Logger* apLogger, MasterConfig aCfg, IAppLayer* apAppLayer, IData
 	 * mVtoWriter, wake up the mSchedule.mpVtoTransmitTask.
 	 */
 	mVtoWriter.AddObserver(
-	    mNotifierSource.Get(
-	        boost::bind(
-	            &AsyncTaskBase::Enable,
-	            mSchedule.mpVtoTransmitTask
-	        ),
-	        mpTimerSrc
-	    )
+	        mNotifierSource.Get(
+	                boost::bind(
+	                        &AsyncTaskBase::Enable,
+	                        mSchedule.mpVtoTransmitTask
+	                ),
+	                mpTimerSrc
+	        )
 	);
 
 	/*
@@ -151,8 +151,7 @@ void Master::ProcessCommand(ITask* apTask)
 
 	if(mpState == AMS_Closed::Inst()) { //we're closed
 		if(!mCommandQueue.RespondToCommand(CS_HARDWARE_ERROR)) apTask->Disable();
-	}
-	else {
+	} else {
 
 		switch(mCommandQueue.Next()) {
 		case(apl::CT_BINARY_OUTPUT): {
@@ -189,16 +188,14 @@ void Master::SyncTime(ITask* apTask)
 {
 	if(mLastIIN.GetNeedTime()) {
 		mpState->StartTask(this, apTask, &mTimeSync);
-	}
-	else apTask->Disable();
+	} else apTask->Disable();
 }
 
 void Master::WriteIIN(ITask* apTask)
 {
 	if(mLastIIN.GetDeviceRestart()) {
 		mpState->StartTask(this, apTask, &mClearRestart);
-	}
-	else apTask->Disable();
+	} else apTask->Disable();
 }
 
 void Master::IntegrityPoll(ITask* apTask)
@@ -233,8 +230,7 @@ void Master::TransmitVtoData(ITask* apTask)
 		if (mVtoTransmitTask.mBuffer.Size() > 0) {
 			/* Start the mVtoTransmitTask */
 			mpState->StartTask(this, apTask, &mVtoTransmitTask);
-		}
-		else {
+		} else {
 			/* Stop the mVtoTransmitTask */
 			apTask->Disable();
 		}
@@ -307,8 +303,7 @@ void Master::ProcessDataResponse(const APDU& arResponse)
 
 		for(HeaderReadIterator hdr = arResponse.BeginRead(); !hdr.IsEnd(); ++hdr)
 			loader.Process(hdr);
-	}
-	catch(Exception ex) {
+	} catch(Exception ex) {
 		EXCEPTION_BLOCK(LEV_WARNING, ex)
 	}
 }

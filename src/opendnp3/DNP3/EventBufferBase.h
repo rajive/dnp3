@@ -293,8 +293,7 @@ size_t EventBufferBase <EventType, SetType> :: Select(PointClass aClass, size_t 
 			mEventSet.erase(i++);
 			++count;
 			mSelectedEvents.back().mWritten = false;
-		}
-		else ++i;
+		} else ++i;
 	}
 
 	return count;

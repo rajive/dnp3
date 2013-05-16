@@ -223,9 +223,9 @@ BOOST_AUTO_TEST_CASE(Obj32Var2Write)
 	iter.SetIndex(2);
 	Analog a(3, AQ_RESTART);
 	Group32Var2::Inst()->Write(*iter, a);
-	
+
 	std::string expected("C0 81 00 00 20 02 39 01 00 00 00 02 00 00 00 02 03 00");
-	std::string actual = toHex(frag.GetBuffer(), frag.Size(), true);		
+	std::string actual = toHex(frag.GetBuffer(), frag.Size(), true);
 	BOOST_REQUIRE_EQUAL(expected, actual);
 }
 

@@ -132,8 +132,7 @@ BOOST_AUTO_TEST_CASE(ClassPollRequest)
 	try {
 		//IINField f = frag.GetIIN();
 		frag.GetIIN();
-	}
-	catch(Exception) {
+	} catch(Exception) {
 		except = true;
 	}
 	BOOST_REQUIRE(except);
@@ -359,8 +358,7 @@ BOOST_AUTO_TEST_CASE(InsufficientDataForFragment)
 	int code = -1;
 	try {
 		frag.Interpret();
-	}
-	catch(Exception ex) {
+	} catch(Exception ex) {
 		code = ex.ErrorCode();
 	}
 	BOOST_REQUIRE_EQUAL(code, ALERR_INSUFFICIENT_DATA_FOR_FRAG);
@@ -375,8 +373,7 @@ BOOST_AUTO_TEST_CASE(InsufficientDataForResponse)
 	int code = -1;
 	try {
 		frag.Interpret();
-	}
-	catch(Exception ex) {
+	} catch(Exception ex) {
 		code = ex.ErrorCode();
 	}
 	BOOST_REQUIRE_EQUAL(code, ALERR_INSUFFICIENT_DATA_FOR_RESPONSE);
@@ -391,8 +388,7 @@ BOOST_AUTO_TEST_CASE(InsufficientDataForObjectHeader)
 	int code = -1;
 	try {
 		frag.Interpret();
-	}
-	catch(Exception ex) {
+	} catch(Exception ex) {
 		code = ex.ErrorCode();
 	}
 
@@ -408,8 +404,7 @@ BOOST_AUTO_TEST_CASE(UnknownGroupVar)
 	bool gotIt = false;
 	try {
 		frag.Interpret();
-	}
-	catch(ObjectException ex) {
+	} catch(ObjectException ex) {
 		gotIt = true;
 	}
 
@@ -425,8 +420,7 @@ BOOST_AUTO_TEST_CASE(StartStopMismach)
 	int code = -1;
 	try {
 		frag.Interpret();
-	}
-	catch(Exception ex) {
+	} catch(Exception ex) {
 		code = ex.ErrorCode();
 	}
 
@@ -442,8 +436,7 @@ BOOST_AUTO_TEST_CASE(NonstaticObjectWithIndexPrefix)
 	int code = -1;
 	try {
 		frag.Interpret();
-	}
-	catch(Exception ex) {
+	} catch(Exception ex) {
 		code = ex.ErrorCode();
 	}
 
@@ -459,8 +452,7 @@ BOOST_AUTO_TEST_CASE(NonvariableObjectWithSizePrefix)
 	int code = -1;
 	try {
 		frag.Interpret();
-	}
-	catch(Exception ex) {
+	} catch(Exception ex) {
 		code = ex.ErrorCode();
 	}
 
@@ -476,8 +468,7 @@ BOOST_AUTO_TEST_CASE(UnknownQualifer)
 	int code = -1;
 	try {
 		frag.Interpret();
-	}
-	catch(Exception ex) {
+	} catch(Exception ex) {
 		code = ex.ErrorCode();
 	}
 

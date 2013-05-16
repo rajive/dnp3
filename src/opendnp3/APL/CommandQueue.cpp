@@ -28,8 +28,7 @@ apl::CommandTypes CommandQueue::Next()
 	CriticalSection cs(&mLock);
 	if(mTypeQueue.size() > 0) {
 		return mTypeQueue.front().mType;
-	}
-	else return CT_NONE;
+	} else return CT_NONE;
 }
 
 template < typename T >

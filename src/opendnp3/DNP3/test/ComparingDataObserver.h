@@ -96,12 +96,10 @@ void ComparingDataObserver::UpdateAny(const T& arPoint, size_t aIndex, const typ
 	typename PointMap<T>::Type::const_iterator i = arMap.find(aIndex);
 	if(i == arMap.end()) {
 		LOG_BLOCK(LEV_ERROR, "Unexpected index: " << aIndex << " - " << arPoint.ToString());
-	}
-	else {
+	} else {
 		if(i->second == arPoint) {
 			arCompareMap[aIndex] = true;
-		}
-		else arCompareMap.erase(aIndex);
+		} else arCompareMap.erase(aIndex);
 	}
 }
 

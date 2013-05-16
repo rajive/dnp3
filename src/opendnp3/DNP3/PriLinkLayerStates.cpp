@@ -131,8 +131,7 @@ void PLLS_ResetLinkWait::OnTimeout(LinkLayer* apLL)
 		ERROR_LOGGER_BLOCK(apLL->GetLogger(), LEV_WARNING, "Confirmed data timeout, retrying, " << apLL->RetryRemaining() << " remaining", DLERR_TIMEOUT_RETRY);
 		apLL->StartTimer();
 		apLL->SendResetLinks();
-	}
-	else {
+	} else {
 		ERROR_LOGGER_BLOCK(apLL->GetLogger(), LEV_WARNING, "Confirmed data final timeout", DLERR_TIMEOUT_NO_RETRY);
 		apLL->ChangeState(PLLS_SecNotReset::Inst());
 		apLL->DoSendFailure();
@@ -174,8 +173,7 @@ void PLLS_ConfDataWait::OnTimeout(LinkLayer* apLL)
 		apLL->StartTimer();
 		apLL->ChangeState(PLLS_ConfDataWait::Inst());
 		apLL->SendDelayedUserData(apLL->NextWriteFCB());
-	}
-	else {
+	} else {
 		ERROR_LOGGER_BLOCK(apLL->GetLogger(), LEV_WARNING, "Confirmed data timeout", DLERR_TIMEOUT_NO_RETRY);
 		apLL->ChangeState(PLLS_SecNotReset::Inst());
 		apLL->DoSendFailure();

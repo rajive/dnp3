@@ -56,11 +56,11 @@ protected:
 	typedef std::map<std::string, PhysLayerSettings> NameToSettingsMap;
 	typedef std::map<std::string, PhysLayerInstance> NameToInstanceMap;
 	typedef std::map<std::string, bool> AcquiredMap;
-	
+
 	NameToSettingsMap mNameToSettingsMap;
 	NameToInstanceMap mNameToInstanceMap;
 	AcquiredMap mAcquiredMap;
-	
+
 	boost::asio::io_service* mpService;
 	Logger* mpBaseLogger;
 };

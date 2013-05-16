@@ -70,7 +70,7 @@ public:
 	inline static std::string ToString_float(float aValue);
 
 	enum ErrorCode {
-	    ERR_XML_NO_FILE
+		ERR_XML_NO_FILE
 	};
 };
 
@@ -222,8 +222,7 @@ T* LoadXML(const std::string& arFileName)
 	try {
 		loadXmlInto(arFileName, pCfg);
 		return pCfg;
-	}
-	catch(apl::Exception ex) {
+	} catch(apl::Exception ex) {
 		std::cout << "Error loading config file: " << std::endl;
 		std::cout << ex.GetErrorString() << std::endl;
 		throw ex;

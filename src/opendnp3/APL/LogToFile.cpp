@@ -31,8 +31,7 @@ LogToFile :: LogToFile(EventLog* apLog, const std::string aFileName, const bool 
 {
 	if(aFileName == "-" || aFileName == "") {
 		mpLog = NULL;
-	}
-	else {
+	} else {
 		StartLogging();
 	}
 }
@@ -84,8 +83,7 @@ void LogToFile :: PushItemsToFile()
 		file << std::flush;
 		if(file.bad()) std::cerr << "Failure during writing log file: " << file.rdstate() << std::endl;
 		file.close();
-	}
-	catch(std::exception e) {
+	} catch(std::exception e) {
 		std::cerr << "Error during LogToFile: " << e.what() << std::endl;
 	}
 }

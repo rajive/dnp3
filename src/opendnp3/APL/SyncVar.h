@@ -77,8 +77,7 @@ public:
 		if(aTimeout >= 0) {
 			Timeout dt(aTimeout);
 			while(!dt.IsExpired() && !(mValue == arVal)) mLock.TimedWait(dt.Remaining());
-		}
-		else {
+		} else {
 			while(!(mValue == arVal)) mLock.Wait();
 		}
 
@@ -92,8 +91,7 @@ public:
 		if(aTimeout >= 0) {
 			Timeout dt(aTimeout);
 			while(!dt.IsExpired() && (mValue == arVal)) mLock.TimedWait(dt.Remaining());
-		}
-		else {
+		} else {
 			while(mValue == arVal) mLock.Wait();
 		}
 

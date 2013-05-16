@@ -72,8 +72,7 @@ bool TransportTx::CheckForSend()
 		LOG_BLOCK(LEV_INTERPRET, "-> " << TransportLayer::ToString(mBufferTPDU[0]));
 		mpContext->TransmitTPDU(mBufferTPDU, num_to_send + 1);
 		return false;
-	}
-	else {
+	} else {
 		mNumBytesSent = mNumBytesToSend = 0;
 		return true;
 	}

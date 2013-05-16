@@ -145,8 +145,7 @@ void ResponseLoader::ReadVto(HeaderReadIterator& arIter, SizeByVariationObject* 
 	size_t index = objIter->Index();
 	if(index > std::numeric_limits<boost::uint8_t>::max()) {
 		LOG_BLOCK(LEV_WARNING, "Ignoring VTO index that exceeds bit width of uint8_t: " << index);
-	}
-	else {
+	} else {
 		boost::uint8_t channel = static_cast<boost::uint8_t>(index);
 		Transaction t(mpVtoReader);
 		this->mpVtoReader->Update(data, channel);

@@ -42,13 +42,11 @@ CommandStatus CommandResponder :: HandleControl(const BinaryOutput& aControl, si
 			mpObs->Update(ControlStatus(val, ControlStatus::ONLINE), aIndex);
 			cs = CS_SUCCESS;
 			LOG_BLOCK(LEV_INFO, "Updated ControlStatus " << aIndex << " with " << val << "." );
-		}
-		catch (Exception& ex) {
+		} catch (Exception& ex) {
 			LOG_BLOCK(LEV_WARNING, "Failure trying to update point in response to control. " << ex.GetErrorString());
 			cs = CS_FORMAT_ERROR;
 		}
-	}
-	else {
+	} else {
 		cs = GetResponseCode(true, aIndex);
 	}
 	LOG_BLOCK(LEV_INFO, "[" << aIndex << "] - " <<  aControl.ToString() << " returning " << ToString(cs));
@@ -64,13 +62,11 @@ CommandStatus CommandResponder :: HandleControl(const Setpoint& aControl, size_t
 			mpObs->Update(SetpointStatus(aControl.GetValue(), SetpointStatus::ONLINE), aIndex);
 			cs = CS_SUCCESS;
 			LOG_BLOCK(LEV_INFO, "Updated SetpointStatus " << aIndex << " with " << aControl.GetValue() << "." );
-		}
-		catch (Exception& ex) {
+		} catch (Exception& ex) {
 			LOG_BLOCK(LEV_WARNING, "Failure trying to update point in response to control. " << ex.GetErrorString());
 			cs = CS_FORMAT_ERROR;
 		}
-	}
-	else {
+	} else {
 		cs = GetResponseCode(false, aIndex);
 	}
 	LOG_BLOCK(LEV_INFO, "[" << aIndex << "] - " <<  aControl.ToString() << " returning " << ToString(cs));
@@ -165,8 +161,7 @@ retcode ControlResponseTE :: HandleSetResponse(std::vector<std::string>& arArgs)
 	int temp;
 	if(Parsing::Get(arArgs[2], temp)) {
 		response = static_cast<CommandStatus>(temp);
-	}
-	else if(!LookupCommandStatus(arArgs[2], response)) return BAD_ARGUMENTS;
+	} else if(!LookupCommandStatus(arArgs[2], response)) return BAD_ARGUMENTS;
 
 	if(type == 0 || type == 2) mHandler.SetResponseCode(true, index, response);
 	if(type == 1 || type == 2) mHandler.SetResponseCode(false, index, response);

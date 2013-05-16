@@ -106,8 +106,7 @@ boost::asio::ip::address PhysicalLayerAsyncBaseTCP::ResolveAddress(const std::st
 		boost::asio::ip::tcp::resolver::query    query(arEndpoint, "");
 		boost::asio::ip::tcp::resolver::iterator iter = resolver.resolve(query);
 		boost::asio::ip::tcp::resolver::iterator end;
-		while (iter != end)
-		{
+		while (iter != end) {
 			boost::asio::ip::tcp::endpoint ep = *iter++;
 			return ep.address();
 		}

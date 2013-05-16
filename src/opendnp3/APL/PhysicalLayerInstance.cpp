@@ -47,7 +47,7 @@ void PhysLayerInstance::Release()
 	if(mOwnsLayer) {
 		delete mpLayer;
 		mpLayer = NULL;
-	}	
+	}
 }
 
 IPhysicalLayerAsync*  PhysLayerInstance::GetLayer(Logger* apLogger, boost::asio::io_service* apService)

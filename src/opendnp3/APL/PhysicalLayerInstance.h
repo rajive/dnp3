@@ -39,7 +39,7 @@ public:
 	* Constructor whereby this class manages the lifecycle of the physical layer
 	*/
 	PhysLayerInstance(IPhysicalLayerAsyncFactory);
-	
+
 	/**
 	* Constructor whereby the lifecycle of the physical layer is managed externally
 	*/
@@ -47,7 +47,7 @@ public:
 
 	IPhysicalLayerAsync* GetLayer(Logger*, boost::asio::io_service*);
 
-	void Release();	
+	void Release();
 
 private:
 

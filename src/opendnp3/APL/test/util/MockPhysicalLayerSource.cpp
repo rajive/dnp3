@@ -49,11 +49,10 @@ IPhysicalLayerAsync* MockPhysicalLayerSource::AcquireLayer(const std::string& ar
 	MockMap::iterator i = mMockMap.find(arName);
 	if(i == this->mMockMap.end()) {
 		Logger* pLogger = mpLogger->GetSubLogger(arName);
-		MockPhysicalLayerAsync* pLayer = new MockPhysicalLayerAsync(pLogger, mpTimerSrc);				
+		MockPhysicalLayerAsync* pLayer = new MockPhysicalLayerAsync(pLogger, mpTimerSrc);
 		mMockMap.insert(MockMap::value_type(arName, pLayer));
 		return pLayer;
-	}
-	else throw ArgumentException(LOCATION, "Layer already exists: " + arName);
+	} else throw ArgumentException(LOCATION, "Layer already exists: " + arName);
 }
 
 void MockPhysicalLayerSource::ReleaseLayer(const std::string& arName)

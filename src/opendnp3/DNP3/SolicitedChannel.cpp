@@ -61,8 +61,7 @@ void SolicitedChannel::OnRequest(APDU& arAPDU)
 	if (acf.SEQ == this->Sequence()) {
 		LOG_BLOCK(LEV_WARNING, "Received previous sequence");
 		seq = SI_PREV;
-	}
-	else if (acf.SEQ == NextSeq(this->Sequence())) {
+	} else if (acf.SEQ == NextSeq(this->Sequence())) {
 		seq = SI_CORRECT;
 	}
 

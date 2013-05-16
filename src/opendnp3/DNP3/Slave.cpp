@@ -76,10 +76,10 @@ Slave::Slave(Logger* apLogger, IAppLayer* apAppLayer, ITimerSource* apTimerSrc, 
 	 * Slave::OnDataUpdate().
 	 */
 	mChangeBuffer.AddObserver(
-	    mNotifierSource.Get(
-	        boost::bind(&Slave::OnDataUpdate, this),
-	        mpTimerSrc
-	    )
+	        mNotifierSource.Get(
+	                boost::bind(&Slave::OnDataUpdate, this),
+	                mpTimerSrc
+	        )
 	);
 
 	/*
@@ -87,10 +87,10 @@ Slave::Slave(Logger* apLogger, IAppLayer* apAppLayer, ITimerSource* apTimerSrc, 
 	 * Slave::OnVtoUpdate().
 	 */
 	mVtoWriter.AddObserver(
-	    mNotifierSource.Get(
-	        boost::bind(&Slave::OnVtoUpdate, this),
-	        mpTimerSrc
-	    )
+	        mNotifierSource.Get(
+	                boost::bind(&Slave::OnVtoUpdate, this),
+	                mpTimerSrc
+	        )
 	);
 
 	/* Cause the slave to go through the null-unsol startup sequence */
@@ -256,8 +256,7 @@ size_t Slave::FlushUpdates()
 	size_t num = 0;
 	try {
 		num = mChangeBuffer.FlushUpdates(mpDatabase);
-	}
-	catch (Exception& ex) {
+	} catch (Exception& ex) {
 		LOG_BLOCK(LEV_ERROR, "Error in flush updates: " << ex.Message());
 		Transaction tr(mChangeBuffer);
 		mChangeBuffer.Clear();
@@ -325,8 +324,7 @@ void Slave::HandleWriteVto(HeaderReadIterator& arHdr)
 
 		if(index > std::numeric_limits<boost::uint8_t>::max()) {
 			LOG_BLOCK(LEV_WARNING, "Ignoring VTO index that exceeds bit width of uint8_t: " << index);
-		}
-		else {
+		} else {
 			/*
 			 * Pass the data to the vto reader
 			 */
@@ -349,8 +347,7 @@ void Slave::HandleWriteIIN(HeaderReadIterator& arHdr)
 				bool value = Group80Var1::Inst()->Read(*obj, obj->Start(), obj->Index());
 				if (!value) {
 					mIIN.SetDeviceRestart(false);
-				}
-				else {
+				} else {
 					mRspIIN.SetParameterError(true);
 					ERROR_BLOCK(LEV_WARNING, "", SERR_INVALID_IIN_WRITE);
 				}
@@ -395,19 +392,19 @@ void Slave::HandleVtoTransfer(const APDU& arRequest)
 {
 	for(HeaderReadIterator hdr = arRequest.BeginRead(); !hdr.IsEnd(); ++hdr) {
 		switch(hdr->GetGroup()) {
-			case 112:
-				this->HandleWriteVto(hdr);
-				break;
-			default:
-				mRspIIN.SetFuncNotSupported(true);
-				ERROR_BLOCK(LEV_WARNING, "Object/Function mismatch", SERR_OBJ_FUNC_MISMATCH);
-				break;
+		case 112:
+			this->HandleWriteVto(hdr);
+			break;
+		default:
+			mRspIIN.SetFuncNotSupported(true);
+			ERROR_BLOCK(LEV_WARNING, "Object/Function mismatch", SERR_OBJ_FUNC_MISMATCH);
+			break;
 		}
 	}
 }
 
 void Slave::HandleWrite(const APDU& arRequest)
-{	
+{
 	for (HeaderReadIterator hdr = arRequest.BeginRead(); !hdr.IsEnd(); ++hdr) {
 		switch (hdr->GetGroup()) {
 		case 112:
@@ -556,8 +553,7 @@ void Slave::HandleEnableUnsolicited(const APDU& arRequest, bool aIsEnable)
 
 	if (mConfig.mDisableUnsol) {
 		mRspIIN.SetFuncNotSupported(true);
-	}
-	else {
+	} else {
 		if (aIsEnable) {
 			this->mDeferredUnsol = true;
 		}
