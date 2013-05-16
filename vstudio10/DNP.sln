@@ -1,7 +1,5 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSToCppXMLBinder", "..\CSToCppXMLBinder\CSToCppXMLBinder.csproj", "{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DNP3", "DNP3.vcxproj", "{E053E7ED-F462-4DE0-8D69-6D97045FFB25}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DNP3Test", "DNP3Test.vcxproj", "{893D4C53-0729-480D-8F40-75E7139224DF}"
@@ -28,29 +26,31 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "APLXML", "APLXML.vcxproj", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DNP3Java", "DNP3Java.vcxproj", "{ADDD6B3A-FFAE-4534-B27B-2795CEE8D2AD}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TestSetInstaller", "..\TestSetInstaller\TestSetInstaller.vdproj", "{9FAD9888-9441-4ACF-8750-90AFEA9F938A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demos", "..\demos", "{CE05D40B-B770-42DB-91AE-BC14AAF7A413}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demos", "demos", "{CE05D40B-B770-42DB-91AE-BC14AAF7A413}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SlaveDemo", "SlaveDemo.vcxproj", "{9C4EC600-DE0F-4042-BE12-F4BAF605A49C}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MasterDemo", "MasterDemo.vcxproj", "{02A532F5-D728-41F6-B3B8-19823DD20CD5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnet", "..\dotnet", "{9A7489FE-BBB2-41B1-A4F8-BCC01DE1C89B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "windows", "windows", "{9A7489FE-BBB2-41B1-A4F8-BCC01DE1C89B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetMasterDemo", "..\DotNet\DotNetMasterDemo\DotNetMasterDemo.csproj", "{9BEAD0C0-833F-4368-82D1-BAE30F38E6C5}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TestSetInstaller", "..\windows\TestSetInstaller\TestSetInstaller.vdproj", "{9FAD9888-9441-4ACF-8750-90AFEA9F938A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetInterface", "..\DotNet\DotNetInterface\DotNetInterface.csproj", "{C280F8AA-8461-4126-BF88-454891422FD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSToCppXMLBinder", "..\windows\CSToCppXMLBinder\CSToCppXMLBinder.csproj", "{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSlaveDemo", "..\DotNet\DotNetSlaveDemo\DotNetSlaveDemo.csproj", "{96F33EA8-6CE5-4D70-82AD-9C9DA664A688}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetMasterDemo", "..\windows\DotNetMasterDemo\DotNetMasterDemo.csproj", "{9BEAD0C0-833F-4368-82D1-BAE30F38E6C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetTestSet", "..\DotNet\DotNetTestSet\DotNetTestSet.csproj", "{F1EBF237-ADE1-478F-B9A0-34B6B2996C94}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetInterface", "..\windows\DotNetInterface\DotNetInterface.csproj", "{C280F8AA-8461-4126-BF88-454891422FD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSetControlLibrary", "..\DotNet\TestSetControlLibrary\TestSetControlLibrary.csproj", "{A37903BE-7E9B-4442-8D9A-1C33F58F661F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSlaveDemo", "..\windows\DotNetSlaveDemo\DotNetSlaveDemo.csproj", "{96F33EA8-6CE5-4D70-82AD-9C9DA664A688}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DotNetTestSetInstaller", "..\DotNet\DotNetTestSetInstaller\DotNetTestSetInstaller.vdproj", "{1CC669D2-F7BC-4A6B-A516-89E108E36BA8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetTestSet", "..\windows\DotNetTestSet\DotNetTestSet.csproj", "{F1EBF237-ADE1-478F-B9A0-34B6B2996C94}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DotNetAdapter", "..\DotNet\DotNetAdapter\DotNetAdapter.vcxproj", "{83D36075-5D61-4D88-9EBF-1BD87359A47A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSetControlLibrary", "..\windows\TestSetControlLibrary\TestSetControlLibrary.csproj", "{A37903BE-7E9B-4442-8D9A-1C33F58F661F}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DotNetTestSetInstaller", "..\windows\DotNetTestSetInstaller\DotNetTestSetInstaller.vdproj", "{1CC669D2-F7BC-4A6B-A516-89E108E36BA8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DotNetAdapter", "..\windows\DotNetAdapter\DotNetAdapter.vcxproj", "{83D36075-5D61-4D88-9EBF-1BD87359A47A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,24 +66,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Debug|x64.ActiveCfg = Debug|x64
-		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Debug|x64.Build.0 = Debug|x64
-		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Debug|x86.Build.0 = Debug|Any CPU
-		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Release|Win32.ActiveCfg = Release|Any CPU
-		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Release|x64.ActiveCfg = Release|x64
-		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Release|x64.Build.0 = Release|x64
-		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Release|x86.ActiveCfg = Release|Any CPU
-		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Release|x86.Build.0 = Release|Any CPU
 		{E053E7ED-F462-4DE0-8D69-6D97045FFB25}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{E053E7ED-F462-4DE0-8D69-6D97045FFB25}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
 		{E053E7ED-F462-4DE0-8D69-6D97045FFB25}.Debug|Mixed Platforms.Build.0 = Debug|Win32
@@ -315,20 +297,6 @@ Global
 		{ADDD6B3A-FFAE-4534-B27B-2795CEE8D2AD}.Release|x64.ActiveCfg = Release|x64
 		{ADDD6B3A-FFAE-4534-B27B-2795CEE8D2AD}.Release|x64.Build.0 = Release|x64
 		{ADDD6B3A-FFAE-4534-B27B-2795CEE8D2AD}.Release|x86.ActiveCfg = Release|Win32
-		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Debug|Any CPU.ActiveCfg = Debug
-		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Debug|Win32.ActiveCfg = Debug
-		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Debug|x64.ActiveCfg = Debug
-		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Debug|x64.Build.0 = Debug
-		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Debug|x86.ActiveCfg = Debug
-		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Release|Any CPU.ActiveCfg = Release
-		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Release|Mixed Platforms.ActiveCfg = Release
-		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Release|Mixed Platforms.Build.0 = Release
-		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Release|Win32.ActiveCfg = Release
-		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Release|x64.ActiveCfg = Release
-		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Release|x64.Build.0 = Release
-		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Release|x86.ActiveCfg = Release
-		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Release|x86.Build.0 = Release
 		{9C4EC600-DE0F-4042-BE12-F4BAF605A49C}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{9C4EC600-DE0F-4042-BE12-F4BAF605A49C}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
 		{9C4EC600-DE0F-4042-BE12-F4BAF605A49C}.Debug|Mixed Platforms.Build.0 = Debug|Win32
@@ -365,6 +333,38 @@ Global
 		{02A532F5-D728-41F6-B3B8-19823DD20CD5}.Release|x64.Build.0 = Release|x64
 		{02A532F5-D728-41F6-B3B8-19823DD20CD5}.Release|x86.ActiveCfg = Release|Win32
 		{02A532F5-D728-41F6-B3B8-19823DD20CD5}.Release|x86.Build.0 = Release|Win32
+		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Debug|Any CPU.ActiveCfg = Debug
+		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Debug|Win32.ActiveCfg = Debug
+		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Debug|x64.ActiveCfg = Debug
+		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Debug|x64.Build.0 = Debug
+		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Debug|x86.ActiveCfg = Debug
+		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Release|Any CPU.ActiveCfg = Release
+		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Release|Mixed Platforms.ActiveCfg = Release
+		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Release|Mixed Platforms.Build.0 = Release
+		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Release|Win32.ActiveCfg = Release
+		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Release|x64.ActiveCfg = Release
+		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Release|x64.Build.0 = Release
+		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Release|x86.ActiveCfg = Release
+		{9FAD9888-9441-4ACF-8750-90AFEA9F938A}.Release|x86.Build.0 = Release
+		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Debug|x64.ActiveCfg = Debug|x64
+		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Debug|x64.Build.0 = Debug|x64
+		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Debug|x86.Build.0 = Debug|Any CPU
+		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Release|Win32.ActiveCfg = Release|Any CPU
+		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Release|x64.ActiveCfg = Release|x64
+		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Release|x64.Build.0 = Release|x64
+		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Release|x86.ActiveCfg = Release|Any CPU
+		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0}.Release|x86.Build.0 = Release|Any CPU
 		{9BEAD0C0-833F-4368-82D1-BAE30F38E6C5}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{9BEAD0C0-833F-4368-82D1-BAE30F38E6C5}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{9BEAD0C0-833F-4368-82D1-BAE30F38E6C5}.Debug|Mixed Platforms.Build.0 = Debug|x86
@@ -493,5 +493,7 @@ Global
 		{A37903BE-7E9B-4442-8D9A-1C33F58F661F} = {9A7489FE-BBB2-41B1-A4F8-BCC01DE1C89B}
 		{1CC669D2-F7BC-4A6B-A516-89E108E36BA8} = {9A7489FE-BBB2-41B1-A4F8-BCC01DE1C89B}
 		{83D36075-5D61-4D88-9EBF-1BD87359A47A} = {9A7489FE-BBB2-41B1-A4F8-BCC01DE1C89B}
+		{9FAD9888-9441-4ACF-8750-90AFEA9F938A} = {9A7489FE-BBB2-41B1-A4F8-BCC01DE1C89B}
+		{F5DDA7D5-B5CC-47DF-923B-55049170C0D0} = {9A7489FE-BBB2-41B1-A4F8-BCC01DE1C89B}
 	EndGlobalSection
 EndGlobal
