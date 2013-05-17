@@ -16,10 +16,10 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package org.totalgrid.reef.protocol.dnp3.mock
+package org.totalgrid.dnp3.mock
 
-import org.totalgrid.reef.protocol.dnp3.{ CommandResponse, IResponseAcceptor }
 import net.agileautomata.commons.testing.SynchronizedList
+import org.totalgrid.dnp3.{CommandResponse, IResponseAcceptor}
 
 class CachingResponseAcceptor extends IResponseAcceptor {
 

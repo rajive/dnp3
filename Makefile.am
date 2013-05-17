@@ -625,7 +625,7 @@ demo_slave_cpp_SOURCES = \
 JAVA_DIR=$(builddir)/java
 
 if WANT_JAVA
-JAVA_PACKAGE_DIR=org/totalgrid/reef/protocol/dnp3
+JAVA_PACKAGE_DIR=org/totalgrid/dnp3
 JAVA_SOURCE_DIR=$(JAVA_DIR)/src
 JAVA_CLASS_DIR=$(JAVA_DIR)/bin
 
@@ -634,7 +634,7 @@ JAVA_SRC_FILES = $(JAVA_SOURCE_DIR)/$(JAVA_PACKAGE_DIR)/*.java
 swig/.java-built: swig/swigDNP3.i
 	-@mkdir -p $(JAVA_SOURCE_DIR)/$(JAVA_PACKAGE_DIR)
 	swig -c++ -java \
-		-package org.totalgrid.reef.protocol.dnp3 \
+		-package org.totalgrid.dnp3 \
 		-I$(top_srcdir)/src \
 		-outdir $(JAVA_SOURCE_DIR)/$(JAVA_PACKAGE_DIR) \
 		-o swig/JavaDNP3.cpp $^

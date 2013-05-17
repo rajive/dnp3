@@ -12,7 +12,7 @@ using namespace apl::dnp;
 
 %pragma(java) jniclasscode=%{
   static {
-    if(System.getProperty("org.totalgrid.reef.protocol.dnp3.nostaticload") == null) System.loadLibrary("opendnp3-java");    
+    if(System.getProperty("org.totalgrid.dnp3.nostaticload") == null) System.loadLibrary("opendnp3-java");    
   }
 %}
 

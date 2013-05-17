@@ -16,12 +16,12 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package org.totalgrid.reef.protocol.dnp3.mock
+package org.totalgrid.dnp3.mock
 
 import scala.collection.mutable
 import scala.annotation.tailrec
 import com.weiglewilczek.slf4s.Logging
-import org.totalgrid.reef.protocol.dnp3._
+import org.totalgrid.dnp3._
 
 class CountingPublisher {
 
