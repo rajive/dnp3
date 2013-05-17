@@ -37,13 +37,11 @@ DNP.suo
 JavaDNP3.cpp
 JavaDNP3.h
 /DNP3Java/jar
-/DNP3Java/src/main
 /DNP3Java/target
 /DNP3Java/out
 /TestSet/*.xml
 /coverage-*
 /doc
-/java
 /lcov
 /org
 /tools/boostlib

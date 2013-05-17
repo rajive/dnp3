@@ -622,11 +622,11 @@ demo_slave_cpp_SOURCES = \
 # SWIG
 # 
 
-JAVA_DIR=$(builddir)/java
+JAVA_DIR=$(builddir)/maven
 
 if WANT_JAVA
 JAVA_PACKAGE_DIR=org/totalgrid/dnp3
-JAVA_SOURCE_DIR=$(JAVA_DIR)/src
+JAVA_SOURCE_DIR=$(JAVA_DIR)/src/main/java/
 JAVA_CLASS_DIR=$(JAVA_DIR)/bin
 
 JAVA_SRC_FILES = $(JAVA_SOURCE_DIR)/$(JAVA_PACKAGE_DIR)/*.java
@@ -638,21 +638,25 @@ swig/.java-built: swig/swigDNP3.i
 		-I$(top_srcdir)/src \
 		-outdir $(JAVA_SOURCE_DIR)/$(JAVA_PACKAGE_DIR) \
 		-o swig/JavaDNP3.cpp $^
+	cp -R ../java/pom.xml $(JAVA_DIR)
+	cp -R ../java/src $(JAVA_DIR)
 	touch $@
 
 swig/JavaDNP3.cpp: swig/.java-built
 $(JAVA_SRC_FILES): swig/.java-built
 
-$(JAR_FILE): swig/.java-built
-	-@mkdir -p $(JAVA_CLASS_DIR)/$(JAVA_PACKAGE_DIR)
-	javac -d $(JAVA_CLASS_DIR) -cp . $(JAVA_SRC_FILES)
-	cd $(JAVA_CLASS_DIR) && jar cvf $@ org
-	mv $(JAVA_CLASS_DIR)/$@ $@
 
-opendnp3_jardir = $(datadir)/java
-opendnp3_jar_DATA = $(JAR_FILE)
 
-BUILT_SOURCES += swig/.java-built swig/JavaDNP3.cpp $(JAR_FILE) $(JAVA_SRC_FILES)
+# $(JAR_FILE): swig/.java-built
+# 	-@mkdir -p $(JAVA_CLASS_DIR)/$(JAVA_PACKAGE_DIR)
+# 	javac -d $(JAVA_CLASS_DIR) -cp . $(JAVA_SRC_FILES)
+# 	cd $(JAVA_CLASS_DIR) && jar cvf $@ org
+# 	mv $(JAVA_CLASS_DIR)/$@ $@
+
+# opendnp3_jardir = $(datadir)/java
+# opendnp3_jar_DATA = $(JAR_FILE)
+
+BUILT_SOURCES += swig/.java-built swig/JavaDNP3.cpp $(JAVA_SRC_FILES)
 
 lib_LTLIBRARIES += libopendnp3-java.la
 libopendnp3_java_la_SOURCES = swig/JavaDNP3.cpp
