@@ -577,18 +577,18 @@ libteamcity_a_SOURCES = \
 # Installed programs
 #
 
-bin_PROGRAMS = testset
+bin_PROGRAMS = dnp3testset
 
-testset_LDADD = libxmlbindings.a  libdnp3xml.a libaplxml.a libterminal.a libopendnp3.la $(CORE_BOOST_LIBS)
-testset_CFLAGS = -Itinyxml
-testset_SOURCES = \
+dnp3testset_LDADD = libxmlbindings.a  libdnp3xml.a libaplxml.a libterminal.a libopendnp3.la $(CORE_BOOST_LIBS)
+dnp3testset_CFLAGS = -Itinyxml
+dnp3testset_SOURCES = \
 	$(testset_src) 
 
 #
 # Uninstalled programs (tests / demos)
 #
 
-noinst_PROGRAMS = apltest dnp3test terminaltest demo-master-cpp demo-slave-cpp
+noinst_PROGRAMS = test-apl test-dnp3 test-terminal demo-master-cpp demo-slave-cpp
 
 # must be linked before boost test
 if TEAMCITY
@@ -597,16 +597,16 @@ else
 teamcitylib=
 endif
 
-apltest_LDADD = libapltesttools.a libxmlbindings.a libaplxml.a $(teamcitylib) libopendnp3.la $(TEST_BOOST_LIBS)
-apltest_SOURCES = \
+test_apl_LDADD = libapltesttools.a libxmlbindings.a libaplxml.a $(teamcitylib) libopendnp3.la $(TEST_BOOST_LIBS)
+test_apl_SOURCES = \
 	$(apl_test_src)
 
-dnp3test_LDADD = libapltesttools.a libopendnp3.la $(TEST_BOOST_LIBS)
-dnp3test_SOURCES = \
+test_dnp3_LDADD = libapltesttools.a libopendnp3.la $(TEST_BOOST_LIBS)
+test_dnp3_SOURCES = \
 	$(dnp3_test_src)
 
-terminaltest_LDADD = libapltesttools.a libterminal.a libopendnp3.la $(TEST_BOOST_LIBS)
-terminaltest_SOURCES = \
+test_terminal_LDADD = libapltesttools.a libterminal.a libopendnp3.la $(TEST_BOOST_LIBS)
+test_terminal_SOURCES = \
 	$(terminal_test_src)
 
 demo_master_cpp_LDADD = libopendnp3.la $(CORE_BOOST_LIBS)
@@ -644,17 +644,6 @@ swig/.java-built: swig/swigDNP3.i
 
 swig/JavaDNP3.cpp: swig/.java-built
 $(JAVA_SRC_FILES): swig/.java-built
-
-
-
-# $(JAR_FILE): swig/.java-built
-# 	-@mkdir -p $(JAVA_CLASS_DIR)/$(JAVA_PACKAGE_DIR)
-# 	javac -d $(JAVA_CLASS_DIR) -cp . $(JAVA_SRC_FILES)
-# 	cd $(JAVA_CLASS_DIR) && jar cvf $@ org
-# 	mv $(JAVA_CLASS_DIR)/$@ $@
-
-# opendnp3_jardir = $(datadir)/java
-# opendnp3_jar_DATA = $(JAR_FILE)
 
 BUILT_SOURCES += swig/.java-built swig/JavaDNP3.cpp $(JAVA_SRC_FILES)
 
