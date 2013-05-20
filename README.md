@@ -1,12 +1,12 @@
-open-dnp3
-Copyright (c) 2010, 2011 Green Energy Corp.
-
-This project is licensed under the terms of the Apache Public License
-v2.0.  For additional details on licensing terms and conditions, see
-COPYING.
-
-For more information about the OpenDNP3 library, visit the project
-website at http://code.google.com/p/dnp3.
+      open-dnp3
+      Copyright (c) 2010, 2011 Green Energy Corp.
+      
+      This project is licensed under the terms of the Apache Public License
+      v2.0.  For additional details on licensing terms and conditions, see
+      COPYING.
+      
+      For more information about the OpenDNP3 library, visit the project
+      website at http://code.google.com/p/dnp3.
 
 
 Overview
@@ -27,32 +27,6 @@ Building and Installing
 
 The OpenDNP3 library can be built in Linux using GNU autotools or in Windows
 using the provided Visual Studio projects.
-
-## Common Dependencies for all platforms ##
-
-Set the TOOLS_HOME environment variable to an appropraite path for
-installing tools and libraries. Reasonable choices are C:\Tools or
-~/tools.
-
-- On cygwin/windows this variable is set via:
-   Start Menu > ControlPanel > System > Advanced > EnvironmentVariables
-
-- On Linux systems its common to add the following line to ~/.bashrc
-   export TOOLS_HOME=~/tools
-
-
-## Install Boost ##
-
-If possible, install the boost libraries packaged for your OS distribution. 
-Otheriwse, you can build and install the boost libraries and headers by 
-running the following helper script:
-
-   cd tools/install_scripts/boost/{VERSION}
-   ./install-boost.sh
-
-This step will take some time as it retrieves the boost package and
-builds from source.
-
 
 ## GNU autotools ##
 
@@ -79,32 +53,32 @@ Requirements:
 To start, first reinitialize autotools to be compatible with the version
 running on your system:
 
-  autoreconf -f -i
+      autoreconf -f -i
 
 Next, create a build directory and run the 'configure' script:
 
-  mkdir build
-  cd build
-  ../configure
+     mkdir build
+     cd build
+     ../configure
 
 A full list of options can be found using 'configure --help'.
 
 You can now build the OpenDNP3 libraries and programs:
 
-  make
+      make
 
 When ready, you can install the libraries, headers, and programs onto
 your system:
 
-  make install
+      make install
 
 If you want to generate the book "OpenDNP3 Library: The Definitive
 Guide," use one or more of the following make target after configuring
 the system:
 
-  make docs
-  make docs-html
-  make docs-pdf
+      make docs
+      make docs-html
+      make docs-pdf
 
 The resulting book will be placed in a subfolder inside of the 'docs'
 folder.
@@ -112,7 +86,7 @@ folder.
 If you want to build the doxygen code documentation, use the following
 make target after configuring the system:
 
-  make doxygen-doc
+      make doxygen-doc
 
 The resulting HTML documentation will be placed in a folder named
 'doxygen-doc'.
@@ -121,11 +95,11 @@ If you want to build the libraries with lcov support (analysis tool for
 code coverage of the unit/integration test infrastructure), the process
 changes slightly:
 
-  autoreconf -f -i
-  ./configure --enable-lcov
-  make
-  ./test-dnp3
-  make lcov
+      autoreconf -f -i
+      ./configure --enable-lcov
+      make
+      ./test-dnp3
+      make lcov
 
 The lcov HTML report is written to './lcov/html/index.html' and can be
 opened with any standard web browser.
@@ -134,24 +108,24 @@ If you will be making changes to the unit/integration test
 infrastructure while analyzing the lcov results, use an alternate
 sequence to reduce the amount of rebuilding required:
 
-  autoreconf -f -i
-  ./configure --enable-lcov
-  make
-  ./test-dnp3
-  make lcov
+      autoreconf -f -i
+      ./configure --enable-lcov
+      make
+      ./test-dnp3
+      make lcov
 
 Iterate on the following sequence after changing the tests:
 
-   make lcov-reset        ; # Reset lcov data between each run
-   make                   ; # Rebuild with the new changes
-   ./test-dnp3            ; # Profile the new changes
-   make lcov-report       ; # Regenerate the lcov report
+      make lcov-reset        ; # Reset lcov data between each run
+      make                   ; # Rebuild with the new changes
+      ./test-dnp3            ; # Profile the new changes
+      make lcov-report       ; # Regenerate the lcov report
 
 If you are a developer and are making changes to the OpenDNP3 library
 code, you can run the 'astyle' utility to ensure that your code
 conforms to the style guidelines used for the project:
 
-  make astyle
+      make astyle
 
 Please run this utility before submitting any patches to the project.
 
@@ -159,9 +133,9 @@ If you want to build the Java bindings for the OpenDNP3 library, make
 sure that your system has both swig and a valid JDK installed.  Enable
 the build tree to create the Java library:
 
-  autoreconf -f -i
-  ./configure --with-java=/path/to/jdk/include
-  make
+      autoreconf -f -i
+      ./configure --with-java=/path/to/jdk/include
+      make
 
 The Java source files are created in the 'maven' build directory, which allows 
 for compiling, testing, and publishing the Java sub-project with Maven.
@@ -170,55 +144,74 @@ If you want to build the Python bindings for the OpenDNP3 library, make
 sure that your system has both swig and a valid Python interpreter
 installed.  Enable the build tree to create the Python library:
 
-  autoreconf -f -i
-  ./configure --with-python
-  make
+      autoreconf -f -i
+      ./configure --with-python
+      make
 
 The Python library is called pyopendnp3.  The Python class and shared
 library are installed to the 'opendnp3' package directory.
 
 
-## Installing ARM CROSS-COMPILER ##
-
-If you want to build for the Technologic Systems ARM platform, install
-the cross-compiler:
-
-   cd tools/install_scripts/crosstool
-   ./install-crosstool.sh
-
-It is important that this step be completely successfully prior to the
-boost installation, as the Boost libraries will be built for ARM as well
-as your platform.
+## Windows / Visual Studio ##
 
 
-Windows / Visual Studio
-============
-
-The solution/project files are for Visual Studio 2010.
+A solution and project files for Visual Studio 2010 can be found in the `vstudio10` directory.
 
 The Visual Studio solution is organized as a set of projects of libraries and
 executables.
 
 The main libraries are:
 
-  APL            Portable functionality for things like parsing,
-                 physical layers, logging
-
-  APLTestTools   Library of tools/mocks uses for testing
-
-  DNP3           Protocol library for dnp3
-
-  Terminal       Extensible library for creating command line driven UI
-
-  DNP3Java       Library generated by swig that wraps the stack with JNI
+  - *APL*            - Portable functionality for things like parsing, physical layers, logging
+  - *APLTestTools*   - Library of tools/mocks uses for testing
+  - *DNP3*           - Protocol library for dnp3
+  - *Terminal*       - Extensible library for creating command line driven UI
+  - *DNP3Java*       - Library generated by swig that wraps the stack with JNI
 
 The main executable targets are:
 
-  TestAPL        A test suite for the protocol framework library
+  - *TestAPL*        - A test suite for the protocol framework library
+  - *DNP3Test*       - A test suite for the DNP3 library
+  - *TerminalTest*   - A test suite for the Terminal library
+  - *TestSet*        - A dnp3 command line master/slave test set.
 
-  DNP3Test       A test suite for the DNP3 library
 
-  TerminalTest   A test suite for the Terminal library
+External Dependencies/Miscellaneous
+===================================
 
-  TestSet        A dnp3 command line master/slave test set.
 
+### Install Boost ###
+
+If possible, install the boost libraries packaged for your OS distribution. 
+Otheriwse, you can build and install the boost libraries and headers by 
+running the following helper script:
+
+   cd tools/install_scripts/boost/{VERSION}
+   ./install-boost.sh
+
+This step will take some time as it retrieves the boost package and
+builds from source.
+
+
+### TOOLS_HOME ###
+
+The Visual Studio build expects the Boost libraries to be installed to 
+a path specified by the TOOLS_HOME environment variable. Set it to an 
+appropriate directory for installing tools and libraries. The Boost 
+install scripts also copy the Boost distributables to this location.
+
+- On Windows this variable is set via:
+   Start Menu > ControlPanel > System > Advanced > EnvironmentVariables
+
+
+### Installing ARM CROSS-COMPILER ###
+
+If you want to build for the Technologic Systems ARM platform, install
+the cross-compiler:
+
+      cd tools/install_scripts/crosstool
+      ./install-crosstool.sh
+
+It is important that this step be completely successfully prior to the
+boost installation, as the Boost libraries will be built for ARM as well
+as your platform.
