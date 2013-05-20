@@ -1,9 +1,11 @@
-dnp3test
-!DNP3Test/
+dnp3testset
+test-apl
+test-dnp3
+test-terminal
+demo-master-cpp
+demo-slave-cpp
 
-testset
-!TestSet/
-
+*.a
 *.gcda
 *.gcno
 *.iml
@@ -18,6 +20,8 @@ testset
 *.user
 *~
 .*.swp
+*.ncb
+*.suo
 .DS_Store
 .deps
 .dirstamp
@@ -25,20 +29,17 @@ testset
 .libs
 .DS_Store
 
-/*/pc_linux_arm
-/CSToCppXMLBinder/bin
-/CSToCppXMLBinder/obj
-/ConfigurationBuilder/*.cs
-/ConfigurationBuilder/*.xsx
-DNP.ncb
-DNP.suo
-/DNP3Java/.java-built
-/DNP3Java/JavaDNP3_wrap.*
 JavaDNP3.cpp
 JavaDNP3.h
-/DNP3Java/jar
-/DNP3Java/target
-/DNP3Java/out
+PythonDNP3.cpp
+PythonDNP3.h
+
+/maven/
+/swig/.java-built
+
+/*/pc_linux_arm
+/schema/*.cs
+/schema/*.xsx
 /TestSet/*.xml
 /coverage-*
 /doc
@@ -47,15 +48,12 @@ JavaDNP3.h
 /tools/boostlib
 /tools/install_scripts/boost/*/temp
 Debug
-Linux_i686
 Release
 TestAPL/TestSingle.tiny.xml
 TestSingle.tiny.xml
 ipch
 pc_cygwin
 
-demo-master-cpp
-demo-slave-cpp
 
 __init__.py
 __init__.pyc
