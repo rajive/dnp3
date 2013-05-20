@@ -638,8 +638,8 @@ swig/.java-built: swig/swigDNP3.i
 		-I$(top_srcdir)/src \
 		-outdir $(JAVA_SOURCE_DIR)/$(JAVA_PACKAGE_DIR) \
 		-o swig/JavaDNP3.cpp $^
-	cp -R ../java/pom.xml $(JAVA_DIR)
-	cp -R ../java/src $(JAVA_DIR)
+	cp -R $(srcdir)/java/pom.xml $(JAVA_DIR)
+	cp -R $(srcdir)/java/src $(JAVA_DIR)
 	touch $@
 
 swig/JavaDNP3.cpp: swig/.java-built
