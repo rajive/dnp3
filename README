@@ -204,7 +204,7 @@ install scripts also copy the Boost distributables to this location.
    Start Menu > ControlPanel > System > Advanced > EnvironmentVariables
 
 
-### Installing ARM CROSS-COMPILER ###
+### Installing ARM Cross-Compiler ###
 
 If you want to build for the Technologic Systems ARM platform, install
 the cross-compiler:
