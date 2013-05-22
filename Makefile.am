@@ -667,7 +667,7 @@ __init__.py:
 	echo "from pyopendnp3 import *" > $@
 
 swig/PythonDNP3.cpp: swig/swigDNP3.i
-	swig -c++ -python -threads \
+	swig -c++ -python \
 		-module pyopendnp3 \
 		-I$(top_srcdir)/src \
 		-outdir . \
