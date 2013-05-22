@@ -668,6 +668,7 @@ __init__.py:
 
 swig/PythonDNP3.cpp: swig/swigDNP3.i
 	swig -c++ -python \
+		-threads \
 		-module pyopendnp3 \
 		-I$(top_srcdir)/src \
 		-outdir . \
