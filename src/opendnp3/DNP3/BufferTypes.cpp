@@ -31,7 +31,9 @@ BufferTypes Convert(DataTypes aType)
 	case(DT_ANALOG):	return BT_ANALOG;
 	case(DT_COUNTER):	return BT_COUNTER;
 	default:
-		throw ArgumentException("Invalid conversion to BufferType: " + aType);
+		std::ostringstream oss;
+		oss << "Invalid conversion to BufferType: " << aType;
+		throw ArgumentException(oss.str());
 	}
 }
 

@@ -36,10 +36,6 @@ public:
 	AsyncSerialTestObject(SerialSettings cfg, FilterLevel aLevel = LEV_INFO, bool aImmediate = false);
 	virtual ~AsyncSerialTestObject() {}
 
-private:
-	Logger* mpLogger;
-
-public:
 	PhysicalLayerAsyncSerial mPort;
 	LowerLayerToPhysAdapter mAdapter;
 	MockUpperLayer mUpper;

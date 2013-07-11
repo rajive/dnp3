@@ -70,7 +70,6 @@ private:
 
 	//The hierarchical map of commands and callbacks
 	TokenNode<apl::CommandNode> mCmdRoot;
-	IPhysicalLayerAsync* mpPhysical;
 	ITimerSource* mpTimerSrc;
 
 	ITimer* mpInfiniteTimer;

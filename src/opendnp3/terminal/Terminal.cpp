@@ -27,7 +27,6 @@ Terminal::Terminal(Logger* apLogger, IPhysicalLayerAsync* apPhysical, ITimerSour
 	Loggable(apLogger),
 	LineReader(apLogger, apPhysical, apTimerSrc, 100),
 	mSendBuffer(1024),
-	mpPhysical(apPhysical),
 	mpTimerSrc(apTimerSrc),
 	mpInfiniteTimer(apTimerSrc->StartInfinite()),
 	mBanner(arBanner),

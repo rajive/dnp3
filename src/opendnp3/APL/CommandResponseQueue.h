@@ -41,12 +41,12 @@ private:
 	bool FindResponse(int aSeq, CommandResponse& arRsp);
 
 	CommandResponse cr;
-	int mSequence;
 	SigLock mLock;
 
 	struct RspInfo {
 		RspInfo(const CommandResponse& arRsp, int aSequence) : mResponse(arRsp), mSequence(aSequence) {}
-		CommandResponse mResponse; int mSequence;
+		CommandResponse mResponse; 
+		int mSequence;
 	};
 
 	std::deque<RspInfo> mResponseQueue;

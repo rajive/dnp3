@@ -70,7 +70,6 @@ private:
 	PostingNotifierSource mPostSource;	// bridge between Notifiers and IO services that marshalls method calls between threads
 	TimerSourceASIO mTimerSource;		// boost timer source, interface into the io service system
 	ITimer* mpInfiniteTimer;			// timer used to keep the boost io service alive
-	ICommandSource* mpCommandSource;	// The source for getting and executing commands.
 };
 
 

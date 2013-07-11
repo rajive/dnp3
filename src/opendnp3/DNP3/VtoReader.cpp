@@ -100,7 +100,7 @@ void VtoReader::UpdateNormalVto(const VtoData& arData, boost::uint8_t aChannelId
 	if (i == mChannelMap.end()) {
 		ERROR_BLOCK(LEV_ERROR,
 		            "No registered callback handler for received data "
-		            "on VTO channel id: " + aChannelId,
+		            "on VTO channel id: " << aChannelId,
 		            VTOERR_VTO_FOR_UNEXPECTED_CHANNEL);
 	} else {
 		i->second->OnVtoDataReceived(arData);

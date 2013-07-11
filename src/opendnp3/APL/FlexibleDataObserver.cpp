@@ -22,8 +22,6 @@
 namespace apl
 {
 FlexibleDataObserver::FlexibleDataObserver() :
-	mCommsLostCount(0),
-	mLastCommsLostCheck(0),
 	mNewData(false)
 {}
 

@@ -36,7 +36,6 @@ private:
 	CommandMap mBinaryResponses;
 	CommandMap mSetpointResponses;
 
-	ICommandSource* mpSource;
 	IDataObserver* mpObs;
 	bool mLinkStatuses;
 };

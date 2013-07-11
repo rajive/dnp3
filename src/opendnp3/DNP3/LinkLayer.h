@@ -145,7 +145,7 @@ private:
 	/* Events - NVII delegates from ILayerDown and Events produced internally */
 	void _Send(const boost::uint8_t*, size_t);
 
-	std::string SendString() {
+	std::string SendString() const {
 		return "~>";
 	}
 

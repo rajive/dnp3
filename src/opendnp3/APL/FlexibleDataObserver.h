@@ -160,8 +160,6 @@ protected:
 
 private:
 
-	size_t mCommsLostCount;
-	size_t mLastCommsLostCheck;
 	bool mNewData;
 	SigLock mLock;
 

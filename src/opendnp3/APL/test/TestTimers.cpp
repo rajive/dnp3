@@ -58,7 +58,6 @@ public:
 		mNum(0),
 		mMonotonic(true),
 		mpSrv(apSrv),
-		mpTimerSrc(apTimerSrc),
 		mpInfinite(apTimerSrc->StartInfinite()),
 		mThread(this) {
 		mThread.Start();
@@ -89,7 +88,6 @@ private:
 	bool mMonotonic;
 
 	boost::asio::io_service* mpSrv;
-	TimerSourceASIO* mpTimerSrc;
 	ITimer* mpInfinite;
 
 	void Run() {

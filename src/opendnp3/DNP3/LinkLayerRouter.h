@@ -102,7 +102,7 @@ private:
 	void OnPhysicalLayerOpenFailureCallback() {}
 	void OnPhysicalLayerCloseCallback();
 
-	std::string RecvString() {
+	std::string RecvString() const {
 		return "<~";
 	}
 };

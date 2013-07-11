@@ -183,7 +183,6 @@ IAppHeader* APDU::ParseHeader() const
 	// start by assuming that it's a request header since they have same starting structure
 	IAppHeader* pHeader = RequestHeader::Inst();
 	FunctionCodes function = pHeader->GetFunction(mBuffer);
-	AppControlField control = pHeader->GetControl(mBuffer);
 
 	if( IsResponse(function) ) {
 		if(mFragmentSize < 4) {

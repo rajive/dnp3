@@ -35,9 +35,6 @@ class AsyncPhysTestObject : public AsyncTestObjectASIO, public LogTester
 public:
 	AsyncPhysTestObject(FilterLevel aLevel = LEV_INFO, bool aImmediate = false, bool aAutoRead = true);
 
-private:
-	Logger* mpLogger;
-
 public:
 	PhysicalLayerAsyncTCPClient mTCPClient;
 	PhysicalLayerAsyncTCPServer mTCPServer;

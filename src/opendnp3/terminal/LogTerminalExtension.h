@@ -28,7 +28,6 @@ public:
 private:
 
 	EventLog* mpLog;
-	ITimerSource* mpTimerSrc;
 
 	//implement from ITerminalExtension
 	void _BindToTerminal(ITerminal* apTerminal);
