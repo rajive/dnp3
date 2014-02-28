@@ -3,6 +3,7 @@ AC_COPYRIGHT([(C) 2010, 2011 Green Energy Corp.  All rights reserved.])
 
 srcdir="`cd $srcdir; pwd`"
 
+AC_CONFIG_SRCDIR(src/opendnp3)
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([config/autotools/m4])
 
@@ -185,7 +186,7 @@ DX_PS_FEATURE(OFF)
 DX_INIT_DOXYGEN($PACKAGE_NAME, [config/doxygen.config])
 
 
-AC_OUTPUT
+AC_OUTPUT(src/opendnp3/Makefile)
 
 echo "
 $PACKAGE_NAME $PACKAGE_VERSION configuration:
