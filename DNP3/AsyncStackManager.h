@@ -39,6 +39,10 @@
 #include "LinkRoute.h"
 #include "VtoRouterManager.h"
 
+#include "APDUProxy.h"
+#include "APDUProxyStack.h"
+#include "APDUProxyStackConfig.h"
+
 namespace apl
 {
 class IPhysicalLayerAsync;
@@ -140,6 +144,14 @@ public:
 	                        FilterLevel aLevel,
 	                        ICommandAcceptor* apCmdAcceptor,
 	                        const SlaveStackConfig&);
+
+	/**
+			Adds a proxy stack
+		*/
+		APDUProxyStack* AddProxyStack(const std::string& portName,
+	                         const std::string& stackName,
+	                         FilterLevel aLevel,
+	                         APDUProxyStackConfig& config);
 
 	/**
 		Adds a VTO channel to a prexisting stack (master or slave).

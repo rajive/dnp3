@@ -28,6 +28,8 @@
 #include "SolicitedChannel.h"
 #include "UnsolicitedChannel.h"
 
+#include "APDUInfoProvider.h"
+
 namespace apl
 {
 class ITimerSource;
@@ -55,6 +57,10 @@ class AppLayer : public IUpperLayer, public IAppLayer
 public:
 
 	AppLayer(apl::Logger* apLogger, ITimerSource*, AppConfig aAppCfg);
+
+	~AppLayer() {
+
+	}
 
 	void SetUser(IAppUser*);
 

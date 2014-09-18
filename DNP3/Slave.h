@@ -51,6 +51,7 @@ namespace dnp
 {
 
 class AS_Base;
+class SlaveProxy;
 
 /**
  * @section desc DNP3 outstation.
@@ -81,6 +82,7 @@ class Slave : public Loggable, public IAppUser
 	friend class AS_WaitForRspSuccess;
 	friend class AS_WaitForUnsolSuccess;
 	friend class AS_WaitForSolUnsolSuccess;
+	friend class SlaveProxy;
 
 public:
 

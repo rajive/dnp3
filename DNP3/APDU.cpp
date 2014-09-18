@@ -25,6 +25,7 @@
 #include "DNPConstants.h"
 #include "ObjectWriteIterator.h"
 #include "APDUConstants.h"
+#include "APDUInfo.h"
 
 #include <assert.h>
 #include <sstream>
@@ -45,7 +46,8 @@ APDU::APDU(size_t aFragSize) :
 	mpAppHeader(NULL),
 	mObjectHeaders(0),
 	mBuffer(aFragSize),
-	mFragmentSize(0)
+	mFragmentSize(0),
+	info()
 {
 
 }
@@ -649,6 +651,16 @@ std::string APDU::ToString() const
 	oss << ", Size: " << this->Size();
 
 	return oss.str();
+}
+
+APDUInfo* APDU::GetInfo() {
+	return &(this->info);
+}
+
+void APDU::SetInfo(APDUInfo* info) {
+	this->info.dest = info->dest;
+	this->info.src = info->src;
+	this->info.master = info->master;
 }
 
 }

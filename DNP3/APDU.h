@@ -31,6 +31,8 @@
 #include "ObjectWriteIterator.h"
 #include "IndexedWriteIterator.h"
 
+#include "APDUInfo.h"
+
 #include <vector>
 #include <string>
 #include <sstream>
@@ -354,6 +356,10 @@ public:
 		return !(*this == rhs);
 	}
 
+	APDUInfo* GetInfo();
+
+	void SetInfo(APDUInfo* info);
+
 private:
 
 	void CheckWriteState(const ObjectBase*);
@@ -373,6 +379,8 @@ private:
 
 	CopyableBuffer mBuffer;		// This makes it dynamically sizable without the need for a special copy constructor.
 	size_t mFragmentSize;		// Number of bytes written to the buffer
+
+	APDUInfo info; //APDUInfo object containing src/dest information for this APDU
 
 	QualifierCode GetContiguousQualifier(size_t aStart, size_t aStop);
 	QualifierCode GetIndexedQualifier(size_t aMaxIndex, size_t aCount);

@@ -27,6 +27,7 @@
 #include "ILinkContext.h"
 #include "LinkFrame.h"
 #include "LinkConfig.h"
+#include "APDUInfoProvider.h"
 
 namespace apl
 {
@@ -152,6 +153,7 @@ private:
 	ILinkRouter* mpRouter;
 	PriStateBase* mpPriState;
 	SecStateBase* mpSecState;
+
 };
 
 }

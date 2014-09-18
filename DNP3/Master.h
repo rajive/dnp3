@@ -58,6 +58,7 @@ namespace dnp
 {
 
 class AMS_Base;
+class MasterProxy;
 
 /**
  * Represents a DNP3 Master endpoint. The tasks functions can perform all the
@@ -72,6 +73,7 @@ class Master : public Loggable, public IAppUser
 	friend class AMS_OpenBase;
 	friend class AMS_Waiting;
 	friend class MasterSchedule;
+	friend class MasterProxy;
 
 public:
 

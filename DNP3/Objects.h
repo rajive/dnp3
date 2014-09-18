@@ -917,6 +917,17 @@ struct Group60Var4 : public PlaceHolderObject {
 };
 
 ///////////////////////////////
+//      File Operations
+///////////////////////////////
+
+struct Group70Var3 : public ObjectBase {
+        MACRO_NAME_SINGLETON_INSTANCE(Group70Var3)
+	MACRO_GROUP_VAR_FUNC(70, 3)
+	virtual size_t GetSize() const { return 0; } // TODO: return real size
+	virtual ObjectTypes GetType() const { return OT_PLACEHOLDER; }
+};
+
+///////////////////////////////
 //	Device Object Types
 ///////////////////////////////
 

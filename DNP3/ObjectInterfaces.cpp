@@ -207,6 +207,10 @@ ObjectBase* ObjectBase::Get(int aGroup, int aVariation)
 		MACRO_GROUP_CASE(113);
 	}
 
+    if ( (70==aGroup) && (aVariation==3) ) {
+        return Group70Var3::Inst();
+    }
+
 	/* Nothing matched if we reach this point */
 	return NULL;
 }

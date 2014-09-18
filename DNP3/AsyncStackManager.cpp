@@ -40,6 +40,7 @@
 
 #include <iostream>
 
+#include <DNP3/APDUProxyStack.h>
 
 using namespace std;
 
@@ -48,17 +49,19 @@ namespace apl
 namespace dnp
 {
 
-AsyncStackManager::AsyncStackManager(Logger* apLogger) :
-	Loggable(apLogger),
-	mService(),
-	mTimerSrc(mService.Get()),
-	mSuspendTimerSource(&mTimerSrc),
-	mMgr(apLogger->GetSubLogger("channels", LEV_WARNING), mService.Get()),
-	mScheduler(&mTimerSrc),
-	mVtoManager(apLogger->GetSubLogger("vto"), &mTimerSrc, &mMgr),
-	mThread(this),
-	mpInfiniteTimer(mTimerSrc.StartInfinite()),
-	mIsShutdown(false)
+AsyncStackManager::AsyncStackManager(
+		Logger* apLogger) :
+		Loggable(apLogger),
+				mService(),
+				mTimerSrc(mService.Get()),
+				mSuspendTimerSource(&mTimerSrc),
+				mMgr(apLogger->GetSubLogger("channels", LEV_WARNING),
+						mService.Get()),
+				mScheduler(&mTimerSrc),
+				mVtoManager(apLogger->GetSubLogger("vto"), &mTimerSrc, &mMgr),
+				mThread(this),
+				mpInfiniteTimer(mTimerSrc.StartInfinite()),
+				mIsShutdown(false)
 {
 	mThread.Start();
 }
@@ -83,40 +86,54 @@ std::vector<std::string> AsyncStackManager::GetPortNames()
 	return GetKeys<ChannelToChannelMap, string>(mChannelNameToChannel);
 }
 
-void AsyncStackManager::AddTCPClient(const std::string& arName, PhysLayerSettings aSettings, const std::string& arAddr, boost::uint16_t aPort)
-{
+void AsyncStackManager::AddTCPClient(
+		const std::string& arName, PhysLayerSettings aSettings,
+		const std::string& arAddr,
+		boost::uint16_t aPort)
+		{
 	this->ThrowIfAlreadyShutdown();
 	mMgr.AddTCPClient(arName, aSettings, arAddr, aPort);
 }
 
-void AsyncStackManager::AddTCPServer(const std::string& arName, PhysLayerSettings aSettings, const std::string& arEndpoint, boost::uint16_t aPort)
-{
+void AsyncStackManager::AddTCPServer(
+		const std::string& arName, PhysLayerSettings aSettings,
+		const std::string& arEndpoint,
+		boost::uint16_t aPort)
+		{
 	this->ThrowIfAlreadyShutdown();
 	mMgr.AddTCPServer(arName, aSettings, arEndpoint, aPort);
 }
 
-void AsyncStackManager::AddSerial(const std::string& arName, PhysLayerSettings aSettings, SerialSettings aSerial)
-{
+void AsyncStackManager::AddSerial(
+		const std::string& arName, PhysLayerSettings aSettings,
+		SerialSettings aSerial)
+		{
 	this->ThrowIfAlreadyShutdown();
 	mMgr.AddSerial(arName, aSettings, aSerial);
 }
 
 // Adds a custom physical layer to the stack
-void AsyncStackManager::AddPhysicalLayer(const std::string& arName, PhysLayerSettings aSettings, IPhysicalLayerAsync* apPhys)
-{
+void AsyncStackManager::AddPhysicalLayer(
+		const std::string& arName, PhysLayerSettings aSettings,
+		IPhysicalLayerAsync* apPhys)
+		{
 	this->ThrowIfAlreadyShutdown();
 	mMgr.AddPhysicalLayer(arName, aSettings, apPhys);
 }
 
-ICommandAcceptor* AsyncStackManager::AddMaster( const std::string& arPortName, const std::string& arStackName, FilterLevel aLevel, IDataObserver* apPublisher,
-        const MasterStackConfig& arCfg)
-{
+ICommandAcceptor* AsyncStackManager::AddMaster(
+		const std::string& arPortName, const std::string& arStackName,
+		FilterLevel aLevel,
+		IDataObserver* apPublisher,
+		const MasterStackConfig& arCfg)
+		{
 	this->ThrowIfAlreadyShutdown();
 	LinkChannel* pChannel = this->GetOrCreateChannel(arPortName);
 	Logger* pLogger = mpLogger->GetSubLogger(arStackName, aLevel);
 	pLogger->SetVarName(arStackName);
 
-	MasterStack* pMaster = new MasterStack(pLogger, &mTimerSrc, apPublisher, pChannel->GetGroup(), arCfg);
+	MasterStack* pMaster = new MasterStack(pLogger, &mTimerSrc, apPublisher,
+			pChannel->GetGroup(), arCfg);
 	LinkRoute route(arCfg.link.RemoteAddr, arCfg.link.LocalAddr);
 
 	this->AddStackToChannel(arStackName, pMaster, pChannel, route);
@@ -129,15 +146,19 @@ ICommandAcceptor* AsyncStackManager::AddMaster( const std::string& arPortName, c
 	return pMaster->mMaster.GetCmdAcceptor();
 }
 
-IDataObserver* AsyncStackManager::AddSlave( const std::string& arPortName, const std::string& arStackName, FilterLevel aLevel, ICommandAcceptor* apCmdAcceptor,
-        const SlaveStackConfig& arCfg)
-{
+IDataObserver* AsyncStackManager::AddSlave(
+		const std::string& arPortName, const std::string& arStackName,
+		FilterLevel aLevel,
+		ICommandAcceptor* apCmdAcceptor,
+		const SlaveStackConfig& arCfg)
+		{
 	this->ThrowIfAlreadyShutdown();
 	LinkChannel* pChannel = this->GetOrCreateChannel(arPortName);
 	Logger* pLogger = mpLogger->GetSubLogger(arStackName, aLevel);
 	pLogger->SetVarName(arStackName);
 
-	SlaveStack* pSlave = new SlaveStack(pLogger, &mTimerSrc, apCmdAcceptor, arCfg);
+	SlaveStack* pSlave = new SlaveStack(pLogger, &mTimerSrc, apCmdAcceptor,
+			arCfg);
 
 	LinkRoute route(arCfg.link.RemoteAddr, arCfg.link.LocalAddr);
 	this->AddStackToChannel(arStackName, pSlave, pChannel, route);
@@ -150,34 +171,60 @@ IDataObserver* AsyncStackManager::AddSlave( const std::string& arPortName, const
 	return pSlave->mSlave.GetDataObserver();
 }
 
-void AsyncStackManager::AddVtoChannel(const std::string& arStackName,
-                                      IVtoCallbacks* apCallbacks)
-{
+APDUProxyStack* AsyncStackManager::AddProxyStack(
+		const std::string& portName,
+		const std::string& stackName,
+		FilterLevel logLevel,
+		APDUProxyStackConfig& config) {
+	LinkChannel* channel = this->GetOrCreateChannel(portName);
+	Logger* logger = mpLogger->GetSubLogger(stackName, logLevel);
+	logger->SetVarName(stackName);
+
+	/*cout << "###################### AsyncStackManager src=" << config.app.RemoteAddr << ", isMaster=" << config.app.IsMaster << " dest=" << config.app.LocalAddr << "\n";*/
+
+	APDUProxyStack* proxyStack = new APDUProxyStack(stackName, logger,
+			&mTimerSrc, config);
+
+	LinkRoute route(config.link.RemoteAddr, config.link.LocalAddr);
+	this->AddStackToChannel(stackName, proxyStack, channel, route);
+
+	return proxyStack;
+}
+
+void AsyncStackManager::AddVtoChannel(
+		const std::string& arStackName,
+		IVtoCallbacks* apCallbacks)
+		{
 	this->ThrowIfAlreadyShutdown();
 	StackRecord rec = this->GetStackRecordByName(arStackName);
 	rec.stack->GetVtoWriter()->AddVtoCallback(apCallbacks);
 	rec.stack->GetVtoReader()->AddVtoChannel(apCallbacks);
 }
 
-void AsyncStackManager::RemoveVtoChannel(const std::string& arStackName, IVtoCallbacks* apCallbacks)
-{
+void AsyncStackManager::RemoveVtoChannel(
+		const std::string& arStackName, IVtoCallbacks* apCallbacks)
+		{
 	this->ThrowIfAlreadyShutdown();
 	StackRecord rec = this->GetStackRecordByName(arStackName);
 	rec.stack->GetVtoWriter()->RemoveVtoCallback(apCallbacks);
 	rec.stack->GetVtoReader()->RemoveVtoChannel(apCallbacks);
 }
 
-void AsyncStackManager::StartVtoRouter(const std::string& arPortName,
-                                       const std::string& arStackName, const VtoRouterSettings& arSettings)
-{
+void AsyncStackManager::StartVtoRouter(
+		const std::string& arPortName,
+		const std::string& arStackName,
+		const VtoRouterSettings& arSettings)
+		{
 	this->ThrowIfAlreadyShutdown();
 	StackRecord rec = this->GetStackRecordByName(arStackName);
-	VtoRouter* pRouter = mVtoManager.StartRouter(arPortName, arSettings, rec.stack->GetVtoWriter());
+	VtoRouter* pRouter = mVtoManager.StartRouter(arPortName, arSettings,
+			rec.stack->GetVtoWriter());
 	this->AddVtoChannel(arStackName, pRouter);
 }
 
-void AsyncStackManager::StopVtoRouter(const std::string& arStackName, boost::uint8_t aVtoChannelId)
-{
+void AsyncStackManager::StopVtoRouter(
+		const std::string& arStackName, boost::uint8_t aVtoChannelId)
+		{
 	this->ThrowIfAlreadyShutdown();
 	IVtoWriter* pWriter = this->GetVtoWriter(arStackName);
 	RouterRecord rec = mVtoManager.GetRouterOnWriter(pWriter, aVtoChannelId);
@@ -185,25 +232,28 @@ void AsyncStackManager::StopVtoRouter(const std::string& arStackName, boost::uin
 	mVtoManager.StopRouter(pWriter, aVtoChannelId);
 }
 
-void AsyncStackManager::StopAllRoutersOnStack(const std::string& arStackName)
-{
+void AsyncStackManager::StopAllRoutersOnStack(
+		const std::string& arStackName)
+		{
 	this->ThrowIfAlreadyShutdown();
 	IVtoWriter* pWriter = this->GetVtoWriter(arStackName);
 	this->mVtoManager.StopAllRoutersOnWriter(pWriter);
 }
 
-IVtoWriter* AsyncStackManager::GetVtoWriter(const std::string& arStackName)
-{
+IVtoWriter* AsyncStackManager::GetVtoWriter(
+		const std::string& arStackName)
+		{
 	this->ThrowIfAlreadyShutdown();
 	return this->GetStackRecordByName(arStackName).stack->GetVtoWriter();
 }
 
 // Remove a port and all associated stacks
-void AsyncStackManager::RemovePort(const std::string& arPortName)
-{	
+void AsyncStackManager::RemovePort(
+		const std::string& arPortName)
+		{
 	this->ThrowIfAlreadyShutdown();
 	LinkChannel* pChannel = this->GetChannelMaybeNull(arPortName);
-	if(pChannel != NULL) { // the channel is in use
+	if (pChannel != NULL) { // the channel is in use
 		std::auto_ptr<LinkChannel> autoDeleteChannel(pChannel); //will delete at end of function
 		mChannelNameToChannel.erase(arPortName);
 
@@ -220,34 +270,39 @@ void AsyncStackManager::RemovePort(const std::string& arPortName)
 			this->RemoveStack(s);
 		}
 		this->mScheduler.ReleaseGroup(pChannel->GetGroup());
-	}	
+	}
 
 	// remove the physical layer from the list
 	mMgr.Remove(arPortName);
 }
 
-void AsyncStackManager::RemoveStack(const std::string& arStackName)
-{
+void AsyncStackManager::RemoveStack(
+		const std::string& arStackName)
+		{
 	this->ThrowIfAlreadyShutdown();
 	std::auto_ptr<Stack> pStack(this->SeverStackFromChannel(arStackName));
 	mVtoManager.StopAllRoutersOnWriter(pStack->GetVtoWriter());
 }
 
-AsyncStackManager::StackRecord AsyncStackManager::GetStackRecordByName(const std::string& arStackName)
-{
+AsyncStackManager::StackRecord AsyncStackManager::GetStackRecordByName(
+		const std::string& arStackName)
+		{
 	StackMap::iterator i = mStackMap.find(arStackName);
-	if (i == mStackMap.end()) throw ArgumentException(LOCATION, "Unknown stack");
+	if (i == mStackMap.end())
+		throw ArgumentException(LOCATION, "Unknown stack");
 	return i->second;
 }
 
 void AsyncStackManager::ThrowIfAlreadyShutdown()
 {
-	if(mIsShutdown) throw InvalidStateException(LOCATION, "Stack has been permanently shutdown");
+	if (mIsShutdown)
+		throw InvalidStateException(LOCATION,
+				"Stack has been permanently shutdown");
 }
 
 void AsyncStackManager::Shutdown()
 {
-	if(!mIsShutdown) {
+	if (!mIsShutdown) {
 
 		vector<string> ports = this->GetPortNames();
 		BOOST_FOREACH(string s, ports) {
@@ -266,22 +321,28 @@ void AsyncStackManager::Shutdown()
 	}
 }
 
-LinkChannel* AsyncStackManager::GetOrCreateChannel(const std::string& arName)
-{
+LinkChannel* AsyncStackManager::GetOrCreateChannel(
+		const std::string& arName)
+		{
 	LinkChannel* pChannel = this->GetChannelMaybeNull(arName);
 	return (pChannel == NULL) ? this->CreateChannel(arName) : pChannel;
 }
 
-LinkChannel* AsyncStackManager::GetChannelOrExcept(const std::string& arName)
-{
+LinkChannel* AsyncStackManager::GetChannelOrExcept(
+		const std::string& arName)
+		{
 	LinkChannel* pChannel = this->GetChannelMaybeNull(arName);
-	if(pChannel == NULL) throw ArgumentException(LOCATION, "Channel doesn't exist: " + arName);
+	if (pChannel == NULL)
+		throw ArgumentException(LOCATION, "Channel doesn't exist: " + arName);
 	return pChannel;
 }
 
-LinkChannel* AsyncStackManager::CreateChannel(const std::string& arName)
-{
-	if(GetChannelMaybeNull(arName) != NULL) throw ArgumentException(LOCATION, "Channel already exists with name: " + arName);
+LinkChannel* AsyncStackManager::CreateChannel(
+		const std::string& arName)
+		{
+	if (GetChannelMaybeNull(arName) != NULL)
+		throw ArgumentException(LOCATION,
+				"Channel already exists with name: " + arName);
 
 	PhysLayerSettings s = mMgr.GetSettings(arName);
 	IPhysicalLayerAsync* pPhys = mMgr.AcquireLayer(arName);
@@ -289,14 +350,17 @@ LinkChannel* AsyncStackManager::CreateChannel(const std::string& arName)
 	pChannelLogger->SetVarName(arName);
 	AsyncTaskGroup* pGroup = mScheduler.CreateNewGroup();
 
-	LinkChannel* pChannel = new LinkChannel(pChannelLogger, arName, &mTimerSrc, pPhys, pGroup, s.RetryTimeout);
-	if(s.mpObserver) pChannel->AddPhysicalLayerObserver(s.mpObserver);
+	LinkChannel* pChannel = new LinkChannel(pChannelLogger, arName, &mTimerSrc,
+			pPhys, pGroup, s.RetryTimeout);
+	if (s.mpObserver)
+		pChannel->AddPhysicalLayerObserver(s.mpObserver);
 	mChannelNameToChannel[arName] = pChannel;
 	return pChannel;
 }
 
-LinkChannel* AsyncStackManager::GetChannelMaybeNull(const std::string& arName)
-{
+LinkChannel* AsyncStackManager::GetChannelMaybeNull(
+		const std::string& arName)
+		{
 	ChannelToChannelMap::iterator i = mChannelNameToChannel.find(arName);
 	return (i == mChannelNameToChannel.end()) ? NULL : i->second;
 }
@@ -309,19 +373,21 @@ void AsyncStackManager::Run()
 		try {
 			num = mService.Get()->run();
 		}
-		catch(const std::exception& ex) {
+		catch (const std::exception& ex) {
 			LOG_BLOCK(LEV_ERROR, "Unhandled exception: " << ex.what());
 		}
 	}
-	while(num > 0);
+	while (num > 0);
 
 	mService.Get()->reset();
 }
 
-Stack* AsyncStackManager::SeverStackFromChannel(const std::string& arStackName)
-{
+Stack* AsyncStackManager::SeverStackFromChannel(
+		const std::string& arStackName)
+		{
 	StackMap::iterator i = mStackMap.find(arStackName);
-	if(i == mStackMap.end()) throw ArgumentException(LOCATION, "Stack not found: " + arStackName);
+	if (i == mStackMap.end())
+		throw ArgumentException(LOCATION, "Stack not found: " + arStackName);
 
 	StackRecord rec = i->second;
 	mStackMap.erase(i);
@@ -336,8 +402,10 @@ Stack* AsyncStackManager::SeverStackFromChannel(const std::string& arStackName)
 	return rec.stack;
 }
 
-void AsyncStackManager::AddStackToChannel(const std::string& arStackName, Stack* apStack, LinkChannel* apChannel, const LinkRoute& arRoute)
-{
+void AsyncStackManager::AddStackToChannel(
+		const std::string& arStackName, Stack* apStack, LinkChannel* apChannel,
+		const LinkRoute& arRoute)
+		{
 	{
 		// when binding the stack to the router, we need to pause excution
 		Transaction tr(&mSuspendTimerSource);

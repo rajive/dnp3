@@ -17,8 +17,7 @@
 // under the License.
 //
 
-#include "./AppLayer.h"
-
+#include "AppLayer.h"
 
 #include <APL/Logger.h>
 #include <APL/ITimerSource.h>
@@ -30,24 +29,40 @@ namespace apl
 namespace dnp
 {
 
-AppLayer::AppLayer(apl::Logger* apLogger, ITimerSource* apTimerSrc, AppConfig aAppCfg) :
-	Loggable(apLogger),
-	IUpperLayer(apLogger),
-	mIncoming(aAppCfg.FragSize),
-	mConfirm(2), // only need 2 bytes for a confirm message
-	mSending(false),
-	mConfirmSending(false),
-	mpUser(NULL),
-	mSolicited(apLogger->GetSubLogger("sol"), this, apTimerSrc, aAppCfg.RspTimeout),
-	mUnsolicited(apLogger->GetSubLogger("unsol"), this, apTimerSrc, aAppCfg.RspTimeout),
-	mNumRetry(aAppCfg.NumRetry)
+AppLayer::AppLayer(
+		apl::Logger* apLogger, ITimerSource* apTimerSrc, AppConfig aAppCfg) :
+		Loggable(apLogger),
+				IUpperLayer(apLogger),
+				mIncoming(aAppCfg.FragSize),
+				mConfirm(2), // only need 2 bytes for a confirm message
+				mSending(false),
+				mConfirmSending(false),
+				mpUser(NULL),
+				mSolicited(apLogger->GetSubLogger("sol"), this, apTimerSrc,
+						aAppCfg.RspTimeout),
+				mUnsolicited(apLogger->GetSubLogger("unsol"), this, apTimerSrc,
+						aAppCfg.RspTimeout),
+				mNumRetry(aAppCfg.NumRetry)
 {
 	mConfirm.SetFunction(FC_CONFIRM);
+
+	APDUInfo info;
+	info.master = !aAppCfg.IsMaster;
+	info.src = aAppCfg.RemoteAddr;
+	info.dest = aAppCfg.LocalAddr;
+	mIncoming.SetInfo(&info);
+
+	/*cout << "###################### AppLayer  incomingAPDU: src=" << info.src
+			<< " (" << aAppCfg.RemoteAddr << ") isMaster=" << info.master
+			<< " (" << aAppCfg.IsMaster << "), dest=" << info.dest << " ("
+			<< aAppCfg.LocalAddr << ")\n";*/
 }
 
-void AppLayer::SetUser(IAppUser* apUser)
-{
-	assert(mpUser == NULL); assert(apUser != NULL);
+void AppLayer::SetUser(
+		IAppUser* apUser)
+		{
+	assert(mpUser == NULL);
+	assert(apUser != NULL);
 	mpUser = apUser;
 }
 
@@ -55,31 +70,34 @@ void AppLayer::SetUser(IAppUser* apUser)
 // IAppLayer
 ////////////////////
 
-void AppLayer::SendResponse(APDU& arAPDU)
-{
+void AppLayer::SendResponse(
+		APDU& arAPDU)
+		{
 	this->Validate(arAPDU.GetControl(), false, false, true, false);
 
-	if(arAPDU.GetFunction() != FC_RESPONSE)
+	if (arAPDU.GetFunction() != FC_RESPONSE)
 		throw ArgumentException(LOCATION, "Non-response function code");
 
 	mSolicited.Send(arAPDU, this->GetRetries(FC_RESPONSE));
 }
 
-void AppLayer::SendUnsolicited(APDU& arAPDU)
-{
+void AppLayer::SendUnsolicited(
+		APDU& arAPDU)
+		{
 	this->Validate(arAPDU.GetControl(), false, true, true, true);
 
-	if(arAPDU.GetFunction() != FC_UNSOLICITED_RESPONSE )
+	if (arAPDU.GetFunction() != FC_UNSOLICITED_RESPONSE)
 		throw ArgumentException(LOCATION, "Non-unsolicited function code");
 
 	mUnsolicited.Send(arAPDU, this->GetRetries(FC_UNSOLICITED_RESPONSE));
 }
 
-void AppLayer::SendRequest(APDU& arAPDU)
-{
+void AppLayer::SendRequest(
+		APDU& arAPDU)
+		{
 	this->Validate(arAPDU.GetControl(), true, true, false, false);
 
-	if(!IsRequest(arAPDU.GetFunction()))
+	if (!IsRequest(arAPDU.GetFunction()))
 		throw ArgumentException(LOCATION, "Non-request function code");
 
 	mSolicited.Send(arAPDU, this->GetRetries(arAPDU.GetFunction()));
@@ -94,9 +112,10 @@ void AppLayer::CancelResponse()
 // External events
 ////////////////////
 
-void AppLayer::_OnReceive(const boost::uint8_t* apBuffer, size_t aSize)
-{
-	if(!this->IsLowerLayerUp())
+void AppLayer::_OnReceive(
+		const boost::uint8_t* apBuffer, size_t aSize)
+		{
+	if (!this->IsLowerLayerUp())
 		throw InvalidStateException(LOCATION, "LowerLaterDown");
 
 	try {
@@ -108,26 +127,26 @@ void AppLayer::_OnReceive(const boost::uint8_t* apBuffer, size_t aSize)
 		FunctionCodes func = mIncoming.GetFunction();
 		AppControlField ctrl = mIncoming.GetControl();
 
-		switch(func) {
-		case(FC_CONFIRM):
+		switch (func) {
+		case (FC_CONFIRM):
 			this->OnConfirm(ctrl, mIncoming);
 			break;
-		case(FC_RESPONSE):
+		case (FC_RESPONSE):
 			this->OnResponse(ctrl, mIncoming);
 			break;
-		case(FC_UNSOLICITED_RESPONSE):
+		case (FC_UNSOLICITED_RESPONSE):
 			this->OnUnsolResponse(ctrl, mIncoming);
 			break;
-		default:	//otherwise, assume it's a request
+		default: //otherwise, assume it's a request
 			this->OnRequest(ctrl, mIncoming);
 			break;
 		}
 	}
-	catch(ObjectException oex) {
+	catch (ObjectException oex) {
 		EXCEPTION_BLOCK(LEV_WARNING, oex);
 		this->OnUnknownObject(mIncoming.GetFunction(), mIncoming.GetControl());
 	}
-	catch(Exception ex) {
+	catch (Exception ex) {
 		EXCEPTION_BLOCK(LEV_WARNING, ex);
 	}
 }
@@ -151,9 +170,10 @@ void AppLayer::_OnLowerLayerDown()
 	mpUser->OnLowerLayerDown();
 }
 
-void AppLayer::OnSendResult(bool aSuccess)
-{
-	if(!mSending)
+void AppLayer::OnSendResult(
+		bool aSuccess)
+		{
+	if (!mSending)
 		throw InvalidStateException(LOCATION, "No Active Send");
 
 	assert(mSendQueue.size() > 0);
@@ -162,18 +182,22 @@ void AppLayer::OnSendResult(bool aSuccess)
 	FunctionCodes func = mSendQueue.front()->GetFunction();
 	mSendQueue.pop_front();
 
-	if(func == FC_CONFIRM) {
+	if (func == FC_CONFIRM) {
 		assert(mConfirmSending);
 		mConfirmSending = false;
 	}
 	else {
-		if(aSuccess) {
-			if(func == FC_UNSOLICITED_RESPONSE) mUnsolicited.OnSendSuccess();
-			else mSolicited.OnSendSuccess();
+		if (aSuccess) {
+			if (func == FC_UNSOLICITED_RESPONSE)
+				mUnsolicited.OnSendSuccess();
+			else
+				mSolicited.OnSendSuccess();
 		}
 		else {
-			if(func == FC_UNSOLICITED_RESPONSE) mUnsolicited.OnSendFailure();
-			else mSolicited.OnSendFailure();
+			if (func == FC_UNSOLICITED_RESPONSE)
+				mUnsolicited.OnSendFailure();
+			else
+				mSolicited.OnSendFailure();
 		}
 	}
 
@@ -190,47 +214,49 @@ void AppLayer::_OnSendFailure()
 	this->OnSendResult(false);
 }
 
-
 ////////////////////
 // Internal Events
 ////////////////////
 
-void AppLayer::OnResponse(const AppControlField& arCtrl, APDU& arAPDU)
-{
-	if(arCtrl.UNS)
+void AppLayer::OnResponse(
+		const AppControlField& arCtrl, APDU& arAPDU)
+		{
+	if (arCtrl.UNS)
 		throw Exception(LOCATION, "Bad unsol bit", ALERR_BAD_UNSOL_BIT);
 
 	// If we get a response that requests confirmation, we shouldn't confirm
 	// if we're not going to handle the data. This is usually indicative of an
 	// early timeout. It will show up in the logs as a response without context.
-	if(arCtrl.CON && mSolicited.AcceptsResponse()) {
+	if (arCtrl.CON && mSolicited.AcceptsResponse()) {
 		this->QueueConfirm(false, arCtrl.SEQ);
 	}
 
 	mSolicited.OnResponse(arAPDU);
 }
 
-void AppLayer::OnUnsolResponse(const AppControlField& arCtrl, APDU& arAPDU)
-{
-	if(!arCtrl.UNS)
+void AppLayer::OnUnsolResponse(
+		const AppControlField& arCtrl, APDU& arAPDU)
+		{
+	if (!arCtrl.UNS)
 		throw Exception(LOCATION, ALERR_BAD_UNSOL_BIT);
 
-	if(!mpUser->IsMaster())
+	if (!mpUser->IsMaster())
 		throw Exception(LOCATION, SERR_FUNC_NOT_SUPPORTED);
 
-	if(arCtrl.CON)
+	if (arCtrl.CON)
 		this->QueueConfirm(true, arCtrl.SEQ);
 
 	mUnsolicited.OnUnsol(arAPDU);
 }
 
-void AppLayer::OnConfirm(const AppControlField& arCtrl, APDU& arAPDU)
-{
+void AppLayer::OnConfirm(
+		const AppControlField& arCtrl, APDU& arAPDU)
+		{
 	arAPDU.Interpret(); //throws if there is additional data beyond length of 2
 
 	// which channel?
-	if(arCtrl.UNS) {
-		if(mpUser->IsMaster())
+	if (arCtrl.UNS) {
+		if (mpUser->IsMaster())
 			throw Exception(LOCATION, ALERR_UNEXPECTED_CONFIRM);
 
 		mUnsolicited.OnConfirm(arCtrl.SEQ);
@@ -240,15 +266,15 @@ void AppLayer::OnConfirm(const AppControlField& arCtrl, APDU& arAPDU)
 	}
 }
 
-
-void AppLayer::OnUnknownObject(FunctionCodes aCode, const AppControlField& arCtrl)
-{
-	if(!mpUser->IsMaster()) {
-		switch(aCode) {
-		case(FC_CONFIRM):
-		case(FC_RESPONSE):
-		case(FC_UNSOLICITED_RESPONSE):
-		case(FC_DIRECT_OPERATE_NO_ACK):
+void AppLayer::OnUnknownObject(
+		FunctionCodes aCode, const AppControlField& arCtrl)
+		{
+	if (!mpUser->IsMaster()) {
+		switch (aCode) {
+		case (FC_CONFIRM):
+			case (FC_RESPONSE):
+			case (FC_UNSOLICITED_RESPONSE):
+			case (FC_DIRECT_OPERATE_NO_ACK):
 			break;
 		default:
 			mSolicited.OnUnknownObjectInRequest(arCtrl);
@@ -258,16 +284,20 @@ void AppLayer::OnUnknownObject(FunctionCodes aCode, const AppControlField& arCtr
 	}
 }
 
-void AppLayer::OnRequest(const AppControlField& arCtrl, APDU& arAPDU)
-{
-	if(arCtrl.UNS)
-		throw Exception(LOCATION, "Received request with UNS bit", ALERR_BAD_UNSOL_BIT);
+void AppLayer::OnRequest(
+		const AppControlField& arCtrl, APDU& arAPDU)
+		{
+	if (arCtrl.UNS)
+		throw Exception(LOCATION, "Received request with UNS bit",
+				ALERR_BAD_UNSOL_BIT);
 
-	if(!(arCtrl.FIR && arCtrl.FIN))
-		throw Exception(LOCATION, "Received non FIR/FIN request", ALERR_MULTI_FRAGEMENT_REQUEST);
+	if (!(arCtrl.FIR && arCtrl.FIN))
+		throw Exception(LOCATION, "Received non FIR/FIN request",
+				ALERR_MULTI_FRAGEMENT_REQUEST);
 
-	if(mpUser->IsMaster())
-		throw Exception(LOCATION, "Master received request apdu", MERR_FUNC_NOT_SUPPORTED);
+	if (mpUser->IsMaster())
+		throw Exception(LOCATION, "Master received request apdu",
+				MERR_FUNC_NOT_SUPPORTED);
 
 	mSolicited.OnRequest(arAPDU);
 }
@@ -276,10 +306,12 @@ void AppLayer::OnRequest(const AppControlField& arCtrl, APDU& arAPDU)
 // Helperss
 ////////////////////
 
-void AppLayer::QueueConfirm(bool aUnsol, int aSeq)
-{
-	if(mConfirmSending)
-		throw Exception(LOCATION, "Unsol flood", aUnsol ? ALERR_UNSOL_FLOOD : ALERR_SOL_FLOOD);
+void AppLayer::QueueConfirm(
+		bool aUnsol, int aSeq)
+		{
+	if (mConfirmSending)
+		throw Exception(LOCATION, "Unsol flood",
+				aUnsol ? ALERR_UNSOL_FLOOD : ALERR_SOL_FLOOD);
 
 	mConfirmSending = true;
 	mConfirm.SetControl(true, true, false, aUnsol, aSeq);
@@ -287,15 +319,16 @@ void AppLayer::QueueConfirm(bool aUnsol, int aSeq)
 	this->QueueFrame(mConfirm);
 }
 
-void AppLayer::QueueFrame(const APDU& arAPDU)
-{
+void AppLayer::QueueFrame(
+		const APDU& arAPDU)
+		{
 	mSendQueue.push_back(&arAPDU);
 	this->CheckForSend();
 }
 
 void AppLayer::CheckForSend()
 {
-	if(!mSending && mSendQueue.size() > 0) {
+	if (!mSending && mSendQueue.size() > 0) {
 		mSending = true;
 		const APDU* pAPDU = mSendQueue.front();
 		LOG_BLOCK(LEV_INTERPRET, "=> AL " << pAPDU->ToString());
@@ -303,34 +336,39 @@ void AppLayer::CheckForSend()
 	}
 }
 
-void AppLayer::Validate(const AppControlField& arCtrl, bool aMaster, bool aRequireFIRFIN, bool aAllowCON, bool aUNS)
-{
-	if(!this->IsLowerLayerUp())
+void AppLayer::Validate(
+		const AppControlField& arCtrl, bool aMaster, bool aRequireFIRFIN,
+		bool aAllowCON,
+		bool aUNS)
+		{
+	if (!this->IsLowerLayerUp())
 		throw InvalidStateException(LOCATION, "LowerLaterDown");
 
-	if(aMaster && !mpUser->IsMaster())
+	if (aMaster && !mpUser->IsMaster())
 		throw Exception(LOCATION, "Only masters can perform this operation");
 
-	if(!aMaster && mpUser->IsMaster())
+	if (!aMaster && mpUser->IsMaster())
 		throw Exception(LOCATION, "Only slaves can perform this operation");
 
-	if(aRequireFIRFIN && ! (arCtrl.FIR && arCtrl.FIN))
+	if (aRequireFIRFIN && !(arCtrl.FIR && arCtrl.FIN))
 		throw ArgumentException(LOCATION, "Cannot be multi-fragmented");
 
-	if(!aAllowCON && arCtrl.CON)
-		throw ArgumentException(LOCATION, "Confirmation not allowed for this operation");
+	if (!aAllowCON && arCtrl.CON)
+		throw ArgumentException(LOCATION,
+				"Confirmation not allowed for this operation");
 
-	if(aUNS != arCtrl.UNS)
+	if (aUNS != arCtrl.UNS)
 		throw ArgumentException(LOCATION, "Bad unsolicited bit");
 }
 
-size_t AppLayer::GetRetries(FunctionCodes aCode)
-{
-	switch(aCode) {
-	case(FC_DIRECT_OPERATE):
-	case(FC_DIRECT_OPERATE_NO_ACK):
-	case(FC_RESPONSE):
-	case(FC_WRITE): // b/c these can contain time objects which are sensitive to retries
+size_t AppLayer::GetRetries(
+		FunctionCodes aCode)
+		{
+	switch (aCode) {
+	case (FC_DIRECT_OPERATE):
+		case (FC_DIRECT_OPERATE_NO_ACK):
+		case (FC_RESPONSE):
+		case (FC_WRITE): // b/c these can contain time objects which are sensitive to retries
 		return 0;
 	default:
 		return mNumRetry; //use the configured

@@ -31,12 +31,27 @@ namespace dnp
 */
 struct AppConfig {
 	// Default constructor
-	AppConfig() : RspTimeout(5000), NumRetry(0), FragSize(DEFAULT_FRAG_SIZE) {}
+	AppConfig() :
+		RspTimeout(5000),
+		NumRetry(0),
+		FragSize(DEFAULT_FRAG_SIZE),
+		IsMaster(false),
+		LocalAddr(1),
+		RemoteAddr(100) {}
 
-	AppConfig(millis_t aRspTimeout, size_t aNumRetry = 0, size_t aFragSize = DEFAULT_FRAG_SIZE) :
+	AppConfig(
+			millis_t aRspTimeout,
+			size_t aNumRetry = 0,
+			size_t aFragSize = DEFAULT_FRAG_SIZE,
+			bool aIsMaster = false,
+			boost::uint16_t aLocalAddr = 1,
+			boost::uint16_t aRemoteAddr = 100) :
 		RspTimeout(aRspTimeout),
 		NumRetry(aNumRetry),
-		FragSize(aFragSize)
+		FragSize(aFragSize),
+		IsMaster(aIsMaster),
+		LocalAddr(aLocalAddr),
+		RemoteAddr(aRemoteAddr)
 	{}
 
 	// The response/confirm timeout in millisec
@@ -47,6 +62,10 @@ struct AppConfig {
 
 	// The maximum size of received application layer fragments
 	size_t FragSize;
+
+	 bool IsMaster;
+	 boost::uint16_t LocalAddr;
+	 boost::uint16_t RemoteAddr;
 
 };
 
