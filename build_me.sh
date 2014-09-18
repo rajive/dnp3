@@ -13,4 +13,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-TOOLS_HOME="tools" rake debug=true
+TOOLS_HOME=$(cd $(dirname "$0"); cd ../; pwd -P)/dnp3-tools
+echo TOOLS_HOME=$TOOLS_HOME
+export TOOLS_HOME
+
+# Create dnp3-tools/ as a peer of dnp3/
+cd ${TOOLS_HOME}/..
+pwd
+./dnp3/tools/install_scripts/boost/1_47_0/install-boost.sh
+
+# Build dnp3
+cd dnp3
+pwd
+rake debug=true && rm -rf ../temp
+
