@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.550779841/TOOLS_HOME/delimiter=\:
+environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.550779841/TOOLS_HOME/operation=append
+environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.550779841/TOOLS_HOME/value=${DNP3_TOOLS_HOME}
+environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.550779841/append=true
+environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.550779841/appendContributed=true
+environment/project/cdt.managedbuild.config.gnu.cross.exe.release.1140963513/TOOLS_HOME/delimiter=\:
+environment/project/cdt.managedbuild.config.gnu.cross.exe.release.1140963513/TOOLS_HOME/operation=append
+environment/project/cdt.managedbuild.config.gnu.cross.exe.release.1140963513/TOOLS_HOME/value=${DNP3_TOOLS_HOME}
+environment/project/cdt.managedbuild.config.gnu.cross.exe.release.1140963513/append=true
+environment/project/cdt.managedbuild.config.gnu.cross.exe.release.1140963513/appendContributed=true
