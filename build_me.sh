@@ -25,5 +25,9 @@ pwd
 # Build dnp3
 cd dnp3
 pwd
-rake debug=true && rm -rf ../temp
+rake debug=true
 
+if [[ $? -eq 0 ]]
+then 
+	rm -rf ../temp
+fi
